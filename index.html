@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ali Wahaj | Backend Software Engineer</title>
+<meta name="description" content="Ali Wahaj, backend software engineer in Pakistan. Python, AWS Lambda, SQLAlchemy, Redis and SQS, plus RAG and retrieval systems.">
+<meta name="author" content="Syed Ali Wahaj Jafri">
+<link rel="canonical" href="https://aliwahaj.space/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23070B14'/%3E%3Crect x='6' y='9' width='20' height='4' rx='1' fill='%23FFB547'/%3E%3Crect x='6' y='15' width='9' height='4' rx='1' fill='%235CE1E6'/%3E%3Crect x='6' y='21' width='4' height='4' rx='1' fill='%235CE1E6'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#070B14">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aliwahaj.space/">
+<meta property="og:title" content="Ali Wahaj, Backend Software Engineer">
+<meta property="og:description" content="Ali Wahaj, backend software engineer in Pakistan. Python, AWS Lambda, SQLAlchemy, Redis and SQS, plus RAG and retrieval systems.">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Syed Ali Wahaj Jafri","alternateName":"Ali Wahaj","jobTitle":"Backend Software Engineer","worksFor":{"@type":"Organization","name":"LinkedMatrix"},"alumniOf":"FAST-NUCES","url":"https://aliwahaj.space/","sameAs":["https://github.com/WahajAli14","https://www.linkedin.com/in/syed-wahaj"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: dark night-ops canvas. Hero = wide-cut name + a live simulation of the serverless stack he runs (cache on/off toggle).
+Below: latency evidence, two deep case studies, timeline, skills, oversized contact. Single committed dark look. */
+:root {
+color-scheme: dark;
+--night: #070B14;
+--deck: #0D1424;
+--deck-2: #121B30;
+--rule: #1F2A42;
+--text: #E9EDF6;
+--dim: #8C97AE;
+--fast: #5CE1E6;   /* cache hits, wins */
+--slow: #FFB547;   /* database path, "before" */
+--async: #A78BFA;  /* queued work */
+--font: "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
+--mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+--wrap: 76rem;
+--measure: 62ch;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--night); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+margin: 0; background: var(--night); color: var(--text);
+font-family: var(--font); font-size: 1.0625rem; line-height: 1.6;
+font-variation-settings: "wdth" 100;
+-webkit-font-smoothing: antialiased;
+overflow-x: hidden;
+}
+body::before {
+content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--night);
+}
+.wrap {
+max-width: var(--wrap); margin: 0 auto;
+padding-left: max(24px, env(safe-area-inset-left, 0px));
+padding-right: max(24px, env(safe-area-inset-right, 0px));
+}
+@media (max-width: 520px) {
+.wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--fast); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { margin: 0; line-height: 1.05; text-wrap: balance; }
+p { margin: 0; }
+/* faint engineering grid behind the page */
+.grid-bg {
+position: absolute; inset: 0; pointer-events: none; z-index: 0;
+background-image:
+linear-gradient(to right, rgba(140,151,174,0.07) 1px, transparent 1px),
+linear-gradient(to bottom, rgba(140,151,174,0.07) 1px, transparent 1px);
+background-size: 56px 56px;
+mask-image: radial-gradient(ellipse 80% 70% at 50% 20%, #000 30%, transparent 75%);
+-webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 20%, #000 30%, transparent 75%);
+}
+/* Header */
+.top {
+position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+background: rgba(7,11,20,0.78); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+border-bottom: 1px solid rgba(31,42,66,0.6);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 0.9rem; }
+.mark { white-space: nowrap; font-weight: 800; text-decoration: none; font-variation-settings: "wdth" 118; letter-spacing: 0.01em; display: inline-flex; align-items: center; gap: 0.6rem; }
+.mark i { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--fast); box-shadow: 0 0 12px var(--fast); display: inline-block; }
+.top nav { display: flex; gap: 1.6rem; font-size: 0.9375rem; }
+.top nav a { text-decoration: none; color: var(--dim); }
+.top nav a:hover { color: var(--text); }
+@media (max-width: 640px) { .top nav .opt { display: none; } .top nav { gap: 1.1rem; } }
+@media (max-width: 420px) { .top nav .opt2 { display: none; } }
+/* Hero */
+.hero { position: relative; padding-block: clamp(3rem, 8vw, 6rem) 2rem; isolation: isolate; }
+.hero .wrap { position: relative; z-index: 1; }
+.status { display: inline-flex; align-items: center; gap: 0.55rem; font-size: 0.875rem; color: var(--dim); border: 1px solid var(--rule); border-radius: 999px; padding: 0.3rem 0.8rem 0.3rem 0.65rem; background: rgba(13,20,36,0.7); }
+.status i { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: #4ADE80; box-shadow: 0 0 0 0 rgba(74,222,128,0.6); }
+@media (prefers-reduced-motion: no-preference) { .status i { animation: ping 2.4s infinite; } }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(74,222,128,0.55); } 70% { box-shadow: 0 0 0 8px rgba(74,222,128,0); } 100% { box-shadow: 0 0 0 0 rgba(74,222,128,0); } }
+.hero h1 {
+margin-top: 1.5rem;
+font-size: clamp(3.4rem, 21vw, 9.5rem);
+font-weight: 900;
+font-variation-settings: "wdth" 125;
+letter-spacing: -0.02em;
+line-height: 0.86;
+text-transform: none;
+}
+.hero h1 .line2 { display: block; color: transparent; -webkit-text-stroke: 1.5px rgba(233,237,246,0.85); }
+.hero .pitch { margin-top: 1.8rem; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 1.5rem 3rem; align-items: end; }
+@media (max-width: 820px) { .hero .pitch { grid-template-columns: 1fr; } }
+.hero .role { font-size: clamp(1.3rem, 2.4vw, 1.75rem); font-weight: 500; line-height: 1.3; max-width: 30ch; }
+.hero .role b { font-weight: 700; }
+.hero .lede { color: var(--dim); max-width: var(--measure); }
+.cta { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn {
+display: inline-flex; align-items: center; gap: 0.55rem;
+padding: 0.75rem 1.2rem; border-radius: 999px; border: 1px solid var(--rule);
+text-decoration: none; font-weight: 600; font-size: 0.9375rem; font-family: inherit;
+color: var(--text); background: rgba(13,20,36,0.8); cursor: pointer;
+transition: border-color .2s, background .2s, color .2s;
+}
+.btn:hover { border-color: var(--fast); color: var(--fast); }
+.btn.solid { background: var(--fast); color: #04121A; border-color: var(--fast); }
+.btn.solid:hover { background: #8BEEF1; color: #04121A; }
+.btn svg { width: 1.05em; height: 1.05em; fill: currentColor; flex: none; }
+/* Simulation console */
+.console {
+margin-top: 3rem; position: relative; z-index: 1;
+border: 1px solid var(--rule); border-radius: 18px; overflow: hidden;
+background: linear-gradient(180deg, rgba(18,27,48,0.92), rgba(10,15,28,0.96));
+box-shadow: 0 30px 80px -30px rgba(0,0,0,0.8), 0 0 0 1px rgba(92,225,230,0.04) inset;
+}
+.console-bar { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; align-items: center; justify-content: space-between; padding: 0.9rem 1.1rem; border-bottom: 1px solid var(--rule); }
+.console-bar h2 { font-size: 1rem; font-weight: 600; font-variation-settings: "wdth" 100; }
+.console-bar h2 span { color: var(--dim); font-weight: 400; }
+.toggle { display: inline-flex; align-items: center; gap: 0.65rem; font-size: 0.875rem; color: var(--dim); background: none; border: 0; font-family: inherit; cursor: pointer; padding: 0.25rem; }
+.toggle .track { width: 2.6rem; height: 1.45rem; border-radius: 999px; background: var(--rule); position: relative; transition: background .25s; flex: none; }
+.toggle .track::after { content: ""; position: absolute; top: 0.2rem; left: 0.2rem; width: 1.05rem; height: 1.05rem; border-radius: 50%; background: var(--text); transition: transform .25s; }
+.toggle[aria-checked="true"] .track { background: var(--fast); }
+.toggle[aria-checked="true"] .track::after { transform: translateX(1.15rem); background: #04121A; }
+.toggle .lbl { color: var(--text); font-weight: 600; }
+.stage { position: relative; height: clamp(300px, 34vw, 420px); }
+@media (max-width: 640px) { .stage { height: 520px; } }
+#sim { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.readout { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--rule); }
+.readout div { padding: 0.9rem 1.1rem; min-width: 0; }
+.readout div + div { border-left: 1px solid var(--rule); }
+.readout dt { font-size: 0.8125rem; color: var(--dim); }
+.readout dd { margin: 0.15rem 0 0; font-size: clamp(1.15rem, 2.4vw, 1.6rem); font-weight: 700; font-variant-numeric: tabular-nums; font-variation-settings: "wdth" 112; transition: color .3s; }
+.readout dd.good { color: var(--fast); }
+.readout dd.bad { color: var(--slow); }
+@media (max-width: 520px) { .readout { grid-template-columns: 1fr; } .readout div + div { border-left: 0; border-top: 1px solid var(--rule); } }
+.legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; padding: 0.75rem 1.1rem; border-top: 1px solid var(--rule); font-size: 0.8125rem; color: var(--dim); }
+.legend span { display: inline-flex; align-items: center; gap: 0.45rem; }
+.legend i { width: 0.55rem; height: 0.55rem; border-radius: 50%; display: inline-block; }
+.legend .note { margin-left: auto; }
+@media (max-width: 640px) { .legend .note { margin-left: 0; width: 100%; } }
+/* Sections */
+section.block { position: relative; padding-block: clamp(4rem, 9vw, 7rem); }
+.sec-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem 3rem; align-items: end; }
+@media (max-width: 820px) { .sec-head { grid-template-columns: 1fr; } }
+.sec-head h2 { font-size: clamp(2.4rem, 6vw, 4.5rem); font-weight: 900; font-variation-settings: "wdth" 122; letter-spacing: -0.015em; line-height: 0.92; }
+.sec-head p { color: var(--dim); max-width: 46ch; }
+/* Latency proof */
+.proof { margin-top: 3rem; display: grid; gap: 1.6rem; }
+.p-row { display: grid; grid-template-columns: minmax(13rem, 18rem) minmax(0, 1fr); gap: 0.5rem 2rem; align-items: center; }
+@media (max-width: 720px) { .p-row { grid-template-columns: 1fr; } }
+.p-row b { display: block; font-weight: 700; font-size: 1.0625rem; }
+.p-row span { color: var(--dim); font-size: 0.875rem; }
+.lane { position: relative; height: 2.75rem; border-radius: 8px; background: rgba(255,181,71,0.07); }
+.lane .before { position: absolute; inset: 0 auto 0 0; width: var(--b); border-radius: 8px; background: repeating-linear-gradient(135deg, rgba(255,181,71,0.35) 0 2px, transparent 2px 8px); border: 1px solid rgba(255,181,71,0.45); }
+.lane .after { position: absolute; inset: 0 auto 0 0; width: var(--a); border-radius: 8px; background: linear-gradient(90deg, #2BB7C4, var(--fast)); box-shadow: 0 0 24px -4px rgba(92,225,230,0.6); }
+.lane .v { position: absolute; top: 50%; transform: translateY(-50%); font-weight: 700; font-size: 0.9375rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.lane .v.a { left: calc(var(--a) + 0.7rem); color: var(--fast); }
+.lane .v.b { right: calc(100% - var(--b) + 0.7rem); color: var(--slow); }
+.lane .v.b.out { right: auto; left: calc(var(--b) + 0.7rem); }
+@media (max-width: 420px) { .lane .v.b.out { left: auto; right: 0.7rem; } }
+.lane .pct { position: absolute; right: 0.8rem; top: 50%; transform: translateY(-50%); font-size: 0.8125rem; color: var(--dim); }
+.proof.play .lane .after { animation: cut 1.5s cubic-bezier(.7,0,.2,1) both; }
+.proof.play .lane .v.a { animation: fadein .5s ease 1.3s both; }
+@keyframes cut { from { width: var(--b); } to { width: var(--a); } }
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+.wins { margin-top: 3.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; }
+.wins div { background: var(--deck); padding: 1.4rem 1.3rem; min-width: 0; }
+.wins strong { display: block; font-size: clamp(1.9rem, 3.4vw, 2.6rem); font-weight: 900; font-variation-settings: "wdth" 120; color: var(--fast); line-height: 1; font-variant-numeric: tabular-nums; }
+.wins p { margin-top: 0.6rem; color: var(--dim); font-size: 0.9375rem; line-height: 1.5; }
+/* Case studies */
+.case { margin-top: 3.5rem; border: 1px solid var(--rule); border-radius: 20px; background: linear-gradient(180deg, var(--deck-2), var(--deck)); overflow: hidden; }
+.case-in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); }
+@media (max-width: 960px) { .case-in { grid-template-columns: 1fr; } }
+.case-text { padding: clamp(1.5rem, 3.5vw, 2.75rem); min-width: 0; }
+.case-vis { padding: clamp(1.25rem, 3vw, 2.25rem); border-left: 1px solid var(--rule); min-width: 0; background: rgba(7,11,20,0.45); }
+@media (max-width: 960px) { .case-vis { border-left: 0; border-top: 1px solid var(--rule); } }
+.case .tag { display: inline-flex; gap: 0.5rem; align-items: center; font-size: 0.8125rem; color: var(--dim); }
+.case .tag i { width: 0.45rem; height: 0.45rem; border-radius: 50%; background: var(--fast); }
+.case .tag.wip i { background: var(--async); }
+.case h3 { margin-top: 0.8rem; font-size: clamp(2rem, 4.2vw, 3.2rem); font-weight: 900; font-variation-settings: "wdth" 118; letter-spacing: -0.01em; line-height: 0.95; }
+.case .sum { margin-top: 1.1rem; font-size: 1.125rem; max-width: var(--measure); }
+.case .body { margin-top: 0.9rem; color: var(--dim); max-width: var(--measure); }
+.facts { margin: 1.5rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.8rem; }
+.facts li { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); gap: 0.6rem; }
+.facts li::before { content: ""; width: 0.55rem; height: 0.55rem; margin-top: 0.55em; border-radius: 2px; background: var(--fast); transform: rotate(45deg); }
+.case.rag .facts li::before { background: var(--async); }
+.chips { margin-top: 1.6rem; display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.chips span { font-size: 0.8125rem; padding: 0.25rem 0.7rem; border-radius: 999px; border: 1px solid var(--rule); color: var(--dim); background: rgba(7,11,20,0.5); }
+.repo { margin-top: 1.6rem; display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; text-decoration: none; color: var(--fast); }
+.repo:hover { text-decoration: underline; text-underline-offset: 4px; }
+.repo svg { width: 1.1em; height: 1.1em; fill: currentColor; }
+.term { border: 1px solid var(--rule); border-radius: 12px; background: #050810; overflow: hidden; }
+.term .bar { display: flex; align-items: center; gap: 0.45rem; padding: 0.65rem 0.9rem; border-bottom: 1px solid var(--rule); font-size: 0.8125rem; color: var(--dim); }
+.term .bar i { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--rule); }
+.term .bar span { margin-left: 0.5rem; font-family: var(--mono); }
+.term pre { margin: 0; padding: 1rem 1.1rem; overflow-x: auto; font-family: var(--mono); font-size: 0.78rem; line-height: 1.7; color: #CBD5E8; }
+.term .c { color: #5C6B88; }
+.term .k { color: var(--fast); }
+.term .s { color: #F3D9A4; }
+.term .n { color: var(--slow); }
+.bench { margin-top: 1.25rem; }
+.bench h4 { margin: 0 0 0.75rem; font-size: 0.9375rem; font-weight: 600; }
+.bench-row { display: grid; grid-template-columns: minmax(0, 9.5rem) minmax(0, 1fr); gap: 0.25rem 1rem; align-items: center; padding-block: 0.55rem; border-top: 1px solid var(--rule); font-size: 0.875rem; }
+.bench-row .route { min-width: 0; }
+.bench-row .route small { display: block; color: var(--dim); font-size: 0.75rem; font-variant-numeric: tabular-nums; }
+.bars { display: grid; gap: 0.3rem; min-width: 0; }
+.bars div { display: flex; align-items: center; gap: 0.5rem; font-variant-numeric: tabular-nums; font-size: 0.75rem; color: var(--dim); white-space: nowrap; }
+.bars em { display: block; height: 0.5rem; border-radius: 3px; font-style: normal; flex: none; }
+.bars .cold em { background: var(--slow); opacity: 0.8; }
+.bars .warm em { background: var(--fast); width: 3px; box-shadow: 0 0 8px var(--fast); }
+.bars .warm { color: var(--fast); font-weight: 600; }
+.pipe { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.pipe li { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: 0.9rem; position: relative; padding-bottom: 1.4rem; }
+.pipe li:last-child { padding-bottom: 0; }
+.pipe .dot { width: 2.4rem; height: 2.4rem; border-radius: 12px; border: 1px solid rgba(167,139,250,0.5); background: rgba(167,139,250,0.08); display: grid; place-items: center; color: var(--async); font-weight: 700; position: relative; z-index: 1; }
+.pipe li:not(:last-child)::after { content: ""; position: absolute; left: 1.2rem; top: 2.4rem; bottom: 0; width: 1px; background: linear-gradient(var(--async), rgba(167,139,250,0.1)); }
+.pipe b { display: block; padding-top: 0.2rem; }
+.pipe small { display: block; color: var(--dim); font-size: 0.875rem; line-height: 1.45; }
+.roadmap { margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); }
+.roadmap h4 { margin: 0 0 0.75rem; font-size: 0.9375rem; font-weight: 600; }
+.phases { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; margin: 0; padding: 0; }
+.phases li { font-size: 0.78rem; padding: 0.3rem 0.65rem; border-radius: 6px; border: 1px solid var(--rule); color: var(--dim); }
+.phases li.done { border-color: rgba(92,225,230,0.5); color: var(--fast); }
+.phases li.now { border-color: var(--async); color: var(--text); background: rgba(167,139,250,0.14); }
+.more { margin-top: 3.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: 1rem; }
+.more a { display: block; text-decoration: none; padding: 1.25rem; border: 1px solid var(--rule); border-radius: 14px; background: var(--deck); transition: border-color .2s, transform .2s; min-width: 0; }
+.more a:hover { border-color: var(--fast); transform: translateY(-2px); }
+@media (prefers-reduced-motion: reduce) { .more a:hover { transform: none; } }
+.more b { display: block; font-weight: 700; }
+.more p { margin-top: 0.4rem; color: var(--dim); font-size: 0.9375rem; line-height: 1.5; }
+.more small { display: block; margin-top: 0.8rem; color: var(--fast); font-size: 0.8125rem; }
+/* Timeline */
+.timeline { margin-top: 3rem; position: relative; display: grid; gap: 2.5rem; }
+.timeline::before { content: ""; position: absolute; left: 11.5rem; top: 0.6rem; bottom: 0.6rem; width: 1px; background: linear-gradient(var(--fast), var(--rule) 70%, transparent); }
+.job { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 0.5rem 3rem; position: relative; }
+.job::before { content: ""; position: absolute; left: calc(11.5rem - 0.4rem); top: 0.45rem; width: 0.8rem; height: 0.8rem; border-radius: 50%; background: var(--night); border: 2px solid var(--fast); }
+.job.now::before { background: var(--fast); box-shadow: 0 0 14px var(--fast); }
+@media (max-width: 720px) {
+.timeline::before { left: 0.4rem; }
+.job { grid-template-columns: 1fr; padding-left: 2rem; }
+.job::before { left: 0; }
+}
+.when { color: var(--dim); font-size: 0.875rem; padding-top: 0.15rem; font-variant-numeric: tabular-nums; }
+.job h3 { font-size: 1.5rem; font-weight: 800; font-variation-settings: "wdth" 110; }
+.job .org { color: var(--fast); margin-top: 0.2rem; font-weight: 600; }
+.job .org span { color: var(--dim); font-weight: 400; }
+.job .summary { margin-top: 0.9rem; color: var(--dim); max-width: var(--measure); }
+.job ul { margin: 1rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.65rem; max-width: 68ch; }
+.job li { display: grid; grid-template-columns: 1rem minmax(0, 1fr); gap: 0.5rem; }
+.job li::before { content: ""; width: 0.4rem; height: 0.4rem; margin-top: 0.62em; border-radius: 50%; background: var(--dim); }
+.hl { color: var(--fast); font-weight: 700; font-variant-numeric: tabular-nums; }
+/* Skills */
+.skills { margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1rem; }
+.skill { border: 1px solid var(--rule); border-radius: 14px; padding: 1.3rem; background: var(--deck); min-width: 0; }
+.skill h3 { font-size: 1.0625rem; font-weight: 700; }
+.skill ul { margin: 0.9rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.skill li { font-size: 0.875rem; padding: 0.25rem 0.65rem; border-radius: 6px; background: rgba(140,151,174,0.1); }
+.creds { margin-top: 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1rem; }
+.cred { border: 1px dashed var(--rule); border-radius: 14px; padding: 1.2rem 1.3rem; min-width: 0; }
+.cred b { display: block; }
+.cred span { display: block; color: var(--dim); font-size: 0.9375rem; margin-top: 0.2rem; }
+/* Contact */
+.contact { position: relative; padding-block: clamp(5rem, 11vw, 9rem) 4rem; overflow: hidden; isolation: isolate; border-top: 1px solid var(--rule); }
+.contact::before { content: ""; position: absolute; left: 50%; top: 45%; width: 70rem; height: 40rem; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(92,225,230,0.13), transparent); z-index: -1; pointer-events: none; max-width: 200vw; }
+.contact h2 { font-size: clamp(3rem, 10vw, 8.5rem); font-weight: 900; font-variation-settings: "wdth" 125; line-height: 0.86; letter-spacing: -0.02em; }
+.contact h2 .o { color: transparent; -webkit-text-stroke: 1.5px rgba(233,237,246,0.85); }
+.contact .sub { margin-top: 1.75rem; color: var(--dim); max-width: var(--measure); font-size: 1.125rem; }
+.mail { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; align-items: center; }
+.mail a.addr { font-size: clamp(1.25rem, 3.2vw, 2rem); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--fast); padding-bottom: 0.15rem; word-break: break-all; }
+.mail a.addr:hover { color: var(--fast); }
+.copied { color: var(--fast); font-size: 0.9375rem; min-height: 1.4em; }
+footer { border-top: 1px solid var(--rule); padding-block: 1.75rem 2.5rem; color: var(--dim); font-size: 0.875rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="i-gh" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/><path id="i-li" d="M0 1.15C0 .52.52 0 1.17 0h13.66C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.17 1.15H1.17C.52 16 0 15.48 0 14.85V1.15zM4.94 13.4V6.17h-2.4v7.23h2.4zM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.01zM6.27 13.4h2.4V9.36c0-.21.02-.43.08-.58.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.64v3.86h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.29 0-1.86.71-2.17 1.21v.03h-.02l.02-.03V6.17h-2.4c.03.68 0 7.23 0 7.23z"/></defs></svg>
+<header class="top">
+<div class="wrap">
+<a class="mark" href="#top"><i aria-hidden="true"></i>Ali Wahaj</a>
+<nav aria-label="Sections">
+<a href="#impact" class="opt">Impact</a>
+<a href="#projects">Projects</a>
+<a href="#experience" class="opt2">Experience</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
+</header>
+<main id="top">
+<section class="hero">
+<div class="grid-bg" aria-hidden="true"></div>
+<div class="wrap">
+<span class="status"><i aria-hidden="true"></i>Open to backend and AI roles</span>
+<h1>Ali<span class="line2">Wahaj</span></h1>
+<div class="pitch">
+<p class="role">Backend engineer who makes slow systems <b>fast</b> and expensive ones cheap.</p>
+<p class="lede">I build Python services on AWS Lambda, SQLAlchemy, Redis and SQS at LinkedMatrix, for a serverless U.S. laundry-care platform. Before that I tuned SQL Server and healthcare EDI workflows at CureMD. On my own time I build retrieval-augmented AI systems.</p>
+</div>
+<div class="cta">
+<a class="btn solid" href="#contact">Get in touch</a>
+<a class="btn" href="https://github.com/WahajAli14" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-gh"/></svg>GitHub</a>
+<a class="btn" href="https://www.linkedin.com/in/syed-wahaj" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-li"/></svg>LinkedIn</a>
+</div>
+<div class="console" role="group" aria-labelledby="sim-title">
+<div class="console-bar">
+<h2 id="sim-title">The kind of stack I run <span>live simulation</span></h2>
+<button class="toggle" id="cache-toggle" type="button" role="switch" aria-checked="true">
+<span class="track" aria-hidden="true"></span>Redis cache <span class="lbl" id="cache-state">on</span>
+</button>
+</div>
+<div class="stage">
+<canvas id="sim" aria-label="Animated diagram: requests flow from clients through API Gateway to AWS Lambda, then to a Redis cache, a MySQL database, or an SQS queue processed by a background worker."></canvas>
+</div>
+<dl class="readout">
+<div><dt>Average response</dt><dd id="r-avg" class="good">… ms</dd></div>
+<div><dt>Served from cache</dt><dd id="r-hit" class="good">…</dd></div>
+<div><dt>Database queries in flight</dt><dd id="r-db">…</dd></div>
+</dl>
+<div class="legend">
+<span><i style="background:var(--fast)"></i>Cache hit</span>
+<span><i style="background:var(--slow)"></i>Database read</span>
+<span><i style="background:var(--async)"></i>Queued to SQS</span>
+<span class="note" id="sim-note">Turn the cache off to watch the database take the load.</span>
+</div>
+</div>
+</div>
+</section>
+<section class="block" id="impact">
+<div class="wrap">
+<div class="sec-head">
+<h2>Production wins</h2>
+<p>Same features, same data. The fixes were query shape, caching, and moving heavy work off the request path.</p>
+</div>
+<div class="proof" id="proof">
+<div class="p-row">
+<div><b>High-volume API endpoints</b><span>LinkedMatrix · SQLAlchemy N+1 removal</span></div>
+<div class="lane" style="--b:100%;--a:30%" role="img" aria-label="20 seconds down to 6 seconds">
+<div class="before"></div><div class="after"></div>
+<span class="v a">6 s</span><span class="v b">was 20 s</span>
+</div>
+</div>
+<div class="p-row">
+<div><b>Bulk data retrieval</b><span>CureMD · 11x project query paths</span></div>
+<div class="lane" style="--b:85%;--a:17.5%" role="img" aria-label="17 seconds down to under 3.5 seconds">
+<div class="before"></div><div class="after"></div>
+<span class="v a">&lt; 3.5 s</span><span class="v b">was 17 s</span>
+</div>
+</div>
+<div class="p-row">
+<div><b>EDI stored procedures</b><span>CureMD · duplicate handling removed</span></div>
+<div class="lane" style="--b:40%;--a:4.5%" role="img" aria-label="8 seconds down to under 1 second">
+<div class="before"></div><div class="after"></div>
+<span class="v a">&lt; 1 s</span><span class="v b out">was 8 s</span>
+</div>
+</div>
+</div>
+<div class="wins">
+<div><strong>100K+</strong><p>monthly Mapbox calls brought to near zero by storing reusable distance records.</p></div>
+<div><strong>−50%</strong><p>proxy messaging cost, from number validation and stopping repeat texts to unresponsive numbers.</p></div>
+<div><strong>−30%</strong><p>tax-processing cost after migrating from TaxJar to TaxCloud.</p></div>
+<div><strong>~8 h</strong><p>of manual data checking saved each week with verification utilities at CureMD.</p></div>
+</div>
+</div>
+</section>
+<section class="block" id="projects">
+<div class="wrap">
+<div class="sec-head">
+<h2>Things I've built</h2>
+<p>Two recent projects I can walk through end to end, from data loading to the last cache key. Both are open source.</p>
+</div>
+<article class="case">
+<div class="case-in">
+<div class="case-text">
+<span class="tag"><i aria-hidden="true"></i>Django API · 2026</span>
+<h3>Fuel Route Optimizer</h3>
+<p class="sum">Give it any two places in the U.S. and it plans where a truck with a 500-mile range should refuel, how many gallons to buy at each stop, and what the trip will cost.</p>
+<p class="body">Stops come from a dynamic program over station and fuel level, so the plan is cost-optimal rather than "fill up at the cheapest pump nearby".</p>
+<ul class="facts">
+<li><span>One routing-provider call per new route and zero on a cache hit. Start and finish are geocoded locally from Census data.</span></li>
+<li><span>Stations are matched to the route with a KD-tree over 3D unit vectors, so distances stay correct coast to coast.</span></li>
+<li><span><span class="hl">6,620</span> of 6,626 stations in the price feed geocoded; the loader reports the other 6.</span></li>
+<li><span>Plans cached 24 hours in Redis, keyed by data version, so a new price file never serves a stale plan.</span></li>
+<li><span>Tests replay saved provider responses and never hit the live API.</span></li>
+</ul>
+<div class="chips"><span>Python 3.12</span><span>Django</span><span>Redis</span><span>OpenRouteService</span><span>KD-tree search</span><span>Leaflet</span></div>
+<a class="repo" href="https://github.com/WahajAli14/fuel-route-optimizer" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-gh"/></svg>View the code</a>
+</div>
+<div class="case-vis">
+<div class="term">
+<div class="bar"><i></i><i></i><i></i><span>POST /api/route/</span></div><pre><span class="c"># real response, trimmed</span>
+{ <span class="k">"start"</span>: <span class="s">"Dallas, TX"</span>, <span class="k">"finish"</span>: <span class="s">"Houston, TX"</span> }
+
+{
+  <span class="k">"route_miles"</span>: <span class="n">238.7</span>,
+  <span class="k">"fuel_stops"</span>: [{
+    <span class="k">"name"</span>: <span class="s">"One9 #1248"</span>,
+    <span class="k">"city"</span>: <span class="s">"Wilmer"</span>, <span class="k">"state"</span>: <span class="s">"TX"</span>,
+    <span class="k">"route_point"</span>: { <span class="k">"mile_marker"</span>: <span class="n">16.0</span> },
+    <span class="k">"price"</span>: <span class="n">2.756</span>, <span class="k">"gallons"</span>: <span class="n">23.89</span>,
+    <span class="k">"cost"</span>: <span class="n">65.84</span>
+  }],
+  <span class="k">"total_fuel_cost"</span>: <span class="n">65.84</span>,
+  <span class="k">"meta"</span>: { <span class="k">"external_api_calls"</span>: <span class="n">1</span>, <span class="k">"elapsed_ms"</span>: <span class="n">186.6</span> }
+}</pre></div>
+<div class="bench">
+<h4>Measured response times, first call vs cached</h4>
+<div class="bench-row">
+<div class="route">Chicago to Los Angeles<small>2,027 miles</small></div>
+<div class="bars"><div class="cold"><em style="width:70%"></em>1,410 ms</div><div class="warm"><em></em>1.2 ms</div></div>
+</div>
+<div class="bench-row">
+<div class="route">New York to Miami<small>1,289 miles</small></div>
+<div class="bars"><div class="cold"><em style="width:20.7%"></em>416 ms</div><div class="warm"><em></em>1.1 ms</div></div>
+</div>
+<div class="bench-row">
+<div class="route">Dallas to Houston<small>239 miles</small></div>
+<div class="bars"><div class="cold"><em style="width:9.3%"></em>187 ms</div><div class="warm"><em></em>1.4 ms</div></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="case rag">
+<div class="case-in">
+<div class="case-text">
+<span class="tag wip"><i aria-hidden="true"></i>RAG backend · in progress</span>
+<h3>Football Intelligence Platform</h3>
+<p class="sum">A research assistant for football analysts that answers tactical questions from real documents, like the 2025 UEFA Champions League technical report, and shows the passages behind every answer.</p>
+<p class="body">The RAG core works today. I treat it as the foundation for a longer build: measured retrieval first, then reranking, guardrails, memory, production hardening, an MCP interface and agents.</p>
+<ul class="facts">
+<li><span>Three chunking strategies (fixed, paragraph, sentence-semantic) compared on the same queries.</span></li>
+<li><span>Answers return their source passages, ranks and similarity scores; prompts are written to refuse unsupported claims.</span></li>
+<li><span>Token usage and estimated model cost tracked on every request.</span></li>
+</ul>
+<div class="chips"><span>Python</span><span>FastAPI</span><span>ChromaDB</span><span>OpenAI API</span><span>Pydantic</span></div>
+<a class="repo" href="https://github.com/WahajAli14/football-intelligence-platform" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-gh"/></svg>View the code</a>
+</div>
+<div class="case-vis">
+<ol class="pipe" aria-label="How a question gets answered">
+<li><span class="dot">1</span><div><b>Load sources</b><small>PDFs, text files and a built-in team-profiles dataset</small></div></li>
+<li><span class="dot">2</span><div><b>Chunk</b><small>800-character chunks with 100 characters of overlap for the UEFA report</small></div></li>
+<li><span class="dot">3</span><div><b>Embed and store</b><small>Persistent ChromaDB collections on disk</small></div></li>
+<li><span class="dot">4</span><div><b>Retrieve</b><small>Top passages for the question, with similarity scores</small></div></li>
+<li><span class="dot">5</span><div><b>Answer with sources</b><small>The model answers only from those passages and cites them</small></div></li>
+</ol>
+<div class="roadmap">
+<h4>Roadmap</h4>
+<ul class="phases">
+<li class="done">RAG MVP</li>
+<li class="now">Evaluation baseline</li>
+<li>Hybrid retrieval and reranking</li>
+<li>Guardrails</li>
+<li>Memory</li>
+<li>Ingestion platform</li>
+<li>Production engineering</li>
+<li>Security</li>
+<li>MCP interface</li>
+<li>Agentic versions</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+<div class="more">
+<a href="https://github.com/WahajAli14/Task-Management-Endpoint-in-Django--Celery" target="_blank" rel="noopener"><b>Task API with Celery</b><p>Django endpoints with background jobs in Celery, Docker Compose, GitHub Actions and pre-commit linting.</p><small>Django · Celery · Docker</small></a>
+<a href="https://github.com/WahajAli14/fastapi-starter-kit" target="_blank" rel="noopener"><b>FastAPI starter kit</b><p>A FastAPI service with a separate worker process, Docker Compose and pre-commit lint hooks.</p><small>FastAPI · Docker</small></a>
+<a href="https://github.com/WahajAli14/project_devop" target="_blank" rel="noopener"><b>Appointments as microservices</b><p>Separate doctors and appointments services with MongoDB, a small frontend and CI workflows.</p><small>Python · MongoDB · CI</small></a>
+<a href="https://github.com/WahajAli14/pyserini" target="_blank" rel="noopener"><b>Pyserini and Anserini</b><p>My forks of the Waterloo information-retrieval toolkits, used to study sparse and dense retrieval.</p><small>Information retrieval</small></a>
+</div>
+</div>
+</section>
+<section class="block" id="experience">
+<div class="wrap">
+<div class="sec-head">
+<h2>Experience</h2>
+<p>Two years shipping backend work for U.S. operations and enterprise healthcare.</p>
+</div>
+<div class="timeline">
+<article class="job now">
+<p class="when">Apr 2025 – now</p>
+<div>
+<h3>Backend Software Engineer</h3>
+<p class="org">LinkedMatrix <span>· Pakistan</span></p>
+<p class="summary">Serverless platform for a U.S. laundry-care business: orders, pickup and delivery, worker operations, pricing, client accounts and masked customer-worker calls and texts.</p>
+<ul>
+<li><span>Cut response time on high-volume endpoints by <span class="hl">70%</span>, from 20 s to 6 s, by removing SQLAlchemy N+1 queries.</span></li>
+<li><span>Brought <span class="hl">100K+</span> monthly Mapbox calls to near zero with reusable distance records that expire after 3 months.</span></li>
+<li><span>Halved proxy messaging costs with phone-number validation and a stop on repeat messages to unresponsive numbers.</span></li>
+<li><span>Added Redis caching to frequently read data, speeding up selected workflows by about <span class="hl">50%</span>.</span></li>
+<li><span>Moved heavy reports and worker image changes onto AWS SQS so they stop blocking the API and retry reliably.</span></li>
+<li><span>Migrated tax calculation from TaxJar to TaxCloud for about <span class="hl">30%</span> lower cost with the same compliance workflow.</span></li>
+<li><span>Ran the AWS RDS MySQL 8.0 to 8.4 upgrade and the Keycloak 20 to 25 upgrade, with snapshots, validation and rollback plans.</span></li>
+<li><span>Built Twilio Proxy phone masking for secure customer-worker SMS and calls.</span></li>
+</ul>
+</div>
+</article>
+<article class="job">
+<p class="when">Jul 2024 – Mar 2025</p>
+<div>
+<h3>Associate Software Engineer</h3>
+<p class="org">CureMD <span>· Pakistan</span></p>
+<p class="summary">Healthcare EDI modules for eligibility, ERA and claims processing in an enterprise practice-management product.</p>
+<ul>
+<li><span>Rewrote stored procedures to drop duplicate data handling: <span class="hl">8 s to under 1 s</span>.</span></li>
+<li><span>Reduced large-volume retrieval on the 11x project from <span class="hl">17 s to under 3.5 s</span>.</span></li>
+<li><span>Built data-verification utilities that saved about 8 hours of manual checking a week.</span></li>
+<li><span>Built reusable Angular components and cleaned up TypeScript business logic to reduce UI lag.</span></li>
+</ul>
+</div>
+</article>
+<article class="job">
+<p class="when">May – Jun 2023</p>
+<div>
+<h3>Machine Learning Intern</h3>
+<p class="org">TechnoColab <span>· Remote</span></p>
+<ul>
+<li><span>Cleaned and explored retail sales data, engineered features and compared several models to pick the best predictor.</span></li>
+</ul>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="block" id="skills">
+<div class="wrap">
+<div class="sec-head">
+<h2>Toolbox</h2>
+<p>What I reach for, grouped by the layer of the stack it lives in.</p>
+</div>
+<div class="skills">
+<div class="skill"><h3>Backend</h3><ul><li>Python</li><li>FastAPI</li><li>Django</li><li>AWS Lambda</li><li>Serverless Framework</li><li>SQLAlchemy</li><li>.NET</li></ul></div>
+<div class="skill"><h3>Cloud and DevOps</h3><ul><li>AWS SQS</li><li>AWS RDS</li><li>Terraform</li><li>Docker</li><li>Kubernetes</li><li>GitHub Actions</li></ul></div>
+<div class="skill"><h3>Data and caching</h3><ul><li>MySQL</li><li>SQL Server</li><li>MongoDB</li><li>Redis</li></ul></div>
+<div class="skill"><h3>AI and retrieval</h3><ul><li>RAG</li><li>LangChain</li><li>ChromaDB</li><li>Vector search</li><li>Pyserini</li></ul></div>
+<div class="skill"><h3>Languages</h3><ul><li>Python</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li><li>C++</li><li>YAML</li></ul></div>
+<div class="skill"><h3>Frontend</h3><ul><li>React</li><li>Angular</li><li>Tailwind</li></ul></div>
+</div>
+<div class="creds">
+<div class="cred"><b>BS Computer Science, FAST-NUCES Islamabad</b><span>2020 – 2024 · Software engineering concentration · CGPA 3.35 / 4</span></div>
+<div class="cred"><b>Machine Learning Specialization</b><span>DeepLearning.AI · December 2024</span></div>
+<div class="cred"><b>Azure Fundamentals (AZ-900)</b><span>Microsoft · December 2023</span></div>
+</div>
+</div>
+</section>
+<section class="contact" id="contact">
+<div class="wrap">
+<h2>Let's make it <span class="o">fast.</span></h2>
+<p class="sub">I'm looking for Python backend and AI engineering roles, remote or in Lahore and Islamabad. Email reaches me fastest.</p>
+<div class="mail">
+<a class="addr" id="email" href="mailto:wahajali98@gmail.com">wahajali98@gmail.com</a>
+<button class="btn" type="button" id="copy-email">Copy email</button>
+<span class="copied" id="copy-status" role="status" aria-live="polite"></span>
+</div>
+<div class="cta">
+<a class="btn" href="https://github.com/WahajAli14" target="_blank" rel="noopener">GitHub</a>
+<a class="btn" href="https://www.linkedin.com/in/syed-wahaj" target="_blank" rel="noopener">LinkedIn</a>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="wrap">
+<span>Syed Ali Wahaj Jafri</span>
+<span>aliwahaj.space</span>
+</div>
+</footer>
+<script>
+(function () {
+/* ---------- copy email ---------- */
+var btn = document.getElementById('copy-email');
+var status = document.getElementById('copy-status');
+var email = document.getElementById('email');
+btn.addEventListener('click', function () {
+var text = email.textContent.trim();
+function fallback() {
+var r = document.createRange(); r.selectNodeContents(email);
+var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+status.textContent = 'Selected. Press Ctrl+C or Cmd+C to copy.';
+}
+try {
+navigator.clipboard.writeText(text).then(function () {
+status.textContent = 'Copied';
+setTimeout(function () { status.textContent = ''; }, 2500);
+}, fallback);
+} catch (e) { fallback(); }
+});
+var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* ---------- latency bars: play the cut when scrolled into view ---------- */
+var proof = document.getElementById('proof');
+if (!reduce && 'IntersectionObserver' in window) {
+var po = new IntersectionObserver(function (es) {
+es.forEach(function (e) { if (e.isIntersecting) { proof.classList.add('play'); po.disconnect(); } });
+}, { threshold: 0.4 });
+po.observe(proof);
+}
+/* ---------- architecture simulation ---------- */
+var canvas = document.getElementById('sim');
+var ctx = canvas.getContext('2d');
+var toggle = document.getElementById('cache-toggle');
+var stateEl = document.getElementById('cache-state');
+var rAvg = document.getElementById('r-avg'), rHit = document.getElementById('r-hit'), rDb = document.getElementById('r-db');
+var C = { fast: '#5CE1E6', slow: '#FFB547', async: '#A78BFA', text: '#E9EDF6', dim: '#8C97AE', rule: '#1F2A42', deck: '#0D1424' };
+var nodes = {
+client:  { label: 'Clients',     sub: 'web and mobile' },
+gateway: { label: 'API Gateway', sub: 'HTTPS' },
+lambda:  { label: 'AWS Lambda',  sub: 'Python' },
+redis:   { label: 'Redis',       sub: 'cache' },
+mysql:   { label: 'MySQL',       sub: 'RDS' },
+sqs:     { label: 'SQS',         sub: 'queue' },
+worker:  { label: 'Worker',      sub: 'reports, images' }
+};
+var wide = { client:[.07,.5], gateway:[.25,.5], lambda:[.45,.5], redis:[.69,.17], sqs:[.69,.5], mysql:[.69,.83], worker:[.91,.5] };
+var tall = { client:[.5,.07], gateway:[.5,.24], lambda:[.5,.42], redis:[.18,.64], sqs:[.5,.64], mysql:[.82,.64], worker:[.5,.88] };
+var edges = [['client','gateway'],['gateway','lambda'],['lambda','redis'],['lambda','mysql'],['lambda','sqs'],['sqs','worker'],['worker','mysql']];
+var W = 0, H = 0, layout = wide, dpr = 1;
+var cacheOn = true, reqs = [], done = [], dbInFlight = 0, last = 0, spawnAcc = 0, running = false, visible = true;
+function pos(k) { var p = layout[k]; return { x: p[0] * W, y: p[1] * H }; }
+function resize() {
+var r = canvas.getBoundingClientRect();
+dpr = Math.min(window.devicePixelRatio || 1, 2);
+W = r.width; H = r.height;
+canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+layout = W < 640 ? tall : wide;
+if (!running) draw();
+}
+/* each request: list of legs {from,to,dur(ms visual), sim(ms)} */
+function makeRequest() {
+var r = Math.random(), kind, path;
+var load = Math.min(dbInFlight, 30);
+var dbSim = 170 + load * 38 + Math.random() * 60;      // simulated DB latency grows with load
+var dbVis = 650 + load * 70;
+if (r < 0.06) {
+kind = 'async';
+path = [['client','gateway',380,6],['gateway','lambda',300,4],['lambda','sqs',360,8],['lambda','gateway',300,3],['gateway','client',380,6]];
+} else if (cacheOn && r < 0.8) {
+kind = 'fast';
+path = [['client','gateway',380,6],['gateway','lambda',300,4],['lambda','redis',260,2],['redis','lambda',260,2],['lambda','gateway',300,3],['gateway','client',380,6]];
+} else {
+kind = 'slow';
+path = [['client','gateway',380,6],['gateway','lambda',300,4],['lambda','mysql',dbVis,dbSim/2],['mysql','lambda',dbVis,dbSim/2],['lambda','gateway',300,3],['gateway','client',380,6]];
+}
+var sim = 0; path.forEach(function (l) { sim += l[3]; });
+return { kind: kind, path: path, leg: 0, t: 0, sim: sim, inDb: false, trail: [] };
+}
+function spawnWorkerJob() {
+reqs.push({ kind: 'async', path: [['sqs','worker',900,0],['worker','mysql',700,0],['mysql','worker',700,0]], leg: 0, t: 0, sim: 0, job: true, inDb: false, trail: [] });
+}
+var pulses = {};
+function pulse(k, color) { pulses[k] = { a: 1, c: color }; }
+function step(dt) {
+var rate = cacheOn ? 5.5 : 5.5;           // requests per second
+spawnAcc += dt / 1000 * rate;
+while (spawnAcc >= 1) { spawnAcc -= 1; var nq = makeRequest(); reqs.push(nq); done.push({ sim: nq.sim, kind: nq.kind }); if (done.length > 25) done.shift(); }
+for (var i = reqs.length - 1; i >= 0; i--) {
+var q = reqs[i], L = q.path[q.leg];
+var wasDb = (L[1] === 'mysql');
+if (q.t === 0 && wasDb && !q.inDb) { q.inDb = true; dbInFlight++; }
+q.t += dt;
+if (q.t >= L[2]) {
+q.t = 0; pulse(L[1], col(q.kind));
+if (L[0] === 'mysql' && q.inDb) { q.inDb = false; dbInFlight--; }
+if (L[1] === 'sqs' && !q.job) spawnWorkerJob();
+q.leg++;
+if (q.leg >= q.path.length) {
+reqs.splice(i, 1);
+}
+}
+}
+for (var k in pulses) { pulses[k].a -= dt / 600; if (pulses[k].a <= 0) delete pulses[k]; }
+}
+function col(kind) { return kind === 'fast' ? C.fast : kind === 'slow' ? C.slow : C.async; }
+function roundRect(x, y, w, h, r) {
+ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+}
+function draw() {
+ctx.clearRect(0, 0, W, H);
+var small = W < 640;
+var nw = small ? 104 : Math.max(108, Math.min(150, W * 0.12)), nh = small ? 46 : 54;
+// edges
+ctx.lineWidth = 1.2;
+edges.forEach(function (e) {
+var a = pos(e[0]), b = pos(e[1]);
+var hot = (e[1] === 'mysql' && !cacheOn);
+ctx.strokeStyle = hot ? 'rgba(255,181,71,0.35)' : 'rgba(140,151,174,0.22)';
+ctx.setLineDash(e[0] === 'worker' || e[0] === 'sqs' ? [4, 5] : []);
+ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+});
+ctx.setLineDash([]);
+// requests
+reqs.forEach(function (q) {
+var L = q.path[q.leg], a = pos(L[0]), b = pos(L[1]);
+var t = Math.min(q.t / L[2], 1); t = t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+var x = a.x + (b.x - a.x) * t, y = a.y + (b.y - a.y) * t;
+var c = col(q.kind);
+var g = ctx.createRadialGradient(x, y, 0, x, y, 12);
+g.addColorStop(0, c); g.addColorStop(1, 'rgba(0,0,0,0)');
+ctx.globalAlpha = 0.45; ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, 12, 0, 6.283); ctx.fill();
+ctx.globalAlpha = 1; ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x, y, 3, 0, 6.283); ctx.fill();
+});
+// nodes
+Object.keys(nodes).forEach(function (k) {
+var p = pos(k), n = nodes[k];
+var off = (k === 'redis' && !cacheOn);
+var pl = pulses[k];
+roundRect(p.x - nw / 2, p.y - nh / 2, nw, nh, 10);
+ctx.fillStyle = C.deck; ctx.fill();
+ctx.lineWidth = 1.2;
+ctx.strokeStyle = pl ? pl.c : (k === 'mysql' && !cacheOn ? 'rgba(255,181,71,0.6)' : C.rule);
+if (pl) { ctx.shadowColor = pl.c; ctx.shadowBlur = 18 * pl.a; }
+ctx.stroke(); ctx.shadowBlur = 0;
+ctx.globalAlpha = off ? 0.35 : 1;
+ctx.fillStyle = C.text; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+ctx.font = '600 ' + (small ? 12.5 : 14) + 'px Archivo, Helvetica, Arial, sans-serif';
+ctx.fillText(n.label, p.x, p.y - (small ? 7 : 8));
+ctx.fillStyle = C.dim; ctx.font = (small ? 10.5 : 11.5) + 'px Archivo, Helvetica, Arial, sans-serif';
+ctx.fillText(off ? 'off' : n.sub, p.x, p.y + (small ? 9 : 10));
+ctx.globalAlpha = 1;
+});
+}
+var uiAcc = 0;
+function updateReadout(force) {
+var reqDone = done.filter(function (d) { return d.sim > 0; });
+if (!reqDone.length && !force) return;
+var avg = reqDone.length ? reqDone.reduce(function (s, d) { return s + d.sim; }, 0) / reqDone.length : (cacheOn ? 70 : 420);
+var hits = reqDone.length ? reqDone.filter(function (d) { return d.kind === 'fast'; }).length / reqDone.length : (cacheOn ? .74 : 0);
+rAvg.textContent = Math.round(avg) + ' ms';
+rAvg.className = avg < 150 ? 'good' : 'bad';
+rHit.textContent = Math.round(hits * 100) + '%';
+rHit.className = hits > 0.5 ? 'good' : 'bad';
+rDb.textContent = String(dbInFlight);
+rDb.className = dbInFlight > 6 ? 'bad' : '';
+}
+function frame(ts) {
+if (!running) return;
+var dt = last ? Math.min(ts - last, 50) : 16; last = ts;
+step(dt); draw();
+uiAcc += dt; if (uiAcc > 400) { uiAcc = 0; updateReadout(); }
+requestAnimationFrame(frame);
+}
+function start() { if (running || reduce) return; running = true; last = 0; requestAnimationFrame(frame); }
+function stop() { running = false; }
+function staticFrame() {
+// a representative still: a few requests placed along their paths
+reqs = [];
+for (var i = 0; i < 14; i++) {
+var q = makeRequest(); q.leg = Math.floor(Math.random() * q.path.length); q.t = Math.random() * q.path[q.leg][2]; reqs.push(q);
+}
+dbInFlight = cacheOn ? 2 : 11;
+done = [];
+for (var j = 0; j < 40; j++) { var m = makeRequest(); done.push({ sim: m.sim, kind: m.kind }); }
+draw(); updateReadout(true);
+}
+toggle.addEventListener('click', function () {
+cacheOn = !cacheOn;
+toggle.setAttribute('aria-checked', String(cacheOn));
+stateEl.textContent = cacheOn ? 'on' : 'off';
+document.getElementById('sim-note').textContent = cacheOn ? 'Turn the cache off to watch the database take the load.' : 'Every read now hits MySQL. Turn the cache back on.';
+done = [];
+if (reduce) staticFrame(); else { pulse('redis', cacheOn ? C.fast : C.slow); }
+});
+window.addEventListener('resize', resize);
+resize();
+if (reduce) { staticFrame(); }
+else {
+// seed some traffic so the first frame is already alive
+for (var s = 0; s < 10; s++) { var q = makeRequest(); q.leg = Math.floor(Math.random() * 3); reqs.push(q); }
+updateReadout(true);
+if ('IntersectionObserver' in window) {
+new IntersectionObserver(function (es) { visible = es[0].isIntersecting; visible && !document.hidden ? start() : stop(); }).observe(canvas);
+} else start();
+document.addEventListener('visibilitychange', function () { document.hidden ? stop() : (visible && start()); });
+draw();
+}
+})();
+</script>
+</body>
+</html>
