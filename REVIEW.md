@@ -32,7 +32,7 @@ Scores below are structured editorial judgments, not an independent hiring panel
 | Mobile UX | 8/10 | Desktop 1440px and phone 390px / 320px renderings reviewed in same-origin frames; 672px normal browser layout also checked. This is responsive rendering, not physical device testing. |
 | Accessibility | 7/10 provisional | Keyboard skip link exercised; button names/heights inspected; canvas has text alternative; pause controls tested. Screen-reader testing and a full automated WCAG audit remain outstanding. |
 | Content credibility | 8/10 | Clear sources, self-reported employment outcomes and explicit demo labels. Football source and workplace outcomes are not independently verified. |
-| Performance | Not scored | Main HTML/CSS/JS total 58,924 bytes uncompressed; separately gzipped sum 19,378 bytes. The original PDF is 101,942 bytes. External Google Fonts remain. No Lighthouse, throttled LCP/INP/CLS or field data was obtained. |
+| Performance | Not scored | Main HTML/CSS/JS total 65,642 bytes uncompressed; separately gzipped sum 21,412 bytes. The original PDF is 101,942 bytes. External Google Fonts remain. No Lighthouse, throttled LCP/INP/CLS or field data was obtained. |
 
 Architect rubric: coherence, hierarchy, responsive layout, meaningful interaction and accessibility (2 points each). Recruiter rubric: role clarity, evidence, project substance, scanability and contact/résumé access (2 points each). An 8 means useful for staging review with recorded limitations; it does not mean production approval.
 
@@ -53,10 +53,14 @@ Removed misleading live-data wording, clarified repository benchmarks, removed a
 
 1. Connect an authorized server-side RAG endpoint, document corpus and evaluation set if a real generative service is desired. No model credentials were requested, stored or exposed in this static site. The shipped explorer is a truthful local demonstration.
 2. Restore or identify the football repository and verify its current implementation before presenting it as independently checked work.
-3. Confirm the latest résumé source if a newer local or unpublished version exists, the linked PDF is the original Drive PDF rather than a regenerated adaptation.
+3. Confirm the latest résumé source if a newer local or unpublished version exists. The linked PDF is the original Drive PDF.
 4. Run a full accessibility audit and throttled performance test against the approved staging host; obtain physical-device and cross-browser coverage.
 5. Review the draft, then obtain explicit approval before merging/deploying to `aliwahaj.space`.
 
 ## Preview
 
 From this directory: `python3 -m http.server 4173 --bind 127.0.0.1`, then open `http://127.0.0.1:4173`. No install/build step is required. Existing production metadata is preserved for eventual release.
+
+## Motion follow-up
+
+See ANIMATION-REVIEW.md for the 3 November motion and interface review, implemented fixes, measured contrast pairs, browser coverage and verification limits. Run `node tests/motion.cjs` from this directory for the scheduling regression checks.

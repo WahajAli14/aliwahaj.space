@@ -115,17 +115,10 @@ a.tile:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -14px var(--
 .label { font-size: 0.8125rem; color: var(--muted); font-weight: 500; }
 .t-inv .label { color: var(--inv-muted); }
 .push { margin-top: auto; }
-/* Load moment: tiles settle in once */
-@media (prefers-reduced-motion: no-preference) {
-.bento .tile { animation: rise .6s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 55ms); }
-}
-@keyframes rise { from { opacity: 0.001; transform: translateY(14px) scale(.985); } to { opacity: 1; transform: none; } }
 /* Intro */
 .intro { padding: clamp(1.4rem, 3vw, 2.25rem); }
 .pill { display: inline-flex; align-items: center; gap: 0.5rem; align-self: flex-start; font-size: 0.8125rem; font-weight: 500; padding: 0.35rem 0.75rem 0.35rem 0.6rem; border-radius: 999px; background: var(--mint-bg); color: var(--mint); }
 .pill i { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: currentColor; }
-@media (prefers-reduced-motion: no-preference) { .pill i { animation: ping 2.2s infinite; } }
-@keyframes ping { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--mint) 50%, transparent); } 70% { box-shadow: 0 0 0 7px color-mix(in srgb, var(--mint) 0%, transparent); } 100% { box-shadow: 0 0 0 0 transparent; } }
 .intro h1 { margin-top: 1.4rem; font-size: clamp(2.9rem, 7.4vw, 5.4rem); font-weight: 800; letter-spacing: -0.035em; line-height: 0.92; }
 .intro .role { margin-top: 1rem; font-size: clamp(1.1rem, 1.9vw, 1.35rem); line-height: 1.4; max-width: 30ch; }
 .intro .lede { margin-top: 0.85rem; color: var(--muted); max-width: 52ch; font-size: 0.975rem; }
@@ -240,6 +233,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <link rel="stylesheet" href="living.css">
 </head>
 <body>
+<a class="skip" href="#top">Skip to content</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="i-gh" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/><path id="i-li" d="M0 1.15C0 .52.52 0 1.17 0h13.66C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.17 1.15H1.17C.52 16 0 15.48 0 14.85V1.15zM4.94 13.4V6.17h-2.4v7.23h2.4zM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.01zM6.27 13.4h2.4V9.36c0-.21.02-.43.08-.58.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.64v3.86h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.29 0-1.86.71-2.17 1.21v.03h-.02l.02-.03V6.17h-2.4c.03.68 0 7.23 0 7.23z"/></defs></svg>
 <header class="top">
 <div class="wrap">
@@ -253,7 +247,6 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 </div>
 </div>
 </header>
-<a class="skip" href="#top">Skip to content</a>
 <main id="top" tabindex="-1">
 <div class="wrap">
 <div class="eyebrow">INDEPENDENT PORTFOLIO / SYSTEMS IN MOTION <span>01 — ALI WAHAJ</span></div>
@@ -270,7 +263,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <a class="btn" href="https://www.linkedin.com/in/syed-wahaj" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-li"/></svg>LinkedIn</a>
 </div>
 </div>
-<div class="neural tile" aria-labelledby="neural-title"><div class="neural-top"><span id="neural-title">NEURAL CANVAS</span><span>CONCEPTUAL SYSTEM MAP</span></div><svg viewBox="0 0 520 370" role="img" aria-label="An interconnected system of API, data, retrieval and worker nodes around a central Python service"><defs><radialGradient id="glow"><stop stop-color="#91efc7" stop-opacity=".22"/><stop offset="1" stop-color="#91efc7" stop-opacity="0"/></radialGradient></defs><circle cx="260" cy="185" r="175" fill="url(#glow)"/><g fill="none" stroke="#427461"><ellipse cx="260" cy="185" rx="185" ry="75" transform="rotate(-30 260 185)"/><ellipse cx="260" cy="185" rx="185" ry="75" transform="rotate(30 260 185)"/><ellipse cx="260" cy="185" rx="120" ry="157"/><path d="M95 110L260 185 422 98M103 274L260 185 410 282M260 30V340"/></g><g fill="#9bf2ce"><circle cx="95" cy="110" r="5"/><circle cx="422" cy="98" r="5"/><circle cx="103" cy="274" r="5"/><circle cx="410" cy="282" r="5"/><circle cx="260" cy="30" r="4"/><circle cx="260" cy="340" r="4"/></g><circle class="nucleus" cx="260" cy="185" r="43" fill="#122c24" stroke="#a2f4d1"/><g fill="#e6eee9" font-family="monospace" font-size="12"><text x="235" y="190">PYTHON</text><text x="55" y="92">API</text><text x="395" y="80">RETRIEVAL</text><text x="55" y="302">DATA</text><text x="389" y="308">WORKERS</text></g></svg><div class="neural-controls" aria-label="Explore system layers"><button type="button" data-layer="api" aria-pressed="true">API</button><button type="button" data-layer="data" aria-pressed="false">Data</button><button type="button" data-layer="retrieval" aria-pressed="false">Retrieval</button></div><p id="layer-detail" role="status">API / Python services coordinate requests and background work.</p><div class="neural-top"><span>BACKEND × CLOUD × AI</span><button type="button" id="motion" aria-pressed="false">Pause motion</button></div></div><div class="tile stat t-blue" style="--i:1">
+<div class="neural tile" data-layer="api" aria-labelledby="neural-title"><div class="neural-top"><span id="neural-title">NEURAL CANVAS</span><span>CONCEPTUAL SYSTEM MAP</span></div><svg viewBox="0 0 520 370" role="img" aria-label="Conceptual system map: API Gateway connects to Python, MySQL, a retrieval index and SQS workers. Select a layer to follow its request path."><defs><radialGradient id="glow"><stop stop-color="#91efc7" stop-opacity=".22"/><stop offset="1" stop-color="#91efc7" stop-opacity="0"/></radialGradient></defs><circle cx="260" cy="185" r="175" fill="url(#glow)"/><g fill="none" stroke="#427461"><ellipse cx="260" cy="185" rx="185" ry="75" transform="rotate(-30 260 185)"/><ellipse cx="260" cy="185" rx="185" ry="75" transform="rotate(30 260 185)"/><ellipse cx="260" cy="185" rx="120" ry="157"/><path class="system-route" data-route="api" d="M95 110L260 185 410 282"/><path class="system-route" data-route="data" d="M260 185L103 274"/><path class="system-route" data-route="retrieval" d="M260 185L422 98"/><path d="M260 30V340" opacity=".25"/></g><g fill="#9bf2ce"><circle cx="95" cy="110" r="5"/><circle cx="422" cy="98" r="5"/><circle cx="103" cy="274" r="5"/><circle cx="410" cy="282" r="5"/><circle cx="260" cy="30" r="4"/><circle cx="260" cy="340" r="4"/></g><g class="signals" aria-hidden="true"><g class="signal signal-api"><circle r="9" opacity=".12"/><circle r="3.5"/></g><g class="signal signal-data"><circle r="9" opacity=".12"/><circle r="3.5"/></g><g class="signal signal-retrieval"><circle r="9" opacity=".12"/><circle r="3.5"/></g></g><circle class="nucleus" cx="260" cy="185" r="43" fill="#122c24" stroke="#a2f4d1"/><g fill="#e6eee9" font-family="monospace" font-size="12"><text x="235" y="190">PYTHON</text><text x="55" y="92">API GATEWAY</text><text x="355" y="80">RETRIEVAL</text><text x="55" y="302">MYSQL</text><text x="345" y="308">SQS / WORKER</text></g></svg><div class="neural-controls" aria-label="Explore system layers"><button type="button" data-layer="api" aria-pressed="true">API</button><button type="button" data-layer="data" aria-pressed="false">Data</button><button type="button" data-layer="retrieval" aria-pressed="false">Retrieval</button></div><p id="layer-detail" role="status">API / Python services coordinate requests and background work.</p><div class="neural-top"><span>BACKEND × CLOUD × AI</span><button type="button" id="motion" data-motion-control aria-pressed="false">Pause motion</button></div></div><div class="tile stat t-blue" style="--i:1">
 <p class="label">API response time · résumé-reported</p>
 <div class="big k">−70%</div>
 <p>High-volume endpoints, <span class="n">20 s → 6 s</span></p>
@@ -284,7 +277,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 </div>
 <div class="tile now t-lilac" style="--i:3">
 <p class="label">Now</p>
-<h3>Backend Software Engineer, LinkedMatrix</h3>
+<p class="current-role">Backend Software Engineer, LinkedMatrix</p>
 <p>Serverless on AWS Lambda, since April 2025</p>
 </div>
 <div class="tile now t-sun" style="--i:4">
@@ -326,7 +319,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <div class="warm"><span>Cached</span><em></em><span class="n">1.2 ms</span></div>
 </div>
 <div class="tags"><span>Python 3.12</span><span>Django</span><span>Redis optional</span><span>KD-tree search</span><span>Dynamic programming</span></div>
-<a class="repo-link" href="https://github.com/WahajAli14/fuel-route-optimizer" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-gh"/></svg>View the code</a>
+<a class="repo-link" aria-label="View the code for Fuel Route Optimizer" href="https://github.com/WahajAli14/fuel-route-optimizer" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-gh"/></svg>View the code</a>
 </article>
 <div class="tile sim-tile c2 r2 m2" style="--i:6" role="group" aria-labelledby="sim-title">
 <div class="sim-head">
@@ -334,6 +327,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <h3 id="sim-title">Mission Control</h3>
 <p id="sim-note">Illustrative simulation, not production telemetry. Toggle the cache to explore database load.</p>
 </div>
+<button class="motion-control" type="button" data-motion-control aria-pressed="false">Pause motion</button>
 <button class="switch" id="cache-toggle" type="button" role="switch" aria-checked="true"><span class="track" aria-hidden="true"></span>Redis cache <b id="cache-state">on</b></button>
 </div>
 <div class="stage"><canvas id="sim" role="img" aria-describedby="architecture-text" aria-label="Animated diagram: requests flow from clients through API Gateway to AWS Lambda, then to a Redis cache, a MySQL database, or an SQS queue handled by a background worker."></canvas></div>
@@ -357,7 +351,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 </ol>
 <p class="roadmap"><b>Now:</b> building the evaluation baseline. Next: hybrid retrieval and reranking, guardrails, memory, an MCP interface and agents.</p>
 <div class="tags"><span>Python</span><span>FastAPI</span><span>ChromaDB</span><span>OpenAI API</span><span>Token cost tracking</span></div>
-<a class="repo-link" href="https://github.com/WahajAli14/football-intelligence-platform" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-gh"/></svg>View the code</a>
+<a class="repo-link" aria-label="View the code for Football Intelligence Platform" href="https://github.com/WahajAli14/football-intelligence-platform" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-gh"/></svg>View the code</a>
 </article>
 <div class="tile stat duo t-sun m2" style="--i:8">
 <div>
@@ -396,7 +390,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <p>My forks of the Waterloo IR toolkits for sparse and dense retrieval.</p>
 </a>
 </section>
-<section id="explorer" class="rag-section" aria-labelledby="rag-title"><div class="sec"><h2 id="rag-title"><span class="section-no">02 /</span> Evidence before answers.</h2><p>A small, inspectable retrieval lab.</p></div><div class="rag-grid"><div><p class="eyebrow">RAG EXPLORER / LOCAL DEMONSTRATION</p><h3>Ask about the work.<br>Inspect the evidence.</h3><p>Search a curated portfolio corpus. Matching passages appear with their sources. This demo uses keyword retrieval, with no embeddings, LLM or external API.</p><form id="rag-form"><label for="question">Your question</label><div class="search-row"><input id="question" type="search" maxlength="240" placeholder="How has Ali optimized backend performance?" required><button class="btn solid" type="submit">Retrieve ↗</button></div></form><div class="suggestions"><button type="button" data-query="backend performance">Backend performance</button><button type="button" data-query="AWS queue">AWS & queues</button><button type="button" data-query="retrieval RAG">RAG project</button></div></div><div id="rag-results" role="status" aria-live="polite"><p class="label">RETRIEVAL OUTPUT</p><h3>No hidden reasoning.<br>Just source passages.</h3><p>Enter a question or choose a prompt to inspect the available evidence.</p></div></div><ol class="pipeline" aria-label="Conceptual RAG architecture"><li>01 / Documents</li><li>02 / Chunks</li><li>03 / Retrieval</li><li>04 / Context</li><li>05 / Cited answer</li></ol><p class="label">Conceptual production pipeline; this local demo implements passage retrieval only. Football project status is carried over from the existing portfolio and requires repository verification.</p></section>
+<section id="explorer" class="rag-section" aria-labelledby="rag-title"><div class="sec"><h2 id="rag-title"><span class="section-no">02 /</span> Evidence before answers.</h2><p>A small, inspectable retrieval lab.</p></div><div class="rag-grid"><div><p class="eyebrow">RAG EXPLORER / LOCAL DEMONSTRATION</p><h3>Ask about the work.<br>Inspect the evidence.</h3><p>Search a curated portfolio corpus. Matching passages appear with their sources. This demo uses keyword retrieval, with no embeddings, LLM or external API.</p><form id="rag-form"><label for="question">Your question</label><div class="search-row"><input id="question" name="question" autocomplete="off" type="search" maxlength="240" placeholder="How has Ali optimized backend performance?" required><button class="btn solid" type="submit">Retrieve ↗</button></div></form><div class="suggestions"><button type="button" data-query="backend performance">Backend performance</button><button type="button" data-query="AWS queue">AWS & queues</button><button type="button" data-query="retrieval RAG">RAG project</button></div></div><div id="rag-results" role="status" aria-live="polite"><p class="label">RETRIEVAL OUTPUT</p><h3>No hidden reasoning.<br>Just source passages.</h3><p>Enter a question or choose a prompt to inspect the available evidence.</p></div></div><ol class="pipeline" aria-label="Conceptual RAG architecture"><li>01 / Documents</li><li>02 / Chunks</li><li>03 / Retrieval</li><li>04 / Context</li><li>05 / Cited answer</li></ol><p class="label">Conceptual production pipeline; this local demo implements passage retrieval only. Football project status is carried over from the existing portfolio and requires repository verification.</p></section>
 <!-- ===== Experience ===== -->
 <div class="sec" id="experience">
 <h2><span class="section-no">03 /</span> Experience</h2>
@@ -479,194 +473,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <span>aliwahaj.space</span>
 </div>
 </footer>
-<script>
-(function () {
-var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-/* ---------- copy email ---------- */
-var btn = document.getElementById('copy-email'), status = document.getElementById('copy-status'), email = document.getElementById('email');
-btn.addEventListener('click', function () {
-var text = email.textContent.trim();
-function fallback() {
-var r = document.createRange(); r.selectNodeContents(email);
-var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-status.textContent = 'Selected. Press Ctrl+C or Cmd+C to copy.';
-}
-try {
-navigator.clipboard.writeText(text).then(function () {
-status.textContent = 'Copied';
-setTimeout(function () { status.textContent = ''; }, 2500);
-}, fallback);
-} catch (e) { fallback(); }
-});
-/* ---------- local time in Pakistan ---------- */
-var clock = document.getElementById('clock');
-function tick() {
-try {
-clock.textContent = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Karachi', hour: 'numeric', minute: '2-digit' }).format(new Date());
-} catch (e) { clock.textContent = 'PKT'; }
-}
-tick(); setInterval(tick, 15000);
-/* ---------- shared canvas colors ---------- */
-var root = document.documentElement;
-/* ---------- architecture simulation ---------- */
-var canvas = document.getElementById('sim'), ctx = canvas.getContext('2d');
-var toggle = document.getElementById('cache-toggle'), stateEl = document.getElementById('cache-state'), note = document.getElementById('sim-note');
-var rAvg = document.getElementById('r-avg'), rHit = document.getElementById('r-hit'), rDb = document.getElementById('r-db');
-var C = {};
-function readColors() {
-var cs = getComputedStyle(root);
-C.fast = cs.getPropertyValue('--mint').trim(); C.slow = cs.getPropertyValue('--coral').trim(); C.async = cs.getPropertyValue('--lilac').trim();
-C.text = cs.getPropertyValue('--ink').trim(); C.dim = cs.getPropertyValue('--muted').trim(); C.rule = cs.getPropertyValue('--line').trim();
-C.node = cs.getPropertyValue('--bg').trim();
-}
-var nodes = {
-client:  { label: 'Clients',     sub: 'web, mobile' },
-gateway: { label: 'API Gateway', sub: 'HTTPS' },
-lambda:  { label: 'Lambda',      sub: 'Python' },
-redis:   { label: 'Redis',       sub: 'cache' },
-mysql:   { label: 'MySQL',       sub: 'RDS' },
-sqs:     { label: 'SQS',         sub: 'queue' },
-worker:  { label: 'Worker',      sub: 'jobs' }
-};
-var wide = { client:[.1,.5], gateway:[.3,.5], lambda:[.5,.5], redis:[.72,.2], sqs:[.72,.5], mysql:[.72,.8], worker:[.9,.5] };
-var tall = { client:[.5,.08], gateway:[.5,.27], lambda:[.5,.46], redis:[.18,.67], sqs:[.5,.67], mysql:[.82,.67], worker:[.5,.9] };
-var edges = [['client','gateway'],['gateway','lambda'],['lambda','redis'],['lambda','mysql'],['lambda','sqs'],['sqs','worker'],['worker','mysql']];
-var W = 0, H = 0, layout = wide;
-var cacheOn = true, reqs = [], done = [], dbInFlight = 0, last = 0, spawnAcc = 0, running = false, visible = true, pulses = {};
-function pos(k) { var p = layout[k]; return { x: p[0] * W, y: p[1] * H }; }
-function resize() {
-var r = canvas.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
-W = r.width; H = r.height;
-canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
-ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-layout = W < 520 ? tall : wide;
-draw();
-}
-function makeRequest() {
-var r = Math.random(), kind, path, load = Math.min(dbInFlight, 30);
-var dbSim = 170 + load * 38 + Math.random() * 60, dbVis = 650 + load * 70;
-if (r < 0.06) {
-kind = 'async';
-path = [['client','gateway',380,6],['gateway','lambda',300,4],['lambda','sqs',360,8],['lambda','gateway',300,3],['gateway','client',380,6]];
-} else if (cacheOn && r < 0.8) {
-kind = 'fast';
-path = [['client','gateway',380,6],['gateway','lambda',300,4],['lambda','redis',260,2],['redis','lambda',260,2],['lambda','gateway',300,3],['gateway','client',380,6]];
-} else {
-kind = 'slow';
-path = [['client','gateway',380,6],['gateway','lambda',300,4],['lambda','mysql',dbVis,dbSim/2],['mysql','lambda',dbVis,dbSim/2],['lambda','gateway',300,3],['gateway','client',380,6]];
-}
-var sim = 0; path.forEach(function (l) { sim += l[3]; });
-return { kind: kind, path: path, leg: 0, t: 0, sim: sim, inDb: false };
-}
-function spawnWorkerJob() { reqs.push({ kind: 'async', path: [['sqs','worker',900,0],['worker','mysql',700,0],['mysql','worker',700,0]], leg: 0, t: 0, sim: 0, job: true, inDb: false }); }
-function pulse(k, c) { pulses[k] = { a: 1, c: c }; }
-function col(kind) { return kind === 'fast' ? C.fast : kind === 'slow' ? C.slow : C.async; }
-function step(dt) {
-spawnAcc += dt / 1000 * 5.5;
-while (spawnAcc >= 1) { spawnAcc -= 1; var nq = makeRequest(); reqs.push(nq); done.push({ sim: nq.sim, kind: nq.kind }); if (done.length > 25) done.shift(); }
-for (var i = reqs.length - 1; i >= 0; i--) {
-var q = reqs[i], L = q.path[q.leg];
-if (q.t === 0 && L[1] === 'mysql' && !q.inDb) { q.inDb = true; dbInFlight++; }
-q.t += dt;
-if (q.t >= L[2]) {
-q.t = 0; pulse(L[1], col(q.kind));
-if (L[0] === 'mysql' && q.inDb) { q.inDb = false; dbInFlight--; }
-if (L[1] === 'sqs' && !q.job) spawnWorkerJob();
-q.leg++;
-if (q.leg >= q.path.length) reqs.splice(i, 1);
-}
-}
-for (var k in pulses) { pulses[k].a -= dt / 600; if (pulses[k].a <= 0) delete pulses[k]; }
-}
-function roundRect(x, y, w, h, r) {
-ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
-ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
-}
-function draw() {
-if (!W) return;
-ctx.clearRect(0, 0, W, H);
-var nw = Math.max(84, Math.min(108, W * 0.165)), nh = 46;
-ctx.lineWidth = 1.5;
-edges.forEach(function (e) {
-var a = pos(e[0]), b = pos(e[1]), hot = (e[1] === 'mysql' && !cacheOn);
-ctx.strokeStyle = hot ? C.slow : C.dim; ctx.globalAlpha = hot ? 0.55 : 0.28;
-ctx.setLineDash(e[0] === 'worker' || e[0] === 'sqs' ? [4, 5] : []);
-ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
-});
-ctx.globalAlpha = 1; ctx.setLineDash([]);
-reqs.forEach(function (q) {
-var L = q.path[q.leg], a = pos(L[0]), b = pos(L[1]);
-var t = Math.min(q.t / L[2], 1); t = t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-var x = a.x + (b.x - a.x) * t, y = a.y + (b.y - a.y) * t, c = col(q.kind);
-ctx.globalAlpha = 0.22; ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x, y, 8, 0, 6.283); ctx.fill();
-ctx.globalAlpha = 1; ctx.beginPath(); ctx.arc(x, y, 3.4, 0, 6.283); ctx.fill();
-});
-Object.keys(nodes).forEach(function (k) {
-var p = pos(k), n = nodes[k], off = (k === 'redis' && !cacheOn), pl = pulses[k];
-roundRect(p.x - nw / 2, p.y - nh / 2, nw, nh, 12);
-ctx.fillStyle = C.node; ctx.fill();
-ctx.lineWidth = pl ? 2 : 1.2;
-ctx.strokeStyle = pl ? pl.c : (k === 'mysql' && !cacheOn ? C.slow : C.rule);
-ctx.globalAlpha = pl ? 0.5 + pl.a * 0.5 : 1; ctx.stroke(); ctx.globalAlpha = 1;
-ctx.globalAlpha = off ? 0.35 : 1;
-ctx.fillStyle = C.text; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-ctx.font = '600 12.5px Geist, Helvetica, Arial, sans-serif';
-ctx.fillText(n.label, p.x, p.y - 7);
-ctx.fillStyle = C.dim; ctx.font = '11px Geist, Helvetica, Arial, sans-serif';
-ctx.fillText(off ? 'off' : n.sub, p.x, p.y + 9);
-ctx.globalAlpha = 1;
-});
-}
-function updateReadout() {
-var d = done.filter(function (x) { return x.sim > 0; });
-var avg = d.length ? d.reduce(function (s, x) { return s + x.sim; }, 0) / d.length : (cacheOn ? 70 : 420);
-var hits = d.length ? d.filter(function (x) { return x.kind === 'fast'; }).length / d.length : (cacheOn ? .74 : 0);
-rAvg.textContent = Math.round(avg) + ' ms'; rAvg.className = avg < 150 ? 'good' : 'bad';
-rHit.textContent = Math.round(hits * 100) + '%'; rHit.className = hits > 0.5 ? 'good' : 'bad';
-rDb.textContent = String(dbInFlight); rDb.className = dbInFlight > 6 ? 'bad' : '';
-}
-var uiAcc = 0;
-function frame(ts) {
-if (!running) return;
-if(window.portfolioPaused){running=false;return;}
-var dt = last ? Math.min(ts - last, 50) : 16; last = ts;
-step(dt); draw();
-uiAcc += dt; if (uiAcc > 400) { uiAcc = 0; updateReadout(); }
-requestAnimationFrame(frame);
-}
-function start() { if (running || reduce || window.portfolioPaused) return; running = true; last = 0; requestAnimationFrame(frame); }
-function stop() { running = false; }
-function staticFrame() {
-reqs = [];
-for (var i = 0; i < 14; i++) { var q = makeRequest(); q.leg = Math.floor(Math.random() * q.path.length); q.t = Math.random() * q.path[q.leg][2]; reqs.push(q); }
-dbInFlight = cacheOn ? 2 : 11; done = [];
-for (var j = 0; j < 40; j++) { var m = makeRequest(); done.push({ sim: m.sim, kind: m.kind }); }
-draw(); updateReadout();
-}
-toggle.addEventListener('click', function () {
-cacheOn = !cacheOn;
-toggle.setAttribute('aria-checked', String(cacheOn));
-stateEl.textContent = cacheOn ? 'on' : 'off';
-note.textContent = cacheOn ? 'Illustrative simulation, not production telemetry. Toggle the cache to explore database load.' : 'Simulation: every read now hits MySQL. Turn the cache back on.';
-done = [];
-if (reduce) staticFrame(); else pulse('redis', cacheOn ? C.fast : C.slow);
-});
-document.addEventListener('portfolio-motion', function(){ if(window.portfolioPaused) stop(); else if(visible && !document.hidden) start(); });
-readColors();
-window.addEventListener('resize', resize);
-resize();
-if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
-if (reduce) staticFrame();
-else {
-for (var s = 0; s < 10; s++) { var q = makeRequest(); q.leg = Math.floor(Math.random() * 3); reqs.push(q); }
-updateReadout();
-if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; visible && !document.hidden ? start() : stop(); }).observe(canvas);
-else start();
-document.addEventListener('visibilitychange', function () { document.hidden ? stop() : (visible && start()); });
-draw();
-}
-})();
-</script>
+<script src="motion.js"></script>
+<script src="simulation.js"></script>
 <script src="living.js"></script>
 </body>
 </html>
