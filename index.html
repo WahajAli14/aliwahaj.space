@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ali Wahaj | Backend Software Engineer</title>
 <meta name="description" content="Ali Wahaj, backend software engineer in Pakistan. Python, AWS Lambda, SQLAlchemy, Redis and SQS, plus RAG and retrieval systems.">
+<meta name="theme-color" content="#0b1211">
 <meta name="author" content="Syed Ali Wahaj Jafri">
 <link rel="canonical" href="https://aliwahaj.space/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='16' height='16' rx='5' fill='%23101318'/%3E%3Crect x='20' y='2' width='10' height='10' rx='3.5' fill='%231D4ED8'/%3E%3Crect x='20' y='14' width='10' height='16' rx='3.5' fill='%2308724A'/%3E%3Crect x='2' y='20' width='16' height='10' rx='3.5' fill='%23B03A0E'/%3E%3C/svg%3E">
-<meta name="theme-color" content="#ECEEF2" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0B0D11" media="(prefers-color-scheme: dark)">
+
+
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aliwahaj.space/">
 <meta property="og:title" content="Ali Wahaj, Backend Software Engineer">
@@ -42,30 +43,6 @@ Palette: soft cool-grey ground, white tiles, five colour families used one per t
 --gap: 14px;
 --wrap: 72rem;
 }
-@media (prefers-color-scheme: dark) {
-:root:not([data-theme="light"]) {
---bg: #0B0D11; --tile: #15181E; --ink: #EEF0F4; --muted: #9CA3B0; --line: #262B34;
---blue-bg: #17244D;  --blue: #9AB8FF;
---mint-bg: #0E2E21;  --mint: #6FE0A9;
---coral-bg: #3A1C12; --coral: #FF9D78;
---lilac-bg: #251A48; --lilac: #BCA6FF;
---sun-bg: #322908;   --sun: #F2CF5E;
---inv-bg: #EEF0F4;   --inv-ink: #101318; --inv-muted: #4D5563;
---shadow: rgba(0,0,0,0.4);
-color-scheme: dark;
-}
-}
-:root[data-theme="dark"] {
---bg: #0B0D11; --tile: #15181E; --ink: #EEF0F4; --muted: #9CA3B0; --line: #262B34;
---blue-bg: #17244D;  --blue: #9AB8FF;
---mint-bg: #0E2E21;  --mint: #6FE0A9;
---coral-bg: #3A1C12; --coral: #FF9D78;
---lilac-bg: #251A48; --lilac: #BCA6FF;
---sun-bg: #322908;   --sun: #F2CF5E;
---inv-bg: #EEF0F4;   --inv-ink: #101318; --inv-muted: #4D5563;
---shadow: rgba(0,0,0,0.4);
-color-scheme: dark;
-}
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; background: var(--bg); }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -97,12 +74,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .top nav { display: flex; gap: 0.2rem; }
 .top nav a { text-decoration: none; color: var(--muted); font-size: 0.9375rem; padding: 0.45rem 0.75rem; border-radius: 999px; }
 .top nav a:hover { color: var(--ink); background: var(--tile); }
-.theme-btn { width: 2.4rem; height: 2.4rem; border-radius: 999px; border: 1px solid var(--line); background: var(--tile); color: var(--ink); display: grid; place-items: center; cursor: pointer; padding: 0; margin-left: 0.35rem; }
-.theme-btn:hover { border-color: var(--ink); }
-.theme-btn svg { width: 1.05rem; height: 1.05rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
-.theme-btn .moon { display: none; }
-:root[data-theme="dark"] .theme-btn .sun { display: none; } :root[data-theme="dark"] .theme-btn .moon { display: block; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme]) .theme-btn .sun { display: none; } :root:not([data-theme]) .theme-btn .moon { display: block; } }
 @media (max-width: 560px) { .top nav .opt { display: none; } }
 @media (max-width: 380px) { .top nav a { padding-inline: 0.5rem; } .mark span { display: none; } }
 @media (max-width: 400px) { .now { grid-column: span 2; } }
@@ -266,46 +237,47 @@ a.mini:hover .arrow-up { stroke: var(--ink); }
 footer { padding-block: 0.5rem 2.5rem; color: var(--muted); font-size: 0.8125rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding-inline: max(1.4rem, env(safe-area-inset-left, 0px)) max(1.4rem, env(safe-area-inset-right, 0px)); }
 </style>
-<script>try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+<link rel="stylesheet" href="living.css">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="i-gh" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/><path id="i-li" d="M0 1.15C0 .52.52 0 1.17 0h13.66C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.17 1.15H1.17C.52 16 0 15.48 0 14.85V1.15zM4.94 13.4V6.17h-2.4v7.23h2.4zM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.01zM6.27 13.4h2.4V9.36c0-.21.02-.43.08-.58.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.64v3.86h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.29 0-1.86.71-2.17 1.21v.03h-.02l.02-.03V6.17h-2.4c.03.68 0 7.23 0 7.23z"/></defs></svg>
 <header class="top">
 <div class="wrap">
-<a class="mark" href="#top"><b aria-hidden="true">AW</b><span>Ali Wahaj</span></a>
+<a class="mark" href="#top" aria-label="Ali Wahaj, home"><b aria-hidden="true">AW</b><span>Ali Wahaj</span></a>
 <div class="top-right">
 <nav aria-label="Sections">
 <a href="#work">Work</a>
-<a href="#experience" class="opt">Experience</a>
+<a href="#experience" class="opt">Experience</a><a href="#explorer">RAG lab</a><a href="Ali-Wahaj-Resume.pdf">Résumé ↗</a>
 <a href="#contact">Contact</a>
 </nav>
-<button class="theme-btn" id="theme-btn" type="button" aria-label="Switch to dark theme"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6z"/></svg></button>
 </div>
 </div>
 </header>
-<main id="top">
+<a class="skip" href="#top">Skip to content</a>
+<main id="top" tabindex="-1">
 <div class="wrap">
+<div class="eyebrow">INDEPENDENT PORTFOLIO / SYSTEMS IN MOTION <span>01 — ALI WAHAJ</span></div>
 <!-- ===== Hero bento ===== -->
-<section class="bento" aria-label="Introduction">
+<section class="bento hero" aria-label="Introduction">
 <div class="tile intro c2 r2 m2" style="--i:0">
 <span class="pill"><i aria-hidden="true"></i>Open to backend and AI roles</span>
-<h1>Ali Wahaj</h1>
-<p class="role">Backend engineer. I make slow systems fast and expensive ones cheap.</p>
+<p class="identity">ALI WAHAJ / BACKEND SOFTWARE ENGINEER</p><h1>Engineering<br>the invisible<span>.</span></h1>
+<p class="role">Fast APIs. Thoughtful infrastructure. AI with evidence.</p>
 <p class="lede">Python services on AWS Lambda, SQLAlchemy, Redis and SQS for a serverless U.S. platform at LinkedMatrix. Before that, SQL Server and healthcare EDI at CureMD. On my own time, retrieval-augmented AI.</p>
 <div class="cta push">
-<a class="btn solid" href="#contact">Get in touch</a>
+<a class="btn solid" href="#work">Explore the work ↓</a><a class="btn" href="Ali-Wahaj-Resume.pdf">Résumé ↗</a>
 <a class="btn" href="https://github.com/WahajAli14" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-gh"/></svg>GitHub</a>
 <a class="btn" href="https://www.linkedin.com/in/syed-wahaj" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-li"/></svg>LinkedIn</a>
 </div>
 </div>
-<div class="tile stat t-blue" style="--i:1">
-<p class="label">API response time</p>
+<div class="neural tile" aria-labelledby="neural-title"><div class="neural-top"><span id="neural-title">NEURAL CANVAS</span><span>CONCEPTUAL SYSTEM MAP</span></div><svg viewBox="0 0 520 370" role="img" aria-label="An interconnected system of API, data, retrieval and worker nodes around a central Python service"><defs><radialGradient id="glow"><stop stop-color="#91efc7" stop-opacity=".22"/><stop offset="1" stop-color="#91efc7" stop-opacity="0"/></radialGradient></defs><circle cx="260" cy="185" r="175" fill="url(#glow)"/><g fill="none" stroke="#427461"><ellipse cx="260" cy="185" rx="185" ry="75" transform="rotate(-30 260 185)"/><ellipse cx="260" cy="185" rx="185" ry="75" transform="rotate(30 260 185)"/><ellipse cx="260" cy="185" rx="120" ry="157"/><path d="M95 110L260 185 422 98M103 274L260 185 410 282M260 30V340"/></g><g fill="#9bf2ce"><circle cx="95" cy="110" r="5"/><circle cx="422" cy="98" r="5"/><circle cx="103" cy="274" r="5"/><circle cx="410" cy="282" r="5"/><circle cx="260" cy="30" r="4"/><circle cx="260" cy="340" r="4"/></g><circle class="nucleus" cx="260" cy="185" r="43" fill="#122c24" stroke="#a2f4d1"/><g fill="#e6eee9" font-family="monospace" font-size="12"><text x="235" y="190">PYTHON</text><text x="55" y="92">API</text><text x="395" y="80">RETRIEVAL</text><text x="55" y="302">DATA</text><text x="389" y="308">WORKERS</text></g></svg><div class="neural-controls" aria-label="Explore system layers"><button type="button" data-layer="api" aria-pressed="true">API</button><button type="button" data-layer="data" aria-pressed="false">Data</button><button type="button" data-layer="retrieval" aria-pressed="false">Retrieval</button></div><p id="layer-detail" role="status">API / Python services coordinate requests and background work.</p><div class="neural-top"><span>BACKEND × CLOUD × AI</span><button type="button" id="motion" aria-pressed="false">Pause motion</button></div></div><div class="tile stat t-blue" style="--i:1">
+<p class="label">API response time · résumé-reported</p>
 <div class="big k">−70%</div>
 <p>High-volume endpoints, <span class="n">20 s → 6 s</span></p>
 <small>SQLAlchemy N+1 removal</small>
 </div>
 <div class="tile stat t-mint" style="--i:2">
-<p class="label">Mapbox API calls</p>
+<p class="label">Mapbox calls · résumé-reported</p>
 <div class="big k">100K+</div>
 <p>a month, cut to near zero</p>
 <small>Reusable distance records</small>
@@ -323,8 +295,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 </section>
 <!-- ===== Work ===== -->
 <div class="sec" id="work">
-<h2>Work</h2>
-<p>Two projects I can walk through end to end. Both open source.</p>
+<h2><span class="section-no">01 /</span> Selected systems</h2>
+<p>Python APIs, retrieval experiments and the decisions behind them.</p>
 </div>
 <section class="bento" aria-label="Projects">
 <article class="tile proj t-coral c2 r2 m2" style="--i:5">
@@ -349,23 +321,23 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <div><b>$65.84</b><span>total fuel</span></div>
 </div>
 </div>
-<div class="speed" aria-label="Measured response times, Chicago to Los Angeles">
+<p class="label" style="margin-top:1rem">Repository benchmark · in-memory cache · not a live test</p><div class="speed" aria-label="Repository-reported timings, Chicago to Los Angeles; in-memory cache">
 <div class="cold"><span>First request</span><em style="width:100%"></em><span class="n">1,410 ms</span></div>
 <div class="warm"><span>Cached</span><em></em><span class="n">1.2 ms</span></div>
 </div>
-<div class="tags"><span>Python 3.12</span><span>Django</span><span>Redis</span><span>KD-tree search</span><span>Dynamic programming</span></div>
+<div class="tags"><span>Python 3.12</span><span>Django</span><span>Redis optional</span><span>KD-tree search</span><span>Dynamic programming</span></div>
 <a class="repo-link" href="https://github.com/WahajAli14/fuel-route-optimizer" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-gh"/></svg>View the code</a>
 </article>
 <div class="tile sim-tile c2 r2 m2" style="--i:6" role="group" aria-labelledby="sim-title">
 <div class="sim-head">
 <div>
-<h3 id="sim-title">The kind of stack I run</h3>
-<p id="sim-note">Live simulation. Turn the cache off to see the database take the load.</p>
+<h3 id="sim-title">Mission Control</h3>
+<p id="sim-note">Illustrative simulation, not production telemetry. Toggle the cache to explore database load.</p>
 </div>
 <button class="switch" id="cache-toggle" type="button" role="switch" aria-checked="true"><span class="track" aria-hidden="true"></span>Redis cache <b id="cache-state">on</b></button>
 </div>
-<div class="stage"><canvas id="sim" aria-label="Animated diagram: requests flow from clients through API Gateway to AWS Lambda, then to a Redis cache, a MySQL database, or an SQS queue handled by a background worker."></canvas></div>
-<dl class="readout">
+<div class="stage"><canvas id="sim" role="img" aria-describedby="architecture-text" aria-label="Animated diagram: requests flow from clients through API Gateway to AWS Lambda, then to a Redis cache, a MySQL database, or an SQS queue handled by a background worker."></canvas></div>
+<p id="architecture-text" class="sr-only">Clients send HTTPS requests through API Gateway to a Python Lambda service. Reads check Redis before MySQL. Heavy jobs enter SQS, then a worker writes to MySQL. Turning caching off routes all reads to the database. All response values are illustrative.</p><dl class="readout">
 <div><dt>Average response</dt><dd id="r-avg" class="good">… ms</dd></div>
 <div><dt>From cache</dt><dd id="r-hit" class="good">…</dd></div>
 <div><dt>DB queries in flight</dt><dd id="r-db">…</dd></div>
@@ -373,9 +345,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <div class="legend"><span><i style="background:var(--mint)"></i>Cache hit</span><span><i style="background:var(--coral)"></i>Database read</span><span><i style="background:var(--lilac)"></i>Queued to SQS</span></div>
 </div>
 <article class="tile proj t-lilac c3 m2" style="--i:7">
-<p class="label">RAG backend · in progress</p>
+<p class="label">RAG backend · in progress · status from prior portfolio</p>
 <h3>Football Intelligence Platform</h3>
-<p class="sum">Answers football analysts' tactical questions from real documents, like the 2025 UEFA Champions League technical report, and shows the passages behind every answer.</p>
+<p class="sum">An in-progress exploration of document-grounded football analysis. The prior portfolio describes PDF ingestion, ChromaDB retrieval and answers with source passages; the current implementation is awaiting repository verification.</p>
 <ol class="flow" aria-label="How a question is answered">
 <li>Load PDFs</li><li class="arrow" aria-hidden="true">→</li>
 <li>Chunk, 3 strategies</li><li class="arrow" aria-hidden="true">→</li>
@@ -424,10 +396,11 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <p>My forks of the Waterloo IR toolkits for sparse and dense retrieval.</p>
 </a>
 </section>
+<section id="explorer" class="rag-section" aria-labelledby="rag-title"><div class="sec"><h2 id="rag-title"><span class="section-no">02 /</span> Evidence before answers.</h2><p>A small, inspectable retrieval lab.</p></div><div class="rag-grid"><div><p class="eyebrow">RAG EXPLORER / LOCAL DEMONSTRATION</p><h3>Ask about the work.<br>Inspect the evidence.</h3><p>Search a curated portfolio corpus. Matching passages appear with their sources. This demo uses keyword retrieval, with no embeddings, LLM or external API.</p><form id="rag-form"><label for="question">Your question</label><div class="search-row"><input id="question" type="search" maxlength="240" placeholder="How has Ali optimized backend performance?" required><button class="btn solid" type="submit">Retrieve ↗</button></div></form><div class="suggestions"><button type="button" data-query="backend performance">Backend performance</button><button type="button" data-query="AWS queue">AWS & queues</button><button type="button" data-query="retrieval RAG">RAG project</button></div></div><div id="rag-results" role="status" aria-live="polite"><p class="label">RETRIEVAL OUTPUT</p><h3>No hidden reasoning.<br>Just source passages.</h3><p>Enter a question or choose a prompt to inspect the available evidence.</p></div></div><ol class="pipeline" aria-label="Conceptual RAG architecture"><li>01 / Documents</li><li>02 / Chunks</li><li>03 / Retrieval</li><li>04 / Context</li><li>05 / Cited answer</li></ol><p class="label">Conceptual production pipeline; this local demo implements passage retrieval only. Football project status is carried over from the existing portfolio and requires repository verification.</p></section>
 <!-- ===== Experience ===== -->
 <div class="sec" id="experience">
-<h2>Experience</h2>
-<p>Two years of backend work for U.S. operations and enterprise healthcare.</p>
+<h2><span class="section-no">03 /</span> Experience</h2>
+<p>Backend work for U.S. operations and enterprise healthcare. Outcomes below are résumé-reported.</p>
 </div>
 <section class="bento" aria-label="Experience, skills and education">
 <div class="tile c2 r2 m2" style="--i:13">
@@ -456,7 +429,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <li class="job"><div>
 <h3>Machine Learning Intern · TechnoColab</h3>
 <p class="meta">May – Jun 2023 · remote</p>
-<ul><li>Retail sales EDA, feature engineering and model comparison.</li></ul>
+<ul><li>EDA, feature engineering and model comparison.</li></ul>
 </div></li>
 </ol>
 </div>
@@ -487,7 +460,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <p class="label">Contact</p>
 <h2 id="contact-title" style="margin-top:0.6rem">Let's build something fast.</h2>
 <p class="sub">I'm looking for Python backend and AI engineering roles, remote or in Lahore and Islamabad. Email reaches me fastest.</p>
-<div class="mail">
+<a class="btn" href="Ali-Wahaj-Resume.pdf">Résumé ↗</a><div class="mail">
 <a class="addr" id="email" href="mailto:wahajali98@gmail.com">wahajali98@gmail.com</a>
 <button class="btn" type="button" id="copy-email">Copy email</button>
 <span class="copied" id="copy-status" role="status" aria-live="polite"></span>
@@ -533,11 +506,8 @@ clock.textContent = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Karachi',
 } catch (e) { clock.textContent = 'PKT'; }
 }
 tick(); setInterval(tick, 15000);
-/* ---------- theme ---------- */
+/* ---------- shared canvas colors ---------- */
 var root = document.documentElement;
-var themeBtn = document.getElementById('theme-btn');
-var darkMq = window.matchMedia('(prefers-color-scheme: dark)');
-function isDark() { var t = root.getAttribute('data-theme'); return t ? t === 'dark' : darkMq.matches; }
 /* ---------- architecture simulation ---------- */
 var canvas = document.getElementById('sim'), ctx = canvas.getContext('2d');
 var toggle = document.getElementById('cache-toggle'), stateEl = document.getElementById('cache-state'), note = document.getElementById('sim-note');
@@ -658,12 +628,13 @@ rDb.textContent = String(dbInFlight); rDb.className = dbInFlight > 6 ? 'bad' : '
 var uiAcc = 0;
 function frame(ts) {
 if (!running) return;
+if(window.portfolioPaused){running=false;return;}
 var dt = last ? Math.min(ts - last, 50) : 16; last = ts;
 step(dt); draw();
 uiAcc += dt; if (uiAcc > 400) { uiAcc = 0; updateReadout(); }
 requestAnimationFrame(frame);
 }
-function start() { if (running || reduce) return; running = true; last = 0; requestAnimationFrame(frame); }
+function start() { if (running || reduce || window.portfolioPaused) return; running = true; last = 0; requestAnimationFrame(frame); }
 function stop() { running = false; }
 function staticFrame() {
 reqs = [];
@@ -676,22 +647,14 @@ toggle.addEventListener('click', function () {
 cacheOn = !cacheOn;
 toggle.setAttribute('aria-checked', String(cacheOn));
 stateEl.textContent = cacheOn ? 'on' : 'off';
-note.textContent = cacheOn ? 'Live simulation. Turn the cache off to see the database take the load.' : 'Every read now hits MySQL. Turn the cache back on.';
+note.textContent = cacheOn ? 'Illustrative simulation, not production telemetry. Toggle the cache to explore database load.' : 'Simulation: every read now hits MySQL. Turn the cache back on.';
 done = [];
 if (reduce) staticFrame(); else pulse('redis', cacheOn ? C.fast : C.slow);
 });
-function syncTheme() { readColors(); themeBtn.setAttribute('aria-label', isDark() ? 'Switch to light theme' : 'Switch to dark theme'); draw(); }
-themeBtn.addEventListener('click', function () {
-var next = isDark() ? 'light' : 'dark';
-root.setAttribute('data-theme', next);
-try { localStorage.setItem('theme', next); } catch (e) {}
-syncTheme();
-});
-if (darkMq.addEventListener) darkMq.addEventListener('change', syncTheme);
-new MutationObserver(syncTheme).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+document.addEventListener('portfolio-motion', function(){ if(window.portfolioPaused) stop(); else if(visible && !document.hidden) start(); });
 readColors();
 window.addEventListener('resize', resize);
-resize(); syncTheme();
+resize();
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
 if (reduce) staticFrame();
 else {
@@ -704,5 +667,6 @@ draw();
 }
 })();
 </script>
+<script src="living.js"></script>
 </body>
 </html>
