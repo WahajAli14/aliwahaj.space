@@ -10,4 +10,3 @@ function retrieve(){const words=input.value.toLowerCase().match(/[a-z0-9]+/g)||[
 form.addEventListener('submit',e=>{e.preventDefault();retrieve()});document.querySelectorAll('[data-query]').forEach(b=>b.addEventListener('click',()=>{input.value=b.dataset.query;retrieve()}));
 
 })();
-(()=>{const details={api:'API / Python services coordinate requests and background work.',data:'DATA / Redis caches repeat reads. MySQL stores durable records. SQS decouples heavier work.',retrieval:'RETRIEVAL / Documents become searchable passages. Inspect sources before trusting an answer.'};document.querySelectorAll('button[data-layer]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('button[data-layer]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));document.querySelector('.neural').dataset.layer=button.dataset.layer;document.querySelector('#layer-detail').textContent=details[button.dataset.layer]}))})();

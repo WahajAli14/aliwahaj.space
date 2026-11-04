@@ -231,6 +231,7 @@ footer { padding-block: 0.5rem 2.5rem; color: var(--muted); font-size: 0.8125rem
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding-inline: max(1.4rem, env(safe-area-inset-left, 0px)) max(1.4rem, env(safe-area-inset-right, 0px)); }
 </style>
 <link rel="stylesheet" href="living.css">
+<link rel="stylesheet" href="case-studies.css">
 </head>
 <body>
 <a class="skip" href="#top">Skip to content</a>
@@ -249,54 +250,71 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 </header>
 <main id="top" tabindex="-1">
 <div class="wrap">
-<div class="eyebrow">INDEPENDENT PORTFOLIO / SYSTEMS IN MOTION <span>01 — ALI WAHAJ</span></div>
+<div class="casebook-heading"><span>Ali Wahaj’s engineering casebook</span><span>Backend · Infrastructure · Applied AI</span></div>
 <!-- ===== Hero bento ===== -->
 <section class="bento hero" aria-label="Introduction">
 <div class="tile intro c2 r2 m2" style="--i:0">
 <span class="pill"><i aria-hidden="true"></i>Open to backend and AI roles</span>
-<p class="identity">ALI WAHAJ / BACKEND SOFTWARE ENGINEER</p><h1>Engineering<br>the invisible<span>.</span></h1>
-<p class="role">Fast APIs. Thoughtful infrastructure. AI with evidence.</p>
-<p class="lede">Python services on AWS Lambda, SQLAlchemy, Redis and SQS for a serverless U.S. platform at LinkedMatrix. Before that, SQL Server and healthcare EDI at CureMD. On my own time, retrieval-augmented AI.</p>
+<p class="identity">Ali Wahaj / Backend Software Engineer</p><h1>The work behind<br>less waiting.</h1>
+<p class="role">I build the systems behind the experience.</p>
+<p class="lede">Python backends at LinkedMatrix. Previously, healthcare EDI at CureMD. Here are the bottlenecks, decisions and results behind my work.</p>
 <div class="cta push">
-<a class="btn solid" href="#work">Explore the work ↓</a><a class="btn" href="Ali-Wahaj-Resume.pdf">Résumé ↗</a>
+<a class="btn solid" href="#work">Read the case studies</a><a class="btn" href="Ali-Wahaj-Resume.pdf">Résumé ↗</a>
 <a class="btn" href="https://github.com/WahajAli14" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-gh"/></svg>GitHub</a>
 <a class="btn" href="https://www.linkedin.com/in/syed-wahaj" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-li"/></svg>LinkedIn</a>
 </div>
 </div>
-<div class="neural tile" data-layer="api" aria-labelledby="neural-title"><div class="neural-top"><span id="neural-title">NEURAL CANVAS</span><span>CONCEPTUAL SYSTEM MAP</span></div><svg viewBox="0 0 520 370" role="img" aria-label="Conceptual system map: API Gateway connects to Python, MySQL, a retrieval index and SQS workers. Select a layer to follow its request path."><defs><radialGradient id="glow"><stop stop-color="#91efc7" stop-opacity=".22"/><stop offset="1" stop-color="#91efc7" stop-opacity="0"/></radialGradient></defs><circle cx="260" cy="185" r="175" fill="url(#glow)"/><g fill="none" stroke="#427461"><ellipse cx="260" cy="185" rx="185" ry="75" transform="rotate(-30 260 185)"/><ellipse cx="260" cy="185" rx="185" ry="75" transform="rotate(30 260 185)"/><ellipse cx="260" cy="185" rx="120" ry="157"/><path class="system-route" data-route="api" d="M95 110L260 185 410 282"/><path class="system-route" data-route="data" d="M260 185L103 274"/><path class="system-route" data-route="retrieval" d="M260 185L422 98"/><path d="M260 30V340" opacity=".25"/></g><g fill="#9bf2ce"><circle cx="95" cy="110" r="5"/><circle cx="422" cy="98" r="5"/><circle cx="103" cy="274" r="5"/><circle cx="410" cy="282" r="5"/><circle cx="260" cy="30" r="4"/><circle cx="260" cy="340" r="4"/></g><g class="signals" aria-hidden="true"><g class="signal signal-api"><circle r="9" opacity=".12"/><circle r="3.5"/></g><g class="signal signal-data"><circle r="9" opacity=".12"/><circle r="3.5"/></g><g class="signal signal-retrieval"><circle r="9" opacity=".12"/><circle r="3.5"/></g></g><circle class="nucleus" cx="260" cy="185" r="43" fill="#122c24" stroke="#a2f4d1"/><g fill="#e6eee9" font-family="monospace" font-size="12"><text x="235" y="190">PYTHON</text><text x="55" y="92">API GATEWAY</text><text x="355" y="80">RETRIEVAL</text><text x="55" y="302">MYSQL</text><text x="345" y="308">SQS / WORKER</text></g></svg><div class="neural-controls" aria-label="Explore system layers"><button type="button" data-layer="api" aria-pressed="true">API</button><button type="button" data-layer="data" aria-pressed="false">Data</button><button type="button" data-layer="retrieval" aria-pressed="false">Retrieval</button></div><p id="layer-detail" role="status">API / Python services coordinate requests and background work.</p><div class="neural-top"><span>BACKEND × CLOUD × AI</span><button type="button" id="motion" data-motion-control aria-pressed="false">Pause motion</button></div></div><div class="tile stat t-blue" style="--i:1">
-<p class="label">API response time · résumé-reported</p>
-<div class="big k">−70%</div>
-<p>High-volume endpoints, <span class="n">20 s → 6 s</span></p>
-<small>SQLAlchemy N+1 removal</small>
+<div class="neural request-journey" data-trace="after" aria-labelledby="journey-title">
+<div class="trace-heading"><span>Inside a request</span><span class="trace-kind">Illustrative replay</span></div>
+<h2 id="journey-title">Same endpoint.<br>Less waiting.</h2>
+<div class="trace-choices" role="group" aria-label="Compare endpoint versions">
+<button type="button" data-trace-mode="before" aria-pressed="false">Original <span>20 s</span></button>
+<button type="button" data-trace-mode="after" aria-pressed="true">Optimized <span>6 s</span></button>
 </div>
-<div class="tile stat t-mint" style="--i:2">
-<p class="label">Mapbox calls · résumé-reported</p>
-<div class="big k">100K+</div>
-<p>a month, cut to near zero</p>
-<small>Reusable distance records</small>
+<div class="trace-diagram" role="img" aria-label="Conceptual request path: a Python endpoint reads related data through SQLAlchemy, then returns a response. The optimized version avoids N+1 queries.">
+<div class="trace-stations"><span>Request</span><span>Python API</span><span>Database</span><span>Response</span></div>
+<div class="trace-track"><div class="trace-budget"><div class="trace-progress"></div></div><span class="trace-scale">20 s reference</span></div>
+<div class="query-study"><div class="query-label">Related data reads</div><div class="query-original" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="query-optimized" aria-hidden="true"><i></i></div><p class="query-caption" id="trace-caption">N+1 queries removed; less repeated work.</p></div>
 </div>
-<div class="tile now t-lilac" style="--i:3">
-<p class="label">Now</p>
-<p class="current-role">Backend Software Engineer, LinkedMatrix</p>
-<p>Serverless on AWS Lambda, since April 2025</p>
+<div class="trace-outcome" role="status" aria-live="polite"><strong id="trace-time">6 s</strong><p id="trace-outcome">70% lower response time on selected high-volume endpoints.</p></div>
+<p class="trace-source">20 s → 6 s is résumé-reported. The structure and compressed replay are illustrative; individual query timings are not measured here.</p>
+<div class="trace-footer"><a href="#case-backend">Read the backend case study</a><button type="button" id="motion" data-motion-control aria-pressed="false">Pause motion</button></div>
+</div></section>
+<aside class="career-strip" aria-label="Career at a glance"><div><span>Currently</span><p>Backend Engineer · LinkedMatrix</p></div><div><span>Previously</span><p>Healthcare EDI · CureMD</p></div><div><span>Based in Pakistan</span><p><time id="clock">PKT</time> · Lahore / Islamabad / remote</p></div></aside>
+<!-- ===== Case studies ===== -->
+<div class="sec" id="work"><h2>Work, unpacked.</h2><p>The problem, my contribution, and the evidence behind the result.</p></div>
+<section class="case-studies" aria-label="Engineering case studies">
+<article id="case-backend" class="case-study" aria-labelledby="backend-title">
+<header class="case-heading"><p class="case-context">LinkedMatrix / Professional experience</p><h3 id="backend-title">When an endpoint takes<br>twenty seconds.</h3><p class="case-summary">A serverless laundry-care platform. SQLAlchemy queries. A long wait between the request and the response.</p></header>
+<div class="case-layout"><div class="case-story">
+<dl class="case-outcomes"><div><dt>Response time</dt><dd>20 s → 6 s</dd></div><div><dt>Improvement</dt><dd>70%</dd></div></dl>
+<section><h4>The problem</h4><p>Selected high-volume endpoints took 20 seconds to respond. Repeated related-data queries added avoidable work to the backend.</p></section>
+<section><h4>My contribution</h4><p>I improved SQLAlchemy queries and removed N+1 issues. I also implemented Redis caching for frequently accessed data and moved heavy reports and image-change workflows to AWS SQS.</p></section>
+<section><h4>A decision worth showing</h4><p>Reusable distance records reduced 100K+ monthly Mapbox calls to near zero. The records expired after three months to keep location data updated.</p></section>
+<details><summary>Evidence and scope</summary><p>The 70% reduction applies to the selected endpoints described in my résumé. Redis improved selected workflows by approximately 50%; that is a separate result. The diagram is a conceptual explanation, not a production trace. Number validation and repeated-message prevention reduced proxy messaging costs by 50%; the TaxJar-to-TaxCloud migration reduced tax-processing costs by approximately 30%. These are separate résumé-reported outcomes. Employer source and production logs are not included.</p></details>
+<a class="case-source" href="Ali-Wahaj-Resume.pdf">Source: original résumé PDF</a>
+</div><div class="case-evidence"><div class="tile sim-tile c2 r2 m2" style="--i:6" role="group" aria-labelledby="sim-title">
+<div class="sim-head">
+<div>
+<h4 id="sim-title">Mission Control</h4>
+<p id="sim-note">Illustrative simulation, not production telemetry. Toggle the cache to explore database load.</p>
 </div>
-<div class="tile now t-sun" style="--i:4">
-<p class="label">Based in Pakistan</p>
-<div class="clock k" id="clock">--:--</div>
-<p id="clock-note">local time · remote, Lahore or Islamabad</p>
+<button class="motion-control" type="button" data-motion-control aria-pressed="false">Pause motion</button>
+<button class="switch" id="cache-toggle" type="button" role="switch" aria-checked="true"><span class="track" aria-hidden="true"></span>Redis cache <b id="cache-state">on</b></button>
 </div>
-</section>
-<!-- ===== Work ===== -->
-<div class="sec" id="work">
-<h2><span class="section-no">01 /</span> Selected systems</h2>
-<p>Python APIs, retrieval experiments and the decisions behind them.</p>
+<div class="stage"><canvas id="sim" role="img" aria-describedby="architecture-text" aria-label="Animated diagram: requests flow from clients through API Gateway to AWS Lambda, then to a Redis cache, a MySQL database, or an SQS queue handled by a background worker."></canvas></div>
+<p id="architecture-text" class="sr-only">Clients send HTTPS requests through API Gateway to a Python Lambda service. Reads check Redis before MySQL. Heavy jobs enter SQS, then a worker writes to MySQL. Turning caching off routes all reads to the database. All response values are illustrative.</p><dl class="readout">
+<div><dt>Average response</dt><dd id="r-avg" class="good">… ms</dd></div>
+<div><dt>From cache</dt><dd id="r-hit" class="good">…</dd></div>
+<div><dt>DB queries in flight</dt><dd id="r-db">…</dd></div>
+</dl>
+<div class="legend"><span><i style="background:var(--mint)"></i>Cache hit</span><span><i style="background:var(--coral)"></i>Database read</span><span><i style="background:var(--lilac)"></i>Queued to SQS</span></div>
 </div>
-<section class="bento" aria-label="Projects">
-<article class="tile proj t-coral c2 r2 m2" style="--i:5">
-<p class="label">Django API · 2026</p>
-<h3>Fuel Route Optimizer</h3>
-<p class="sum">Plans where a truck with a 500-mile range should refuel between any two U.S. places, how many gallons to buy at each stop, and the trip's total cost.</p>
-<div class="route" role="group" aria-label="Real result for Dallas to Houston">
+<p class="evidence-caption">Explore the architecture: turn Redis off to see the illustrative database load change.</p></div></div>
+</article>
+<article id="case-routing" class="case-study case-routing" aria-labelledby="routing-title">
+<header class="case-heading"><p class="case-context">Fuel Route Optimizer / Open-source project</p><h3 id="routing-title">A route is only half<br>the answer.</h3><p class="case-summary">Where should a truck refuel, how much should it buy, and what will the trip cost?</p></header>
+<div class="case-layout"><div class="case-evidence"><div class="route" role="group" aria-label="Real result for Dallas to Houston">
 <svg viewBox="0 0 400 120" role="img" aria-label="Route from Dallas to Houston with one fuel stop at mile 16 in Wilmer, Texas">
 <path d="M24 30 C 110 26, 150 60, 220 70 S 330 92, 376 96" fill="none" stroke="var(--line)" stroke-width="10" stroke-linecap="round"/>
 <path d="M24 30 C 110 26, 150 60, 220 70 S 330 92, 376 96" fill="none" stroke="var(--coral)" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 7"/>
@@ -318,54 +336,20 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <div class="cold"><span>First request</span><em style="width:100%"></em><span class="n">1,410 ms</span></div>
 <div class="warm"><span>Cached</span><em></em><span class="n">1.2 ms</span></div>
 </div>
-<div class="tags"><span>Python 3.12</span><span>Django</span><span>Redis optional</span><span>KD-tree search</span><span>Dynamic programming</span></div>
-<a class="repo-link" aria-label="View the code for Fuel Route Optimizer" href="https://github.com/WahajAli14/fuel-route-optimizer" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-gh"/></svg>View the code</a>
+<p class="evidence-caption">Example response published in the project README; not a live routing request.</p></div><div class="case-story">
+<section><h4>The constraint</h4><p>Plan fuel stops for a truck with a 500-mile range at 10 miles per gallon, using available station prices along a U.S. route.</p></section>
+<section><h4>The implementation</h4><p>The Django API combines routing, local place lookup, station matching and fuel-stop optimization. An uncached request makes one routing-provider call; a cache hit makes none.</p></section>
+<section><h4>What the evidence shows</h4><p>The repository’s Dallas-to-Houston example covers 238.7 miles and reports $65.84 in fuel. The published response-time comparison uses the in-memory cache. Redis is optional.</p></section>
+<details><summary>Limits of the result</summary><p>The routing result depends on the project’s fuel-price dataset and assumptions. It is not a quote for current pump prices. Station locations use city coordinates, and detours are approximated; inspect the README before interpreting the result.</p></details>
+<a class="case-source" aria-label="View the code for Fuel Route Optimizer" href="https://github.com/WahajAli14/fuel-route-optimizer" target="_blank" rel="noopener">Read the source and assumptions</a>
+</div></div>
 </article>
-<div class="tile sim-tile c2 r2 m2" style="--i:6" role="group" aria-labelledby="sim-title">
-<div class="sim-head">
-<div>
-<h3 id="sim-title">Mission Control</h3>
-<p id="sim-note">Illustrative simulation, not production telemetry. Toggle the cache to explore database load.</p>
-</div>
-<button class="motion-control" type="button" data-motion-control aria-pressed="false">Pause motion</button>
-<button class="switch" id="cache-toggle" type="button" role="switch" aria-checked="true"><span class="track" aria-hidden="true"></span>Redis cache <b id="cache-state">on</b></button>
-</div>
-<div class="stage"><canvas id="sim" role="img" aria-describedby="architecture-text" aria-label="Animated diagram: requests flow from clients through API Gateway to AWS Lambda, then to a Redis cache, a MySQL database, or an SQS queue handled by a background worker."></canvas></div>
-<p id="architecture-text" class="sr-only">Clients send HTTPS requests through API Gateway to a Python Lambda service. Reads check Redis before MySQL. Heavy jobs enter SQS, then a worker writes to MySQL. Turning caching off routes all reads to the database. All response values are illustrative.</p><dl class="readout">
-<div><dt>Average response</dt><dd id="r-avg" class="good">… ms</dd></div>
-<div><dt>From cache</dt><dd id="r-hit" class="good">…</dd></div>
-<div><dt>DB queries in flight</dt><dd id="r-db">…</dd></div>
-</dl>
-<div class="legend"><span><i style="background:var(--mint)"></i>Cache hit</span><span><i style="background:var(--coral)"></i>Database read</span><span><i style="background:var(--lilac)"></i>Queued to SQS</span></div>
-</div>
-<article class="tile proj t-lilac c3 m2" style="--i:7">
-<p class="label">RAG backend · in progress · status from prior portfolio</p>
-<h3>Football Intelligence Platform</h3>
-<p class="sum">An in-progress exploration of document-grounded football analysis. The prior portfolio describes PDF ingestion, ChromaDB retrieval and answers with source passages; the current implementation is awaiting repository verification.</p>
-<ol class="flow" aria-label="How a question is answered">
-<li>Load PDFs</li><li class="arrow" aria-hidden="true">→</li>
-<li>Chunk, 3 strategies</li><li class="arrow" aria-hidden="true">→</li>
-<li>Embed in ChromaDB</li><li class="arrow" aria-hidden="true">→</li>
-<li>Retrieve with scores</li><li class="arrow" aria-hidden="true">→</li>
-<li>Answer with sources</li>
-</ol>
-<p class="roadmap"><b>Now:</b> building the evaluation baseline. Next: hybrid retrieval and reranking, guardrails, memory, an MCP interface and agents.</p>
-<div class="tags"><span>Python</span><span>FastAPI</span><span>ChromaDB</span><span>OpenAI API</span><span>Token cost tracking</span></div>
-<a class="repo-link" aria-label="View the code for Football Intelligence Platform" href="https://github.com/WahajAli14/football-intelligence-platform" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-gh"/></svg>View the code</a>
+<article id="case-retrieval" class="case-study" aria-labelledby="retrieval-title">
+<header class="case-heading"><p class="case-context">Football Intelligence Platform / In progress</p><h3 id="retrieval-title">An answer should bring<br>its evidence.</h3><p class="case-summary">Exploring how football analysis can stay grounded in the documents behind an answer.</p></header>
+<div class="case-layout"><div class="case-story"><section><h4>The question</h4><p>How can an analyst inspect the passages behind a tactical answer, rather than trusting an unsupported response?</p></section><section><h4>The direction</h4><p>The earlier portfolio describes PDF ingestion, FastAPI, ChromaDB retrieval and answers with source passages. Its evaluation baseline is marked in progress.</p></section><section><h4>What you can inspect now</h4><p>The local explorer below searches a small portfolio corpus and reveals its matching passages. It demonstrates evidence inspection; it is not the football system or an LLM service.</p></section><p class="evidence-limit">Current football repository implementation remains unverified. This is an in-progress study, not a completed case study with measured accuracy.</p><a class="case-source" href="#explorer">Try the local evidence explorer</a></div><div class="retrieval-evidence" aria-label="Conceptual retrieval workflow"><div><span>Question</span><p>What needs explaining?</p></div><span aria-hidden="true">↓</span><div><span>Source passages</span><p>Retrieve relevant context.</p></div><span aria-hidden="true">↓</span><div><span>Answer + sources</span><p>Keep the evidence inspectable.</p></div><p class="evidence-caption">Proposed pipeline, not a live answer.</p></div></div>
 </article>
-<div class="tile stat duo t-sun m2" style="--i:8">
-<div>
-<p class="label">Messaging cost</p>
-<div class="big k">−50%</div>
-<p>Number validation and no repeat texts to unresponsive numbers</p>
-</div>
-<div>
-<p class="label">Tax-processing cost</p>
-<div class="big k">−30%</div>
-<p>Migrated from TaxJar to TaxCloud, same compliance workflow</p>
-</div>
-</div>
-<a class="tile mini m2" style="--i:9" href="https://github.com/WahajAli14/Task-Management-Endpoint-in-Django--Celery" target="_blank" rel="noopener">
+</section>
+<details class="more-code"><summary>More code and experiments</summary><div class="code-shelf"><a class="tile mini m2" style="--i:9" href="https://github.com/WahajAli14/Task-Management-Endpoint-in-Django--Celery" target="_blank" rel="noopener">
 <svg class="arrow-up" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11L11 5M6 5h5v5"/></svg>
 <p class="label">Django · Celery</p>
 <h3>Task API with background jobs</h3>
@@ -389,11 +373,11 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <h3>Pyserini and Anserini</h3>
 <p>My forks of the Waterloo IR toolkits for sparse and dense retrieval.</p>
 </a>
-</section>
-<section id="explorer" class="rag-section" aria-labelledby="rag-title"><div class="sec"><h2 id="rag-title"><span class="section-no">02 /</span> Evidence before answers.</h2><p>A small, inspectable retrieval lab.</p></div><div class="rag-grid"><div><p class="eyebrow">RAG EXPLORER / LOCAL DEMONSTRATION</p><h3>Ask about the work.<br>Inspect the evidence.</h3><p>Search a curated portfolio corpus. Matching passages appear with their sources. This demo uses keyword retrieval, with no embeddings, LLM or external API.</p><form id="rag-form"><label for="question">Your question</label><div class="search-row"><input id="question" name="question" autocomplete="off" type="search" maxlength="240" placeholder="How has Ali optimized backend performance?" required><button class="btn solid" type="submit">Retrieve ↗</button></div></form><div class="suggestions"><button type="button" data-query="backend performance">Backend performance</button><button type="button" data-query="AWS queue">AWS & queues</button><button type="button" data-query="retrieval RAG">RAG project</button></div></div><div id="rag-results" role="status" aria-live="polite"><p class="label">RETRIEVAL OUTPUT</p><h3>No hidden reasoning.<br>Just source passages.</h3><p>Enter a question or choose a prompt to inspect the available evidence.</p></div></div><ol class="pipeline" aria-label="Conceptual RAG architecture"><li>01 / Documents</li><li>02 / Chunks</li><li>03 / Retrieval</li><li>04 / Context</li><li>05 / Cited answer</li></ol><p class="label">Conceptual production pipeline; this local demo implements passage retrieval only. Football project status is carried over from the existing portfolio and requires repository verification.</p></section>
+</div></details>
+<section id="explorer" class="rag-section" aria-labelledby="rag-title"><div class="sec"><h2 id="rag-title">Evidence before answers.</h2><p>A small, inspectable retrieval lab.</p></div><div class="rag-grid"><div><p class="eyebrow">RAG EXPLORER / LOCAL DEMONSTRATION</p><h3>Ask about the work.<br>Inspect the evidence.</h3><p>Search a curated portfolio corpus. Matching passages appear with their sources. This demo uses keyword retrieval, with no embeddings, LLM or external API.</p><form id="rag-form"><label for="question">Your question</label><div class="search-row"><input id="question" name="question" autocomplete="off" type="search" maxlength="240" placeholder="How has Ali optimized backend performance?" required><button class="btn solid" type="submit">Retrieve ↗</button></div></form><div class="suggestions"><button type="button" data-query="backend performance">Backend performance</button><button type="button" data-query="AWS queue">AWS & queues</button><button type="button" data-query="retrieval RAG">RAG project</button></div></div><div id="rag-results" role="status" aria-live="polite"><p class="label">RETRIEVAL OUTPUT</p><h3>No hidden reasoning.<br>Just source passages.</h3><p>Enter a question or choose a prompt to inspect the available evidence.</p></div></div><ol class="pipeline" aria-label="Conceptual RAG architecture"><li>01 / Documents</li><li>02 / Chunks</li><li>03 / Retrieval</li><li>04 / Context</li><li>05 / Cited answer</li></ol><p class="label">Conceptual production pipeline; this local demo implements passage retrieval only. Football project status is carried over from the existing portfolio and requires repository verification.</p></section>
 <!-- ===== Experience ===== -->
 <div class="sec" id="experience">
-<h2><span class="section-no">03 /</span> Experience</h2>
+<h2>Experience</h2>
 <p>Backend work for U.S. operations and enterprise healthcare. Outcomes below are résumé-reported.</p>
 </div>
 <section class="bento" aria-label="Experience, skills and education">
@@ -476,5 +460,6 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <script src="motion.js"></script>
 <script src="simulation.js"></script>
 <script src="living.js"></script>
+<script src="journey.js"></script>
 </body>
 </html>

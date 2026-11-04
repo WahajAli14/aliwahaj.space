@@ -64,3 +64,7 @@ From this directory: `python3 -m http.server 4173 --bind 127.0.0.1`, then open `
 ## Motion follow-up
 
 See ANIMATION-REVIEW.md for the 3 November motion and interface review, implemented fixes, measured contrast pairs, browser coverage and verification limits. Run `node tests/motion.cjs` from this directory for the scheduling regression checks.
+
+## Casebook follow-up
+
+CASEBOOK-REVIEW.md documents the 5 November refinement: request-journey opening, full-width case studies, evidence disclosures and responsive checks. It supersedes the earlier layout descriptions above.

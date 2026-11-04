@@ -1,6 +1,6 @@
 # Living Systems: motion and interface verification
 
-Reviewed 3 November 2026. Scope: the local portfolio homepage and its animations, controls, narrow layouts, source-linked retrieval, and direct PDF links. Source changes remain on the draft redesign branch; no production deployment was authorized or performed.
+Historical iteration, reviewed 3 November 2026. The orbital/signal design has since been replaced; see CASEBOOK-REVIEW.md for the current layout. Scope: the local portfolio homepage and its animations, controls, narrow layouts, source-linked retrieval, and direct PDF links. Source changes remain on the draft redesign branch; no production deployment was authorized or performed.
 
 ## Design decision
 
