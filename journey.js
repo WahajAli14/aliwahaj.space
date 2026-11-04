@@ -16,3 +16,16 @@
     document.querySelector('#trace-caption').textContent = version.caption;
   }));
 })();
+
+/* Native anchors preserve deep links and keyboard navigation without scroll interception. */
+(() => {
+  const links = [...document.querySelectorAll('.case-index a')];
+  function syncCurrent() {
+    links.forEach(link => {
+      if (link.getAttribute('href') === window.location.hash) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  }
+  window.addEventListener('hashchange', syncCurrent);
+  syncCurrent();
+})();

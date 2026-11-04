@@ -283,8 +283,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <aside class="career-strip" aria-label="Career at a glance"><div><span>Currently</span><p>Backend Engineer · LinkedMatrix</p></div><div><span>Previously</span><p>Healthcare EDI · CureMD</p></div><div><span>Based in Pakistan</span><p><time id="clock">PKT</time> · Lahore / Islamabad / remote</p></div></aside>
 <!-- ===== Case studies ===== -->
 <div class="sec" id="work"><h2>Work, unpacked.</h2><p>The problem, my contribution, and the evidence behind the result.</p></div>
+<nav class="case-index" id="case-index" tabindex="-1" aria-label="Case study index">
+<a href="#case-backend"><strong>Backend performance</strong><span>SQLAlchemy, caching and queues</span></a>
+<a href="#case-routing"><strong>Route optimization</strong><span>Constraints, decisions and source code</span></a>
+<a href="#case-retrieval"><strong>Document-grounded AI</strong><span>In-progress exploration</span></a>
+</nav>
 <section class="case-studies" aria-label="Engineering case studies">
-<article id="case-backend" class="case-study" aria-labelledby="backend-title">
+<article id="case-backend" tabindex="-1" class="case-study" aria-labelledby="backend-title">
 <header class="case-heading"><p class="case-context">LinkedMatrix / Professional experience</p><h3 id="backend-title">When an endpoint takes<br>twenty seconds.</h3><p class="case-summary">A serverless laundry-care platform. SQLAlchemy queries. A long wait between the request and the response.</p></header>
 <div class="case-layout"><div class="case-story">
 <dl class="case-outcomes"><div><dt>Response time</dt><dd>20 s → 6 s</dd></div><div><dt>Improvement</dt><dd>70%</dd></div></dl>
@@ -292,7 +297,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <section><h4>My contribution</h4><p>I improved SQLAlchemy queries and removed N+1 issues. I also implemented Redis caching for frequently accessed data and moved heavy reports and image-change workflows to AWS SQS.</p></section>
 <section><h4>A decision worth showing</h4><p>Reusable distance records reduced 100K+ monthly Mapbox calls to near zero. The records expired after three months to keep location data updated.</p></section>
 <details><summary>Evidence and scope</summary><p>The 70% reduction applies to the selected endpoints described in my résumé. Redis improved selected workflows by approximately 50%; that is a separate result. The diagram is a conceptual explanation, not a production trace. Number validation and repeated-message prevention reduced proxy messaging costs by 50%; the TaxJar-to-TaxCloud migration reduced tax-processing costs by approximately 30%. These are separate résumé-reported outcomes. Employer source and production logs are not included.</p></details>
-<a class="case-source" href="Ali-Wahaj-Resume.pdf">Source: original résumé PDF</a>
+<div class="case-links"><a class="case-source" href="Ali-Wahaj-Resume.pdf">Source: original résumé PDF</a><a href="#case-index">Back to studies</a></div>
 </div><div class="case-evidence"><div class="tile sim-tile c2 r2 m2" style="--i:6" role="group" aria-labelledby="sim-title">
 <div class="sim-head">
 <div>
@@ -312,7 +317,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 </div>
 <p class="evidence-caption">Explore the architecture: turn Redis off to see the illustrative database load change.</p></div></div>
 </article>
-<article id="case-routing" class="case-study case-routing" aria-labelledby="routing-title">
+<article id="case-routing" tabindex="-1" class="case-study case-routing" aria-labelledby="routing-title">
 <header class="case-heading"><p class="case-context">Fuel Route Optimizer / Open-source project</p><h3 id="routing-title">A route is only half<br>the answer.</h3><p class="case-summary">Where should a truck refuel, how much should it buy, and what will the trip cost?</p></header>
 <div class="case-layout"><div class="case-evidence"><div class="route" role="group" aria-label="Real result for Dallas to Houston">
 <svg viewBox="0 0 400 120" role="img" aria-label="Route from Dallas to Houston with one fuel stop at mile 16 in Wilmer, Texas">
@@ -341,12 +346,12 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <section><h4>The implementation</h4><p>The Django API combines routing, local place lookup, station matching and fuel-stop optimization. An uncached request makes one routing-provider call; a cache hit makes none.</p></section>
 <section><h4>What the evidence shows</h4><p>The repository’s Dallas-to-Houston example covers 238.7 miles and reports $65.84 in fuel. The published response-time comparison uses the in-memory cache. Redis is optional.</p></section>
 <details><summary>Limits of the result</summary><p>The routing result depends on the project’s fuel-price dataset and assumptions. It is not a quote for current pump prices. Station locations use city coordinates, and detours are approximated; inspect the README before interpreting the result.</p></details>
-<a class="case-source" aria-label="View the code for Fuel Route Optimizer" href="https://github.com/WahajAli14/fuel-route-optimizer" target="_blank" rel="noopener">Read the source and assumptions</a>
+<a class="case-source" aria-label="View the code for Fuel Route Optimizer" href="https://github.com/WahajAli14/fuel-route-optimizer" target="_blank" rel="noopener">Read the source and assumptions</a><a class="case-return" href="#case-index">Back to studies</a>
 </div></div>
 </article>
-<article id="case-retrieval" class="case-study" aria-labelledby="retrieval-title">
+<article id="case-retrieval" tabindex="-1" class="case-study" aria-labelledby="retrieval-title">
 <header class="case-heading"><p class="case-context">Football Intelligence Platform / In progress</p><h3 id="retrieval-title">An answer should bring<br>its evidence.</h3><p class="case-summary">Exploring how football analysis can stay grounded in the documents behind an answer.</p></header>
-<div class="case-layout"><div class="case-story"><section><h4>The question</h4><p>How can an analyst inspect the passages behind a tactical answer, rather than trusting an unsupported response?</p></section><section><h4>The direction</h4><p>The earlier portfolio describes PDF ingestion, FastAPI, ChromaDB retrieval and answers with source passages. Its evaluation baseline is marked in progress.</p></section><section><h4>What you can inspect now</h4><p>The local explorer below searches a small portfolio corpus and reveals its matching passages. It demonstrates evidence inspection; it is not the football system or an LLM service.</p></section><p class="evidence-limit">Current football repository implementation remains unverified. This is an in-progress study, not a completed case study with measured accuracy.</p><a class="case-source" href="#explorer">Try the local evidence explorer</a></div><div class="retrieval-evidence" aria-label="Conceptual retrieval workflow"><div><span>Question</span><p>What needs explaining?</p></div><span aria-hidden="true">↓</span><div><span>Source passages</span><p>Retrieve relevant context.</p></div><span aria-hidden="true">↓</span><div><span>Answer + sources</span><p>Keep the evidence inspectable.</p></div><p class="evidence-caption">Proposed pipeline, not a live answer.</p></div></div>
+<div class="case-layout"><div class="case-story"><section><h4>The question</h4><p>How can an analyst inspect the passages behind a tactical answer, rather than trusting an unsupported response?</p></section><section><h4>The direction</h4><p>The earlier portfolio describes PDF ingestion, FastAPI, ChromaDB retrieval and answers with source passages. Its evaluation baseline is marked in progress.</p></section><section><h4>What you can inspect now</h4><p>The local explorer below searches a small portfolio corpus and reveals its matching passages. It demonstrates evidence inspection; it is not the football system or an LLM service.</p></section><p class="evidence-limit">Current football repository implementation remains unverified. This is an in-progress study, not a completed case study with measured accuracy.</p><a class="case-source" href="#explorer">Try the local evidence explorer</a><a class="case-return" href="#case-index">Back to studies</a></div><div class="retrieval-evidence" aria-label="Conceptual retrieval workflow"><div><span>Question</span><p>What needs explaining?</p></div><span aria-hidden="true">↓</span><div><span>Source passages</span><p>Retrieve relevant context.</p></div><span aria-hidden="true">↓</span><div><span>Answer + sources</span><p>Keep the evidence inspectable.</p></div><p class="evidence-caption">Proposed pipeline, not a live answer.</p></div></div>
 </article>
 </section>
 <details class="more-code"><summary>More code and experiments</summary><div class="code-shelf"><a class="tile mini m2" style="--i:9" href="https://github.com/WahajAli14/Task-Management-Endpoint-in-Django--Celery" target="_blank" rel="noopener">

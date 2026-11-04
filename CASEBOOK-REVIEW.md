@@ -37,3 +37,9 @@ The stylized likeness is pending reference photos. No stand-in face was generate
 No physical-device, cross-browser, OS-level motion-preference, enlarged-text or screen-reader verification was performed. The regression harness exercises motion preferences; it is not a substitute for an actual browser accessibility audit. Lighthouse/field performance was not measured. The likeness asset is not implemented yet.
 
 The tested local comparison, disclosure, navigation and simulation flows pass. This is not production approval. Previous REVIEW.md and ANIMATION-REVIEW.md describe earlier iterations; this document describes the current casebook layout.
+
+## Navigation refinement
+
+Added a three-entry case-study index and return links so readers can scan the longer casebook and jump directly to the relevant study. Native anchors preserve deep links and browser history. The selected hash is reflected with aria-current; no custom scrolling intercepts navigation.
+
+Browser checks: Enter on Route optimization focused article#case-routing and marked its index link current. Enter on its Back to studies link focused nav#case-index and cleared the current marker. At 320, 390, 768 and 1280px there was no horizontal overflow; index link heights measured 76–81px. No console errors were observed. Syntax, local target checks and the existing motion regression tests pass. The 3D portrait remains pending reference photos; production remains unchanged.

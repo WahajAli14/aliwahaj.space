@@ -25,3 +25,12 @@ body{background-image:none}.top{background:color-mix(in srgb,var(--bg) 94%,trans
 .sec h2{font-size:clamp(2.25rem,4.5vw,4rem);line-height:1.2}
 @media(max-width:1000px){.case-heading h3{font-size:2rem}}
 @media(max-width:700px){.sec h2{font-size:2.25rem}}
+
+/* A readable contents row keeps the longer casebook easy to scan. */
+.case-index{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-bottom:16px;border-block:1px solid var(--line);scroll-margin-block-start:100px}
+.case-index a{display:flex;flex-direction:column;justify-content:center;gap:5px;padding:18px 0;min-height:76px;text-decoration:none;color:var(--ink)}
+.case-index strong{font-size:.9375rem;font-weight:500;line-height:1.4}.case-index span{font-size:.75rem;line-height:1.6;color:var(--muted)}
+.case-index a[aria-current=location] strong{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
+.case-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:16px}.case-links .case-source{margin:0}.case-links>a,.case-return{display:inline-flex;align-items:center;min-height:44px;font-size:.875rem;text-underline-offset:5px}.case-return{margin-inline-start:20px}
+@media(hover:hover){.case-index a:hover strong{text-decoration:underline;text-underline-offset:6px}}
+@media(max-width:700px){.case-index{grid-template-columns:minmax(0,1fr);gap:0}.case-index a{min-height:76px;padding:14px 0}.case-index a+a{border-top:1px solid var(--line)}.case-return{display:flex;margin:8px 0 0}.case-links{gap:8px 20px}}
