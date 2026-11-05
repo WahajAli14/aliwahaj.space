@@ -32,7 +32,10 @@
       else link.removeAttribute('aria-current');
     });
   }
-  document.querySelectorAll('a[href^="#case-"]').forEach(link => link.addEventListener('click', () => revealCase(link.getAttribute('href'))));
+  document.addEventListener('click', event => {
+    const link = event.target.closest?.('a[href^="#case-"]');
+    if (link) revealCase(link.getAttribute('href'));
+  });
   window.addEventListener('hashchange', syncCurrent);
   syncCurrent();
 })();

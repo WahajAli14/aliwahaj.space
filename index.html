@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#eeeaf0">
 <meta name="author" content="Syed Ali Wahaj Jafri">
 <link rel="canonical" href="https://aliwahaj.space/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='16' height='16' rx='5' fill='%23101318'/%3E%3Crect x='20' y='2' width='10' height='10' rx='3.5' fill='%231D4ED8'/%3E%3Crect x='20' y='14' width='10' height='16' rx='3.5' fill='%2308724A'/%3E%3Crect x='2' y='20' width='16' height='10' rx='3.5' fill='%23B03A0E'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%2211%22%20fill%3D%22%23351e32%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2221%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-weight%3D%22700%22%20font-size%3D%2212%22%20fill%3D%22%23eeeaf0%22%3EAW%3C%2Ftext%3E%3C%2Fsvg%3E">
 
 
 <meta property="og:type" content="website">
@@ -230,9 +230,9 @@ a.mini:hover .arrow-up { stroke: var(--ink); }
 footer { padding-block: 0.5rem 2.5rem; color: var(--muted); font-size: 0.8125rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding-inline: max(1.4rem, env(safe-area-inset-left, 0px)) max(1.4rem, env(safe-area-inset-right, 0px)); }
 </style>
-<link rel="stylesheet" href="living.css?v=animated-portrait-1">
-<link rel="stylesheet" href="case-studies.css?v=animated-portrait-1">
-<link rel="stylesheet" href="identity.css?v=animated-portrait-1">
+<link rel="stylesheet" href="living.css?v=insight-and-actions-5">
+<link rel="stylesheet" href="case-studies.css?v=insight-and-actions-5">
+<link rel="stylesheet" href="identity.css?v=insight-and-actions-5">
 </head>
 <body>
 <a class="skip" href="#top">Skip to content</a>
@@ -243,7 +243,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <div class="top-right">
 <nav aria-label="Sections">
 <a href="#work">Work</a>
-<a href="#experience" class="opt">Experience</a><a href="#explorer">RAG lab</a><a href="Ali-Wahaj-Resume.pdf">Résumé ↗</a>
+<a href="#experience" class="opt">Experience</a><a href="#explorer">Evidence</a><a href="Ali-Wahaj-Resume.pdf">Résumé ↗</a>
 <a href="#contact">Contact</a>
 </nav>
 </div>
@@ -269,6 +269,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <div class="sec" id="work"><h2>A closer look at the work.</h2><p>The problem, my contribution, and the evidence behind the result.</p></div>
 <nav class="case-index" id="case-index" tabindex="-1" aria-label="Case study index">
 <a href="#case-backend"><strong>Backend performance</strong><span>Open decisions, results and evidence</span></a>
+<a href="#case-insight"><strong>Insight MCP</strong><span>Inspect the read-only data boundary</span></a>
 <a href="#case-routing"><strong>Route optimization</strong><span>Open constraints, approach and source</span></a>
 <a href="#case-retrieval"><strong>Document-grounded AI</strong><span>Open the in-progress exploration</span></a>
 </nav>
@@ -283,7 +284,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <section><h4>Engineering rationale</h4><p>Removing N+1 queries reduces repeated related-data reads at their source. Caching can reduce repeated work further; queueing heavy jobs keeps that work outside the request path. These mechanisms solve different bottlenecks.</p></section><section><h4>A decision worth showing</h4><p>Reusable distance records reduced 100K+ monthly Mapbox calls to near zero. The records expired after three months to keep location data updated.</p></section>
 <details><summary>Evidence and scope</summary><p>The 70% reduction applies to the selected endpoints described in my résumé. Redis improved selected workflows by approximately 50%; that is a separate result. The diagram is a conceptual explanation, not a production trace. Number validation and repeated-message prevention reduced proxy messaging costs by 50%; the TaxJar-to-TaxCloud migration reduced tax-processing costs by approximately 30%. These are separate résumé-reported outcomes. Employer source and production logs are not included.</p></details>
 <div class="case-links"><a class="case-source" href="Ali-Wahaj-Resume.pdf">Source: original résumé PDF</a><a href="#case-index">Back to studies</a></div>
-</div><div class="case-evidence"><div class="neural request-journey" data-trace="after" aria-labelledby="journey-title">
+</div><div class="case-evidence"><div class="neural request-journey" role="group" data-trace="after" aria-labelledby="journey-title">
 <div class="trace-heading"><span>Inside a request</span><span class="trace-kind">Illustrative replay</span></div>
 <h4 id="journey-title">Same endpoint.<br>Less waiting.</h4>
 <div class="trace-choices" role="group" aria-label="Compare endpoint versions">
@@ -308,7 +309,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <button class="switch" id="cache-toggle" type="button" role="switch" aria-checked="true"><span class="track" aria-hidden="true"></span>Redis cache <b id="cache-state">on</b></button>
 </div>
 <div class="stage"><canvas id="sim" role="img" aria-describedby="architecture-text" aria-label="Animated diagram: requests flow from clients through API Gateway to AWS Lambda, then to a Redis cache, a MySQL database, or an SQS queue handled by a background worker."></canvas></div>
-<p id="architecture-text" class="sr-only">Clients send HTTPS requests through API Gateway to a Python Lambda service. Reads check Redis before MySQL. Heavy jobs enter SQS, then a worker writes to MySQL. Turning caching off routes all reads to the database. All response values are illustrative.</p><dl class="readout">
+<details class="architecture-description"><summary>Read the architecture</summary><p id="architecture-text">In this conceptual diagram, clients send requests through API Gateway to a Python Lambda service. Reads check Redis before MySQL. Heavy jobs enter SQS, then a worker writes to MySQL. Turning caching off routes all reads to the database. All response values are illustrative.</p></details><dl class="readout">
 <div><dt>Average response</dt><dd id="r-avg" class="good">… ms</dd></div>
 <div><dt>From cache</dt><dd id="r-hit" class="good">…</dd></div>
 <div><dt>DB queries in flight</dt><dd id="r-db">…</dd></div>
@@ -319,11 +320,25 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 
 </details>
 </article>
+<article id="case-insight" tabindex="-1" class="case-study case-insight" aria-labelledby="insight-title">
+<header class="case-heading"><p class="case-context">Insight MCP / Private project</p><h3 id="insight-title"><a href="#case-insight">Useful tools.<br>Explicit boundaries.</a></h3><p class="case-summary">Giving an AI client access to data means deciding what it may read, what it must reject, and how much work a request can do.</p></header>
+<details class="case-disclosure"><summary><span class="case-open-label">Read reasoning &amp; evidence</span><span class="case-close-label">Close reasoning</span><span class="case-toggle" aria-hidden="true">+</span></summary>
+<div class="case-layout"><div class="case-story">
+<section><h4>The problem</h4><p>A model’s instructions are not a database permission boundary. A useful data tool needs checks that still apply when a client submits an unexpected query.</p></section>
+<section><h4>What I built</h4><p>A Python MCP project with SQL discovery and read-only query tools, plus a separate dataset-profiling server. The SQL path combines parsed-query validation with a least-privilege PostgreSQL role and read-only transactions.</p></section>
+<section><h4>Why two layers</h4><p>The query policy inspects the SQL structure, including nested statements, before execution. Database permissions provide another boundary. Neither layer should depend on a model following a prompt.</p></section>
+<section><h4>Bound the response and the work</h4><p>The implementation returns at most 100 rows and applies a 5-second statement deadline. The row cap limits the response size; the deadline limits how long the database statement may run. They address different costs.</p></section>
+<section><h4>What I verified</h4><p>The existing SQL-policy suite passed 22 tests locally on 5 November 2026, covering accepted reads, writes, stacked statements, nested writable queries and disallowed table references.</p></section>
+<details><summary>Evidence and limits</summary><p>The implementation and tests were reviewed from the private repository. The 22 passing checks cover query validation. PostgreSQL integration, timeout enforcement and the database permission boundary were not executed in this portfolio review. This is not a production deployment, a customer outcome or a complete security assessment. Source code remains private.</p></details>
+<div class="case-links"><a href="#contact">Discuss Insight MCP</a><a href="#case-index">Back to studies</a></div>
+</div><div class="case-evidence"><div class="policy-demo" role="group" data-policy="read" aria-labelledby="policy-title"><p class="label">Illustrative policy walkthrough</p><h4 id="policy-title">What happens to a request?</h4><p class="policy-intro">Choose an example. This walkthrough does not connect to a database.</p><div class="policy-choices" role="group" aria-label="Example request"><button type="button" data-policy-choice="read" aria-pressed="true">Read data</button><button type="button" data-policy-choice="write" aria-pressed="false">Attempt a write</button><button type="button" data-policy-choice="large" aria-pressed="false">Large result</button></div><ol class="policy-path"><li><span>Client request</span><p id="policy-request">Read an approved table.</p></li><li><span>Query validation</span><p id="policy-validation">Single read statement accepted.</p></li><li><span>Database boundary</span><p id="policy-database">Read-only role and transaction.</p></li><li><span>Result</span><p id="policy-result">Return the requested rows, up to the configured cap.</p></li></ol><p id="policy-status" class="policy-status" role="status">Read path: validation and database permissions serve separate roles.</p><dl class="policy-limits"><div><dt>Returned row cap</dt><dd>100 rows</dd></div><div><dt>Statement deadline</dt><dd>5 seconds</dd></div></dl><p class="evidence-caption">Configured limits from the implementation. These examples explain the design; they are not live query results.</p></div></div></div>
+</details></article>
+
 <article id="case-routing" tabindex="-1" class="case-study case-routing" aria-labelledby="routing-title">
 <header class="case-heading"><p class="case-context">Fuel Route Optimizer / Open-source project</p><h3 id="routing-title"><a href="#case-routing">A route is only half<br>the answer.</a></h3><p class="case-summary">Where should a truck refuel, how much should it buy, and what will the trip cost?</p></header>
 <details class="case-disclosure"><summary><span class="case-open-label">Read reasoning &amp; evidence</span><span class="case-close-label">Close reasoning</span><span class="case-toggle" aria-hidden="true">+</span></summary>
-<div class="case-layout"><div class="case-evidence"><div class="route" role="group" aria-label="Real result for Dallas to Houston">
-<svg viewBox="0 0 400 120" role="img" aria-label="Route from Dallas to Houston with one fuel stop at mile 16 in Wilmer, Texas">
+<div class="case-layout"><div class="case-evidence"><div class="route" role="group" aria-label="Repository example: Dallas to Houston">
+<svg viewBox="0 0 400 120" aria-hidden="true">
 <path d="M24 30 C 110 26, 150 60, 220 70 S 330 92, 376 96" fill="none" stroke="var(--line)" stroke-width="10" stroke-linecap="round"/>
 <path d="M24 30 C 110 26, 150 60, 220 70 S 330 92, 376 96" fill="none" stroke="var(--coral)" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 7"/>
 <circle cx="24" cy="30" r="7" fill="var(--ink)"/>
@@ -334,13 +349,14 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <text x="376" y="80" font-size="12" font-weight="600" fill="var(--ink)" text-anchor="end" font-family="Geist, sans-serif">Houston</text>
 <text x="72" y="20" font-size="11" fill="var(--muted)" font-family="Geist, sans-serif">One9 #1248, Wilmer · mile 16 · $2.756/gal</text>
 </svg>
+<p class="route-caption sr-only">Dallas to Houston, refuelling in Wilmer at mile 16. Example station: One9 #1248 at $2.756 per gallon.</p>
 <div class="facts">
 <div><b>238.7 mi</b><span>route</span></div>
 <div><b>23.89 gal</b><span>bought</span></div>
 <div><b>$65.84</b><span>total fuel</span></div>
 </div>
 </div>
-<p class="label" style="margin-top:1rem">Repository benchmark · in-memory cache · not a live test</p><div class="speed" aria-label="Repository-reported timings, Chicago to Los Angeles; in-memory cache">
+<p class="label" style="margin-top:1rem">Repository benchmark · in-memory cache · not a live test</p><div class="speed" role="group" aria-label="Repository-reported timings, Chicago to Los Angeles; in-memory cache">
 <div class="cold"><span>First request</span><em style="width:100%"></em><span class="n">1,410 ms</span></div>
 <div class="warm"><span>Cached</span><em></em><span class="n">1.2 ms</span></div>
 </div>
@@ -357,7 +373,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <article id="case-retrieval" tabindex="-1" class="case-study" aria-labelledby="retrieval-title">
 <header class="case-heading"><p class="case-context">Football Intelligence Platform / In progress</p><h3 id="retrieval-title"><a href="#case-retrieval">An answer should bring<br>its evidence.</a></h3><p class="case-summary">Exploring how football analysis can stay grounded in the documents behind an answer.</p></header>
 <details class="case-disclosure"><summary><span class="case-open-label">Read reasoning &amp; evidence</span><span class="case-close-label">Close reasoning</span><span class="case-toggle" aria-hidden="true">+</span></summary>
-<div class="case-layout"><div class="case-story"><section><h4>The question</h4><p>How can an analyst inspect the passages behind a tactical answer, rather than trusting an unsupported response?</p></section><section><h4>The direction</h4><p>The earlier portfolio describes PDF ingestion, FastAPI, ChromaDB retrieval and answers with source passages. Its evaluation baseline is marked in progress.</p></section><section><h4>Reasoning and trade-offs</h4><p>Retrieval makes supporting passages available for inspection, but a retrieved passage does not by itself prove an answer is correct. An evaluation baseline is needed before making accuracy claims. This is the direction being explored, not a verified completed result.</p></section><section><h4>What you can inspect now</h4><p>The local explorer below searches a small portfolio corpus and reveals its matching passages. It demonstrates evidence inspection; it is not the football system or an LLM service.</p></section><p class="evidence-limit">Current football repository implementation remains unverified. This is an in-progress study, not a completed case study with measured accuracy.</p><a class="case-source" href="#explorer">Try the local evidence explorer</a><a class="case-return" href="#case-index">Back to studies</a></div><div class="retrieval-evidence" aria-label="Conceptual retrieval workflow"><div><span>Question</span><p>What needs explaining?</p></div><span aria-hidden="true">↓</span><div><span>Source passages</span><p>Retrieve relevant context.</p></div><span aria-hidden="true">↓</span><div><span>Answer + sources</span><p>Keep the evidence inspectable.</p></div><p class="evidence-caption">Proposed pipeline, not a live answer.</p></div></div>
+<div class="case-layout"><div class="case-story"><section><h4>The question</h4><p>How can an analyst inspect the passages behind a tactical answer, rather than trusting an unsupported response?</p></section><section><h4>The direction</h4><p>The earlier portfolio describes PDF ingestion, FastAPI, ChromaDB retrieval and answers with source passages. Its evaluation baseline is marked in progress.</p></section><section><h4>Reasoning and trade-offs</h4><p>Retrieval makes supporting passages available for inspection, but a retrieved passage does not by itself prove an answer is correct. An evaluation baseline is needed before making accuracy claims. This is the direction being explored, not a verified completed result.</p></section><section><h4>What you can inspect now</h4><p>The local explorer below searches a small portfolio corpus and reveals its matching passages. It demonstrates evidence inspection; it is not the football system or an LLM service.</p></section><p class="evidence-limit">Current football repository implementation remains unverified. This is an in-progress study, not a completed case study with measured accuracy.</p><a class="case-source" href="#explorer">Try the local evidence explorer</a><a class="case-return" href="#case-index">Back to studies</a></div><div class="retrieval-evidence" role="group" aria-label="Conceptual retrieval workflow"><div><span>Question</span><p>What needs explaining?</p></div><span aria-hidden="true">↓</span><div><span>Source passages</span><p>Retrieve relevant context.</p></div><span aria-hidden="true">↓</span><div><span>Answer + sources</span><p>Keep the evidence inspectable.</p></div><p class="evidence-caption">Proposed pipeline, not a live answer.</p></div></div>
 
 </details>
 </article>
@@ -387,7 +403,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <p>My forks of the Waterloo IR toolkits for sparse and dense retrieval.</p>
 </a>
 </div></details>
-<section id="explorer" class="rag-section" aria-labelledby="rag-title"><div class="sec"><h2 id="rag-title">Evidence before answers.</h2><p>A small, inspectable retrieval lab.</p></div><div class="rag-grid"><div><p class="eyebrow">RAG EXPLORER / LOCAL DEMONSTRATION</p><h3>Ask about the work.<br>Inspect the evidence.</h3><p>Search a curated portfolio corpus. Matching passages appear with their sources. This demo uses keyword retrieval, with no embeddings, LLM or external API.</p><form id="rag-form"><label for="question">Your question</label><div class="search-row"><input id="question" name="question" autocomplete="off" type="search" maxlength="240" placeholder="How has Ali optimized backend performance?" required><button class="btn solid" type="submit">Retrieve ↗</button></div></form><div class="suggestions"><button type="button" data-query="backend performance">Backend performance</button><button type="button" data-query="AWS queue">AWS & queues</button><button type="button" data-query="retrieval RAG">RAG project</button></div></div><div id="rag-results" role="status" aria-live="polite"><p class="label">RETRIEVAL OUTPUT</p><h3>No hidden reasoning.<br>Just source passages.</h3><p>Enter a question or choose a prompt to inspect the available evidence.</p></div></div><ol class="pipeline" aria-label="Conceptual RAG architecture"><li>01 / Documents</li><li>02 / Chunks</li><li>03 / Retrieval</li><li>04 / Context</li><li>05 / Cited answer</li></ol><p class="label">Conceptual production pipeline; this local demo implements passage retrieval only. Football project status is carried over from the existing portfolio and requires repository verification.</p></section>
+<section id="explorer" class="rag-section" aria-labelledby="rag-title"><div class="sec"><h2 id="rag-title">Evidence before answers.</h2><p>A small, inspectable retrieval lab.</p></div><div class="rag-grid"><div><p class="eyebrow">Local evidence explorer</p><h3>Explore the work.<br>See the sources.</h3><p>Search a curated portfolio corpus. Matching passages appear with their sources. This demo uses keyword retrieval, with no embeddings, LLM or external API.</p><p id="retrieval-help" class="field-help">Try a topic such as backend performance, Insight MCP or fuel routing.</p><form id="rag-form"><label for="question">Your question</label><div class="search-row"><input id="question" name="question" autocomplete="off" type="search" maxlength="240" placeholder="How has Ali optimized backend performance?" aria-describedby="retrieval-help" required><button class="btn solid" type="submit">Find passages</button></div></form><div class="suggestions"><button type="button" data-query="backend performance">Backend performance</button><button type="button" data-query="AWS queue">AWS & queues</button><button type="button" data-query="Insight MCP read only">Insight MCP</button><button type="button" data-query="retrieval RAG">RAG project</button></div></div><div id="rag-results" role="status" aria-live="polite"><p class="label">Source passages</p><h3>Find the evidence<br>behind the work.</h3><p>Enter a question or choose a prompt to inspect the available evidence.</p></div></div><ol class="pipeline" aria-label="Conceptual RAG architecture"><li>01 / Documents</li><li>02 / Chunks</li><li>03 / Retrieval</li><li>04 / Context</li><li>05 / Cited answer</li></ol><p class="label">Conceptual production pipeline; this local demo implements passage retrieval only. Football project status is carried over from the existing portfolio and requires repository verification.</p></section>
 <!-- ===== Experience ===== -->
 <div class="sec" id="experience">
 <h2>Experience</h2>
@@ -471,11 +487,12 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 </div>
 </footer>
 <dialog id="model-dialog" aria-labelledby="model-title"><div class="model-dialog-head"><div><p class="label">Interactive identity study</p><h2 id="model-title">A mark with dimension.</h2></div><button type="button" id="model-close" class="model-button">Close 3D view</button></div><p class="model-description">An original AW monogram model. This is a 3D identity prototype, not a likeness portrait. Use the controls or drag to explore it.</p><div id="model-stage"><div class="model-poster" aria-hidden="true">AW</div></div><p id="model-status" role="status">The 3D viewer loads only when opened.</p><div class="model-controls"><button type="button" id="model-left" disabled>Rotate left</button><button type="button" id="model-right" disabled>Rotate right</button><button type="button" id="model-reset" disabled>Reset view</button><button type="button" id="model-retry" hidden>Retry 3D viewer</button><a href="assets/aw-monogram.glb" download>Download the 3D model</a></div><p class="model-note">Portrait references have been selected; a generated likeness is still in development. No personal photos are sent to a modelling service by this viewer.</p></dialog>
-<script src="motion.js?v=animated-portrait-1"></script>
-<script src="simulation.js?v=animated-portrait-1"></script>
-<script src="living.js?v=animated-portrait-1"></script>
-<script src="journey.js?v=animated-portrait-1"></script>
-<script src="model.js?v=animated-portrait-1"></script>
-<script src="portrait.js?v=animated-portrait-1"></script>
+<script src="motion.js?v=insight-and-actions-5"></script>
+<script src="simulation.js?v=insight-and-actions-5"></script>
+<script src="living.js?v=insight-and-actions-5"></script>
+<script src="journey.js?v=insight-and-actions-5"></script>
+<script src="model.js?v=insight-and-actions-5"></script>
+<script src="portrait.js?v=insight-and-actions-5"></script>
+<script src="policy.js?v=insight-and-actions-5"></script>
 </body>
 </html>
