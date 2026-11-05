@@ -230,9 +230,9 @@ a.mini:hover .arrow-up { stroke: var(--ink); }
 footer { padding-block: 0.5rem 2.5rem; color: var(--muted); font-size: 0.8125rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding-inline: max(1.4rem, env(safe-area-inset-left, 0px)) max(1.4rem, env(safe-area-inset-right, 0px)); }
 </style>
-<link rel="stylesheet" href="living.css?v=portrait-atelier-1">
-<link rel="stylesheet" href="case-studies.css?v=portrait-atelier-1">
-<link rel="stylesheet" href="identity.css?v=portrait-atelier-1">
+<link rel="stylesheet" href="living.css?v=animated-portrait-1">
+<link rel="stylesheet" href="case-studies.css?v=animated-portrait-1">
+<link rel="stylesheet" href="identity.css?v=animated-portrait-1">
 </head>
 <body>
 <a class="skip" href="#top">Skip to content</a>
@@ -262,7 +262,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <div class="cta"><a class="btn solid" href="#work">Explore my work</a><a class="btn" href="Ali-Wahaj-Resume.pdf">Open résumé PDF</a></div>
 <div class="hero-social"><a href="https://github.com/WahajAli14" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/syed-wahaj" target="_blank" rel="noopener">LinkedIn</a><a href="#contact">Get in touch</a></div>
 </div>
-<figure class="portrait-object" id="portrait-object"><div class="portrait-mat"><img src="assets/ali-portrait.jpeg" alt="Ali Wahaj wearing a dark suit." width="1200" height="1600" fetchpriority="high"><span class="portrait-seal" aria-hidden="true">AW</span></div><figcaption><span>Ali Wahaj<br><small>Engineer, based in Pakistan.</small></span><button class="model-open" id="model-open" type="button" aria-haspopup="dialog">Explore 3D mark</button></figcaption></figure>
+<figure class="portrait-object" id="portrait-object" data-portrait="illustration"><div class="portrait-mat"><span class="portrait-halo" aria-hidden="true"></span><div class="portrait-drift"><img id="portrait-image" src="assets/ali-bust.webp" alt="Stylized illustrated bust of Ali Wahaj in a charcoal suit." width="900" height="823" fetchpriority="high"></div><span class="portrait-ground" aria-hidden="true"></span></div><figcaption><span>Ali Wahaj<br><small id="portrait-kind">Illustrated portrait</small></span><div class="portrait-actions"><div class="portrait-choices" role="group" aria-label="Portrait appearance"><button type="button" data-portrait-choice="illustration" aria-pressed="true">Illustration</button><button type="button" data-portrait-choice="photo" aria-pressed="false">Photo</button></div><button type="button" class="portrait-motion motion-control" data-motion-control aria-pressed="false">Pause motion</button></div></figcaption><button class="model-open" id="model-open" type="button" aria-haspopup="dialog">Explore 3D mark</button></figure>
 </section>
 <aside class="career-strip" aria-label="Career at a glance"><div><span>Currently</span><p>Backend Engineer · LinkedMatrix</p></div><div><span>Previously</span><p>Healthcare EDI · CureMD</p></div><div><span>Based in Pakistan</span><p><time id="clock">PKT</time> · Lahore / Islamabad / remote</p></div></aside>
 <!-- ===== Case studies ===== -->
@@ -471,11 +471,11 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 </div>
 </footer>
 <dialog id="model-dialog" aria-labelledby="model-title"><div class="model-dialog-head"><div><p class="label">Interactive identity study</p><h2 id="model-title">A mark with dimension.</h2></div><button type="button" id="model-close" class="model-button">Close 3D view</button></div><p class="model-description">An original AW monogram model. This is a 3D identity prototype, not a likeness portrait. Use the controls or drag to explore it.</p><div id="model-stage"><div class="model-poster" aria-hidden="true">AW</div></div><p id="model-status" role="status">The 3D viewer loads only when opened.</p><div class="model-controls"><button type="button" id="model-left" disabled>Rotate left</button><button type="button" id="model-right" disabled>Rotate right</button><button type="button" id="model-reset" disabled>Reset view</button><button type="button" id="model-retry" hidden>Retry 3D viewer</button><a href="assets/aw-monogram.glb" download>Download the 3D model</a></div><p class="model-note">Portrait references have been selected; a generated likeness is still in development. No personal photos are sent to a modelling service by this viewer.</p></dialog>
-<script src="motion.js?v=portrait-atelier-1"></script>
-<script src="simulation.js?v=portrait-atelier-1"></script>
-<script src="living.js?v=portrait-atelier-1"></script>
-<script src="journey.js?v=portrait-atelier-1"></script>
-<script src="model.js?v=portrait-atelier-1"></script>
-<script src="portrait.js?v=portrait-atelier-1"></script>
+<script src="motion.js?v=animated-portrait-1"></script>
+<script src="simulation.js?v=animated-portrait-1"></script>
+<script src="living.js?v=animated-portrait-1"></script>
+<script src="journey.js?v=animated-portrait-1"></script>
+<script src="model.js?v=animated-portrait-1"></script>
+<script src="portrait.js?v=animated-portrait-1"></script>
 </body>
 </html>
