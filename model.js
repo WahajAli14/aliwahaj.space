@@ -23,8 +23,8 @@
       if (request !== attempt) return;
       if (viewer) viewer.remove();
       viewer = document.createElement('model-viewer');
-      viewer.setAttribute('src', 'assets/aw-monogram.glb');
-      viewer.setAttribute('alt', 'An extruded three-dimensional AW monogram with periwinkle faces and dark ink edges.');
+      viewer.setAttribute('src', 'assets/aw-monogram.glb?v=atelier-2');
+      viewer.setAttribute('alt', 'An extruded three-dimensional AW monogram with rose faces and wine-colored edges.');
       viewer.setAttribute('camera-controls', ''); viewer.setAttribute('disable-pan', ''); viewer.setAttribute('disable-zoom', '');
       viewer.setAttribute('touch-action', 'pan-y'); viewer.setAttribute('interaction-prompt', 'none');
       viewer.setAttribute('camera-orbit', '25deg 75deg auto'); viewer.setAttribute('shadow-intensity', '.8');

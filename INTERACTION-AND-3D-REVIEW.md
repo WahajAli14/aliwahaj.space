@@ -37,3 +37,7 @@ The renderer requires a network connection on first open. Its error/retry path w
 ## Review assessment
 
 Design judgment, not benchmark scores: case-study discoverability 9/10, professional scan clarity 8/10, distinctive identity 8/10. The missing portrait and independently verified project evidence prevent stronger identity/evidence scores. Accessibility and performance are reported by tested scope above rather than assigned unsupported numerical scores.
+
+## Superseding visual revision
+
+PORTRAIT-ATELIER-REVIEW.md documents the latest portrait-led layout and mineral/wine palette. The navy/periwinkle appearance above is historical.

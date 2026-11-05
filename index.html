@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ali Wahaj | Backend Software Engineer</title>
 <meta name="description" content="Ali Wahaj, backend software engineer in Pakistan. Python, AWS Lambda, SQLAlchemy, Redis and SQS, plus RAG and retrieval systems.">
-<meta name="theme-color" content="#101629">
+<meta name="theme-color" content="#eeeaf0">
 <meta name="author" content="Syed Ali Wahaj Jafri">
 <link rel="canonical" href="https://aliwahaj.space/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='16' height='16' rx='5' fill='%23101318'/%3E%3Crect x='20' y='2' width='10' height='10' rx='3.5' fill='%231D4ED8'/%3E%3Crect x='20' y='14' width='10' height='16' rx='3.5' fill='%2308724A'/%3E%3Crect x='2' y='20' width='16' height='10' rx='3.5' fill='%23B03A0E'/%3E%3C/svg%3E">
@@ -230,9 +230,9 @@ a.mini:hover .arrow-up { stroke: var(--ink); }
 footer { padding-block: 0.5rem 2.5rem; color: var(--muted); font-size: 0.8125rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding-inline: max(1.4rem, env(safe-area-inset-left, 0px)) max(1.4rem, env(safe-area-inset-right, 0px)); }
 </style>
-<link rel="stylesheet" href="living.css?v=casebook-3d-1">
-<link rel="stylesheet" href="case-studies.css?v=casebook-3d-1">
-<link rel="stylesheet" href="identity.css?v=casebook-3d-1">
+<link rel="stylesheet" href="living.css?v=portrait-atelier-1">
+<link rel="stylesheet" href="case-studies.css?v=portrait-atelier-1">
+<link rel="stylesheet" href="identity.css?v=portrait-atelier-1">
 </head>
 <body>
 <a class="skip" href="#top">Skip to content</a>
@@ -251,39 +251,22 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 </header>
 <main id="top" tabindex="-1">
 <div class="wrap">
-<div class="casebook-heading"><span>Ali Wahaj’s engineering casebook</span><span>Backend · Infrastructure · Applied AI</span></div>
+<div class="casebook-heading"><span>A personal collection of engineering work</span><span>Backend engineering / Applied AI</span></div>
 <!-- ===== Hero bento ===== -->
-<section class="bento hero" aria-label="Introduction">
-<div class="tile intro c2 r2 m2" style="--i:0">
-<span class="pill"><i aria-hidden="true"></i>Open to backend and AI roles</span>
-<div class="identity-row"><p class="identity">Ali Wahaj / Backend Software Engineer</p><button class="model-open" id="model-open" type="button" aria-haspopup="dialog"><span aria-hidden="true">◇</span> Explore 3D mark</button></div><h1>The work behind<br>less waiting.</h1>
-<p class="role">I build the systems behind the experience.</p>
-<p class="lede">Python backends at LinkedMatrix. Previously, healthcare EDI at CureMD. Here are the bottlenecks, decisions and results behind my work.</p>
-<div class="cta push">
-<a class="btn solid" href="#work">Read the case studies</a><a class="btn" href="Ali-Wahaj-Resume.pdf">Résumé ↗</a>
-<a class="btn" href="https://github.com/WahajAli14" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-gh"/></svg>GitHub</a>
-<a class="btn" href="https://www.linkedin.com/in/syed-wahaj" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-li"/></svg>LinkedIn</a>
+<section class="bento hero portrait-hero" aria-label="Introduction">
+<div class="tile intro">
+<div class="hero-intro-line"><p class="identity">Backend Software Engineer</p><span class="open-status">Open to backend &amp; AI roles</span></div>
+<h1>Ali<br>Wahaj<span class="name-dot" aria-hidden="true">.</span></h1>
+<p class="role">I build the systems<br>behind the experience.</p>
+<p class="lede">Python backends. Better queries. Less waiting.<br>Currently at LinkedMatrix; previously at CureMD.</p>
+<div class="cta"><a class="btn solid" href="#work">Explore my work</a><a class="btn" href="Ali-Wahaj-Resume.pdf">Open résumé PDF</a></div>
+<div class="hero-social"><a href="https://github.com/WahajAli14" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/syed-wahaj" target="_blank" rel="noopener">LinkedIn</a><a href="#contact">Get in touch</a></div>
 </div>
-</div>
-<div class="neural request-journey" data-trace="after" aria-labelledby="journey-title">
-<div class="trace-heading"><span>Inside a request</span><span class="trace-kind">Illustrative replay</span></div>
-<h2 id="journey-title">Same endpoint.<br>Less waiting.</h2>
-<div class="trace-choices" role="group" aria-label="Compare endpoint versions">
-<button type="button" data-trace-mode="before" aria-pressed="false">Original <span>20 s</span></button>
-<button type="button" data-trace-mode="after" aria-pressed="true">Optimized <span>6 s</span></button>
-</div>
-<div class="trace-diagram" role="img" aria-label="Conceptual request path: a Python endpoint reads related data through SQLAlchemy, then returns a response. The optimized version avoids N+1 queries.">
-<div class="trace-stations"><span>Request</span><span>Python API</span><span>Database</span><span>Response</span></div>
-<div class="trace-track"><div class="trace-budget"><div class="trace-progress"></div></div><span class="trace-scale">20 s reference</span></div>
-<div class="query-study"><div class="query-label">Related data reads</div><div class="query-original" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="query-optimized" aria-hidden="true"><i></i></div><p class="query-caption" id="trace-caption">N+1 queries removed; less repeated work.</p></div>
-</div>
-<div class="trace-outcome" role="status" aria-live="polite"><strong id="trace-time">6 s</strong><p id="trace-outcome">70% lower response time on selected high-volume endpoints.</p></div>
-<p class="trace-source">20 s → 6 s is résumé-reported. The structure and compressed replay are illustrative; individual query timings are not measured here.</p>
-<div class="trace-footer"><a href="#case-backend">Read the backend case study</a><button type="button" id="motion" data-motion-control aria-pressed="false">Pause motion</button></div>
-</div></section>
+<figure class="portrait-object" id="portrait-object"><div class="portrait-mat"><img src="assets/ali-portrait.jpeg" alt="Ali Wahaj wearing a dark suit." width="1200" height="1600" fetchpriority="high"><span class="portrait-seal" aria-hidden="true">AW</span></div><figcaption><span>Ali Wahaj<br><small>Engineer, based in Pakistan.</small></span><button class="model-open" id="model-open" type="button" aria-haspopup="dialog">Explore 3D mark</button></figcaption></figure>
+</section>
 <aside class="career-strip" aria-label="Career at a glance"><div><span>Currently</span><p>Backend Engineer · LinkedMatrix</p></div><div><span>Previously</span><p>Healthcare EDI · CureMD</p></div><div><span>Based in Pakistan</span><p><time id="clock">PKT</time> · Lahore / Islamabad / remote</p></div></aside>
 <!-- ===== Case studies ===== -->
-<div class="sec" id="work"><h2>Work, unpacked.</h2><p>The problem, my contribution, and the evidence behind the result.</p></div>
+<div class="sec" id="work"><h2>A closer look at the work.</h2><p>The problem, my contribution, and the evidence behind the result.</p></div>
 <nav class="case-index" id="case-index" tabindex="-1" aria-label="Case study index">
 <a href="#case-backend"><strong>Backend performance</strong><span>Open decisions, results and evidence</span></a>
 <a href="#case-routing"><strong>Route optimization</strong><span>Open constraints, approach and source</span></a>
@@ -300,7 +283,22 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <section><h4>Engineering rationale</h4><p>Removing N+1 queries reduces repeated related-data reads at their source. Caching can reduce repeated work further; queueing heavy jobs keeps that work outside the request path. These mechanisms solve different bottlenecks.</p></section><section><h4>A decision worth showing</h4><p>Reusable distance records reduced 100K+ monthly Mapbox calls to near zero. The records expired after three months to keep location data updated.</p></section>
 <details><summary>Evidence and scope</summary><p>The 70% reduction applies to the selected endpoints described in my résumé. Redis improved selected workflows by approximately 50%; that is a separate result. The diagram is a conceptual explanation, not a production trace. Number validation and repeated-message prevention reduced proxy messaging costs by 50%; the TaxJar-to-TaxCloud migration reduced tax-processing costs by approximately 30%. These are separate résumé-reported outcomes. Employer source and production logs are not included.</p></details>
 <div class="case-links"><a class="case-source" href="Ali-Wahaj-Resume.pdf">Source: original résumé PDF</a><a href="#case-index">Back to studies</a></div>
-</div><div class="case-evidence"><div class="tile sim-tile c2 r2 m2" style="--i:6" role="group" aria-labelledby="sim-title">
+</div><div class="case-evidence"><div class="neural request-journey" data-trace="after" aria-labelledby="journey-title">
+<div class="trace-heading"><span>Inside a request</span><span class="trace-kind">Illustrative replay</span></div>
+<h4 id="journey-title">Same endpoint.<br>Less waiting.</h4>
+<div class="trace-choices" role="group" aria-label="Compare endpoint versions">
+<button type="button" data-trace-mode="before" aria-pressed="false">Original <span>20 s</span></button>
+<button type="button" data-trace-mode="after" aria-pressed="true">Optimized <span>6 s</span></button>
+</div>
+<div class="trace-diagram" role="img" aria-label="Conceptual request path: a Python endpoint reads related data through SQLAlchemy, then returns a response. The optimized version avoids N+1 queries.">
+<div class="trace-stations"><span>Request</span><span>Python API</span><span>Database</span><span>Response</span></div>
+<div class="trace-track"><div class="trace-budget"><div class="trace-progress"></div></div><span class="trace-scale">20 s reference</span></div>
+<div class="query-study"><div class="query-label">Related data reads</div><div class="query-original" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="query-optimized" aria-hidden="true"><i></i></div><p class="query-caption" id="trace-caption">N+1 queries removed; less repeated work.</p></div>
+</div>
+<div class="trace-outcome" role="status" aria-live="polite"><strong id="trace-time">6 s</strong><p id="trace-outcome">70% lower response time on selected high-volume endpoints.</p></div>
+<p class="trace-source">20 s → 6 s is résumé-reported. The structure and compressed replay are illustrative; individual query timings are not measured here.</p>
+<div class="trace-footer"><a href="#case-backend">Read the backend case study</a><button type="button" id="motion" data-motion-control aria-pressed="false">Pause motion</button></div>
+</div><div class="tile sim-tile c2 r2 m2" style="--i:6" role="group" aria-labelledby="sim-title">
 <div class="sim-head">
 <div>
 <h4 id="sim-title">Mission Control</h4>
@@ -472,11 +470,12 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <span>aliwahaj.space</span>
 </div>
 </footer>
-<dialog id="model-dialog" aria-labelledby="model-title"><div class="model-dialog-head"><div><p class="label">Interactive identity study</p><h2 id="model-title">A mark with dimension.</h2></div><button type="button" id="model-close" class="model-button">Close 3D view</button></div><p class="model-description">An original AW monogram model. This is a 3D identity prototype, not a likeness portrait. Use the controls or drag to explore it.</p><div id="model-stage"><div class="model-poster" aria-hidden="true">AW</div></div><p id="model-status" role="status">The 3D viewer loads only when opened.</p><div class="model-controls"><button type="button" id="model-left" disabled>Rotate left</button><button type="button" id="model-right" disabled>Rotate right</button><button type="button" id="model-reset" disabled>Reset view</button><button type="button" id="model-retry" hidden>Retry 3D viewer</button><a href="assets/aw-monogram.glb" download>Download the 3D model</a></div><p class="model-note">A likeness-based portrait is pending a confirmed reference photo. No personal photos are sent to a modelling service by this viewer.</p></dialog>
-<script src="motion.js?v=casebook-3d-1"></script>
-<script src="simulation.js?v=casebook-3d-1"></script>
-<script src="living.js?v=casebook-3d-1"></script>
-<script src="journey.js?v=casebook-3d-1"></script>
-<script src="model.js?v=casebook-3d-1"></script>
+<dialog id="model-dialog" aria-labelledby="model-title"><div class="model-dialog-head"><div><p class="label">Interactive identity study</p><h2 id="model-title">A mark with dimension.</h2></div><button type="button" id="model-close" class="model-button">Close 3D view</button></div><p class="model-description">An original AW monogram model. This is a 3D identity prototype, not a likeness portrait. Use the controls or drag to explore it.</p><div id="model-stage"><div class="model-poster" aria-hidden="true">AW</div></div><p id="model-status" role="status">The 3D viewer loads only when opened.</p><div class="model-controls"><button type="button" id="model-left" disabled>Rotate left</button><button type="button" id="model-right" disabled>Rotate right</button><button type="button" id="model-reset" disabled>Reset view</button><button type="button" id="model-retry" hidden>Retry 3D viewer</button><a href="assets/aw-monogram.glb" download>Download the 3D model</a></div><p class="model-note">Portrait references have been selected; a generated likeness is still in development. No personal photos are sent to a modelling service by this viewer.</p></dialog>
+<script src="motion.js?v=portrait-atelier-1"></script>
+<script src="simulation.js?v=portrait-atelier-1"></script>
+<script src="living.js?v=portrait-atelier-1"></script>
+<script src="journey.js?v=portrait-atelier-1"></script>
+<script src="model.js?v=portrait-atelier-1"></script>
+<script src="portrait.js?v=portrait-atelier-1"></script>
 </body>
 </html>

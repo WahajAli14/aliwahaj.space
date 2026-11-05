@@ -47,3 +47,5 @@ Browser checks: Enter on Route optimization focused article#case-routing and mar
 ## Latest iteration
 
 See INTERACTION-AND-3D-REVIEW.md for expandable case reasoning, the navy/periwinkle palette, the working 3D monogram prototype and current verification limits.
+
+The latest visual revision is documented in PORTRAIT-ATELIER-REVIEW.md; earlier dark palette descriptions are historical.
