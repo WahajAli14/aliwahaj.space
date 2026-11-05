@@ -24,7 +24,7 @@ The optional monogram viewer remains a real GLB, now with rose/wine materials. C
 
 TRELLIS.2 is the preferred candidate for a first texture/mesh trial, not a verified winner for facial identity. Its official local prerequisites are Linux and NVIDIA with at least 24 GB memory: https://github.com/microsoft/TRELLIS.2. TripoSR is a lighter baseline with about 6 GB default VRAM: https://github.com/VAST-AI-Research/TripoSR. Neither has been run locally on this Mac.
 
-The original official TRELLIS project links to a Microsoft Hugging Face Space that now redirects to trellis-community/TRELLIS. This is the older TRELLIS demo, not a confirmed TRELLIS.2 endpoint. Upload confirmation was requested for that changed receiving account. No likeness mesh has yet been accepted or integrated. No private image was sent as of this report.
+The original official TRELLIS project links to a Microsoft Hugging Face Space that now redirects to trellis-community/TRELLIS. This is the older TRELLIS demo, not a confirmed TRELLIS.2 endpoint. The user subsequently approved that changed receiving account. The selected suit photo was uploaded and a GLB was generated and reviewed locally. Its eyes/mouth and profile were distorted, so it was rejected for portfolio use. A same-seed refinement at 24 sampling steps per stage returned generic service errors on the attempt and one retry. No portrait mesh was integrated. See 3D-TRIAL-REVIEW.md for the latest result.
 
 ## Review limits
 
