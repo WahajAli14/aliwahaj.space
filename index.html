@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ali Wahaj | Backend Software Engineer</title>
 <meta name="description" content="Ali Wahaj, backend software engineer in Pakistan. Python, AWS Lambda, SQLAlchemy, Redis and SQS, plus RAG and retrieval systems.">
+<meta name="theme-color" content="#eeeaf0">
 <meta name="author" content="Syed Ali Wahaj Jafri">
 <link rel="canonical" href="https://aliwahaj.space/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='16' height='16' rx='5' fill='%23101318'/%3E%3Crect x='20' y='2' width='10' height='10' rx='3.5' fill='%231D4ED8'/%3E%3Crect x='20' y='14' width='10' height='16' rx='3.5' fill='%2308724A'/%3E%3Crect x='2' y='20' width='16' height='10' rx='3.5' fill='%23B03A0E'/%3E%3C/svg%3E">
-<meta name="theme-color" content="#ECEEF2" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0B0D11" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%2211%22%20fill%3D%22%23351e32%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2221%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-weight%3D%22700%22%20font-size%3D%2212%22%20fill%3D%22%23eeeaf0%22%3EAW%3C%2Ftext%3E%3C%2Fsvg%3E">
+
+
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aliwahaj.space/">
 <meta property="og:title" content="Ali Wahaj, Backend Software Engineer">
@@ -42,30 +43,6 @@ Palette: soft cool-grey ground, white tiles, five colour families used one per t
 --gap: 14px;
 --wrap: 72rem;
 }
-@media (prefers-color-scheme: dark) {
-:root:not([data-theme="light"]) {
---bg: #0B0D11; --tile: #15181E; --ink: #EEF0F4; --muted: #9CA3B0; --line: #262B34;
---blue-bg: #17244D;  --blue: #9AB8FF;
---mint-bg: #0E2E21;  --mint: #6FE0A9;
---coral-bg: #3A1C12; --coral: #FF9D78;
---lilac-bg: #251A48; --lilac: #BCA6FF;
---sun-bg: #322908;   --sun: #F2CF5E;
---inv-bg: #EEF0F4;   --inv-ink: #101318; --inv-muted: #4D5563;
---shadow: rgba(0,0,0,0.4);
-color-scheme: dark;
-}
-}
-:root[data-theme="dark"] {
---bg: #0B0D11; --tile: #15181E; --ink: #EEF0F4; --muted: #9CA3B0; --line: #262B34;
---blue-bg: #17244D;  --blue: #9AB8FF;
---mint-bg: #0E2E21;  --mint: #6FE0A9;
---coral-bg: #3A1C12; --coral: #FF9D78;
---lilac-bg: #251A48; --lilac: #BCA6FF;
---sun-bg: #322908;   --sun: #F2CF5E;
---inv-bg: #EEF0F4;   --inv-ink: #101318; --inv-muted: #4D5563;
---shadow: rgba(0,0,0,0.4);
-color-scheme: dark;
-}
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; background: var(--bg); }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -97,12 +74,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .top nav { display: flex; gap: 0.2rem; }
 .top nav a { text-decoration: none; color: var(--muted); font-size: 0.9375rem; padding: 0.45rem 0.75rem; border-radius: 999px; }
 .top nav a:hover { color: var(--ink); background: var(--tile); }
-.theme-btn { width: 2.4rem; height: 2.4rem; border-radius: 999px; border: 1px solid var(--line); background: var(--tile); color: var(--ink); display: grid; place-items: center; cursor: pointer; padding: 0; margin-left: 0.35rem; }
-.theme-btn:hover { border-color: var(--ink); }
-.theme-btn svg { width: 1.05rem; height: 1.05rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
-.theme-btn .moon { display: none; }
-:root[data-theme="dark"] .theme-btn .sun { display: none; } :root[data-theme="dark"] .theme-btn .moon { display: block; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme]) .theme-btn .sun { display: none; } :root:not([data-theme]) .theme-btn .moon { display: block; } }
 @media (max-width: 560px) { .top nav .opt { display: none; } }
 @media (max-width: 380px) { .top nav a { padding-inline: 0.5rem; } .mark span { display: none; } }
 @media (max-width: 400px) { .now { grid-column: span 2; } }
@@ -144,17 +115,10 @@ a.tile:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -14px var(--
 .label { font-size: 0.8125rem; color: var(--muted); font-weight: 500; }
 .t-inv .label { color: var(--inv-muted); }
 .push { margin-top: auto; }
-/* Load moment: tiles settle in once */
-@media (prefers-reduced-motion: no-preference) {
-.bento .tile { animation: rise .6s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 55ms); }
-}
-@keyframes rise { from { opacity: 0.001; transform: translateY(14px) scale(.985); } to { opacity: 1; transform: none; } }
 /* Intro */
 .intro { padding: clamp(1.4rem, 3vw, 2.25rem); }
 .pill { display: inline-flex; align-items: center; gap: 0.5rem; align-self: flex-start; font-size: 0.8125rem; font-weight: 500; padding: 0.35rem 0.75rem 0.35rem 0.6rem; border-radius: 999px; background: var(--mint-bg); color: var(--mint); }
 .pill i { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: currentColor; }
-@media (prefers-reduced-motion: no-preference) { .pill i { animation: ping 2.2s infinite; } }
-@keyframes ping { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--mint) 50%, transparent); } 70% { box-shadow: 0 0 0 7px color-mix(in srgb, var(--mint) 0%, transparent); } 100% { box-shadow: 0 0 0 0 transparent; } }
 .intro h1 { margin-top: 1.4rem; font-size: clamp(2.9rem, 7.4vw, 5.4rem); font-weight: 800; letter-spacing: -0.035em; line-height: 0.92; }
 .intro .role { margin-top: 1rem; font-size: clamp(1.1rem, 1.9vw, 1.35rem); line-height: 1.4; max-width: 30ch; }
 .intro .lede { margin-top: 0.85rem; color: var(--muted); max-width: 52ch; font-size: 0.975rem; }
@@ -266,73 +230,115 @@ a.mini:hover .arrow-up { stroke: var(--ink); }
 footer { padding-block: 0.5rem 2.5rem; color: var(--muted); font-size: 0.8125rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding-inline: max(1.4rem, env(safe-area-inset-left, 0px)) max(1.4rem, env(safe-area-inset-right, 0px)); }
 </style>
-<script>try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+<link rel="stylesheet" href="living.css?v=insight-and-actions-5">
+<link rel="stylesheet" href="case-studies.css?v=insight-and-actions-5">
+<link rel="stylesheet" href="identity.css?v=insight-and-actions-5">
 </head>
 <body>
+<a class="skip" href="#top">Skip to content</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="i-gh" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/><path id="i-li" d="M0 1.15C0 .52.52 0 1.17 0h13.66C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.17 1.15H1.17C.52 16 0 15.48 0 14.85V1.15zM4.94 13.4V6.17h-2.4v7.23h2.4zM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.01zM6.27 13.4h2.4V9.36c0-.21.02-.43.08-.58.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.64v3.86h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.29 0-1.86.71-2.17 1.21v.03h-.02l.02-.03V6.17h-2.4c.03.68 0 7.23 0 7.23z"/></defs></svg>
 <header class="top">
 <div class="wrap">
-<a class="mark" href="#top"><b aria-hidden="true">AW</b><span>Ali Wahaj</span></a>
+<a class="mark" href="#top" aria-label="Ali Wahaj, home"><b aria-hidden="true">AW</b><span>Ali Wahaj</span></a>
 <div class="top-right">
 <nav aria-label="Sections">
 <a href="#work">Work</a>
-<a href="#experience" class="opt">Experience</a>
+<a href="#experience" class="opt">Experience</a><a href="#explorer">Evidence</a><a href="Ali-Wahaj-Resume.pdf">Résumé ↗</a>
 <a href="#contact">Contact</a>
 </nav>
-<button class="theme-btn" id="theme-btn" type="button" aria-label="Switch to dark theme"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6z"/></svg></button>
 </div>
 </div>
 </header>
-<main id="top">
+<main id="top" tabindex="-1">
 <div class="wrap">
+<div class="casebook-heading"><span>A personal collection of engineering work</span><span>Backend engineering / Applied AI</span></div>
 <!-- ===== Hero bento ===== -->
-<section class="bento" aria-label="Introduction">
-<div class="tile intro c2 r2 m2" style="--i:0">
-<span class="pill"><i aria-hidden="true"></i>Open to backend and AI roles</span>
-<h1>Ali Wahaj</h1>
-<p class="role">Backend engineer. I make slow systems fast and expensive ones cheap.</p>
-<p class="lede">Python services on AWS Lambda, SQLAlchemy, Redis and SQS for a serverless U.S. platform at LinkedMatrix. Before that, SQL Server and healthcare EDI at CureMD. On my own time, retrieval-augmented AI.</p>
-<div class="cta push">
-<a class="btn solid" href="#contact">Get in touch</a>
-<a class="btn" href="https://github.com/WahajAli14" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-gh"/></svg>GitHub</a>
-<a class="btn" href="https://www.linkedin.com/in/syed-wahaj" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-li"/></svg>LinkedIn</a>
+<section class="bento hero portrait-hero" aria-label="Introduction">
+<div class="tile intro">
+<div class="hero-intro-line"><p class="identity">Backend Software Engineer</p><span class="open-status">Open to backend &amp; AI roles</span></div>
+<h1>Ali<br>Wahaj<span class="name-dot" aria-hidden="true">.</span></h1>
+<p class="role">I build the systems<br>behind the experience.</p>
+<p class="lede">Python backends. Better queries. Less waiting.<br>Currently at LinkedMatrix; previously at CureMD.</p>
+<div class="cta"><a class="btn solid" href="#work">Explore my work</a><a class="btn" href="Ali-Wahaj-Resume.pdf">Open résumé PDF</a></div>
+<div class="hero-social"><a href="https://github.com/WahajAli14" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/syed-wahaj" target="_blank" rel="noopener">LinkedIn</a><a href="#contact">Get in touch</a></div>
 </div>
-</div>
-<div class="tile stat t-blue" style="--i:1">
-<p class="label">API response time</p>
-<div class="big k">−70%</div>
-<p>High-volume endpoints, <span class="n">20 s → 6 s</span></p>
-<small>SQLAlchemy N+1 removal</small>
-</div>
-<div class="tile stat t-mint" style="--i:2">
-<p class="label">Mapbox API calls</p>
-<div class="big k">100K+</div>
-<p>a month, cut to near zero</p>
-<small>Reusable distance records</small>
-</div>
-<div class="tile now t-lilac" style="--i:3">
-<p class="label">Now</p>
-<h3>Backend Software Engineer, LinkedMatrix</h3>
-<p>Serverless on AWS Lambda, since April 2025</p>
-</div>
-<div class="tile now t-sun" style="--i:4">
-<p class="label">Based in Pakistan</p>
-<div class="clock k" id="clock">--:--</div>
-<p id="clock-note">local time · remote, Lahore or Islamabad</p>
-</div>
+<figure class="portrait-object" id="portrait-object" data-portrait="illustration"><div class="portrait-mat"><span class="portrait-halo" aria-hidden="true"></span><div class="portrait-drift"><img id="portrait-image" src="assets/ali-bust.webp" alt="Stylized illustrated bust of Ali Wahaj in a charcoal suit." width="900" height="823" fetchpriority="high"></div><span class="portrait-ground" aria-hidden="true"></span></div><figcaption><span>Ali Wahaj<br><small id="portrait-kind">Illustrated portrait</small></span><div class="portrait-actions"><div class="portrait-choices" role="group" aria-label="Portrait appearance"><button type="button" data-portrait-choice="illustration" aria-pressed="true">Illustration</button><button type="button" data-portrait-choice="photo" aria-pressed="false">Photo</button></div><button type="button" class="portrait-motion motion-control" data-motion-control aria-pressed="false">Pause motion</button></div></figcaption><button class="model-open" id="model-open" type="button" aria-haspopup="dialog">Explore 3D mark</button></figure>
 </section>
-<!-- ===== Work ===== -->
-<div class="sec" id="work">
-<h2>Work</h2>
-<p>Two projects I can walk through end to end. Both open source.</p>
+<aside class="career-strip" aria-label="Career at a glance"><div><span>Currently</span><p>Backend Engineer · LinkedMatrix</p></div><div><span>Previously</span><p>Healthcare EDI · CureMD</p></div><div><span>Based in Pakistan</span><p><time id="clock">PKT</time> · Lahore / Islamabad / remote</p></div></aside>
+<!-- ===== Case studies ===== -->
+<div class="sec" id="work"><h2>A closer look at the work.</h2><p>The problem, my contribution, and the evidence behind the result.</p></div>
+<nav class="case-index" id="case-index" tabindex="-1" aria-label="Case study index">
+<a href="#case-backend"><strong>Backend performance</strong><span>Open decisions, results and evidence</span></a>
+<a href="#case-insight"><strong>Insight MCP</strong><span>Inspect the read-only data boundary</span></a>
+<a href="#case-routing"><strong>Route optimization</strong><span>Open constraints, approach and source</span></a>
+<a href="#case-retrieval"><strong>Document-grounded AI</strong><span>Open the in-progress exploration</span></a>
+</nav>
+<section class="case-studies" aria-label="Engineering case studies">
+<article id="case-backend" tabindex="-1" class="case-study" aria-labelledby="backend-title">
+<header class="case-heading"><p class="case-context">LinkedMatrix / Professional experience</p><h3 id="backend-title"><a href="#case-backend">When an endpoint takes<br>twenty seconds.</a></h3><p class="case-summary">A serverless laundry-care platform. SQLAlchemy queries. A long wait between the request and the response.</p></header>
+<details class="case-disclosure"><summary><span class="case-open-label">Read reasoning &amp; evidence</span><span class="case-close-label">Close reasoning</span><span class="case-toggle" aria-hidden="true">+</span></summary>
+<div class="case-layout"><div class="case-story">
+<dl class="case-outcomes"><div><dt>Response time</dt><dd>20 s → 6 s</dd></div><div><dt>Improvement</dt><dd>70%</dd></div></dl>
+<section><h4>The problem</h4><p>Selected high-volume endpoints took 20 seconds to respond. Repeated related-data queries added avoidable work to the backend.</p></section>
+<section><h4>My contribution</h4><p>I improved SQLAlchemy queries and removed N+1 issues. I also implemented Redis caching for frequently accessed data and moved heavy reports and image-change workflows to AWS SQS.</p></section>
+<section><h4>Engineering rationale</h4><p>Removing N+1 queries reduces repeated related-data reads at their source. Caching can reduce repeated work further; queueing heavy jobs keeps that work outside the request path. These mechanisms solve different bottlenecks.</p></section><section><h4>A decision worth showing</h4><p>Reusable distance records reduced 100K+ monthly Mapbox calls to near zero. The records expired after three months to keep location data updated.</p></section>
+<details><summary>Evidence and scope</summary><p>The 70% reduction applies to the selected endpoints described in my résumé. Redis improved selected workflows by approximately 50%; that is a separate result. The diagram is a conceptual explanation, not a production trace. Number validation and repeated-message prevention reduced proxy messaging costs by 50%; the TaxJar-to-TaxCloud migration reduced tax-processing costs by approximately 30%. These are separate résumé-reported outcomes. Employer source and production logs are not included.</p></details>
+<div class="case-links"><a class="case-source" href="Ali-Wahaj-Resume.pdf">Source: original résumé PDF</a><a href="#case-index">Back to studies</a></div>
+</div><div class="case-evidence"><div class="neural request-journey" role="group" data-trace="after" aria-labelledby="journey-title">
+<div class="trace-heading"><span>Inside a request</span><span class="trace-kind">Illustrative replay</span></div>
+<h4 id="journey-title">Same endpoint.<br>Less waiting.</h4>
+<div class="trace-choices" role="group" aria-label="Compare endpoint versions">
+<button type="button" data-trace-mode="before" aria-pressed="false">Original <span>20 s</span></button>
+<button type="button" data-trace-mode="after" aria-pressed="true">Optimized <span>6 s</span></button>
 </div>
-<section class="bento" aria-label="Projects">
-<article class="tile proj t-coral c2 r2 m2" style="--i:5">
-<p class="label">Django API · 2026</p>
-<h3>Fuel Route Optimizer</h3>
-<p class="sum">Plans where a truck with a 500-mile range should refuel between any two U.S. places, how many gallons to buy at each stop, and the trip's total cost.</p>
-<div class="route" role="group" aria-label="Real result for Dallas to Houston">
-<svg viewBox="0 0 400 120" role="img" aria-label="Route from Dallas to Houston with one fuel stop at mile 16 in Wilmer, Texas">
+<div class="trace-diagram" role="img" aria-label="Conceptual request path: a Python endpoint reads related data through SQLAlchemy, then returns a response. The optimized version avoids N+1 queries.">
+<div class="trace-stations"><span>Request</span><span>Python API</span><span>Database</span><span>Response</span></div>
+<div class="trace-track"><div class="trace-budget"><div class="trace-progress"></div></div><span class="trace-scale">20 s reference</span></div>
+<div class="query-study"><div class="query-label">Related data reads</div><div class="query-original" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="query-optimized" aria-hidden="true"><i></i></div><p class="query-caption" id="trace-caption">N+1 queries removed; less repeated work.</p></div>
+</div>
+<div class="trace-outcome" role="status" aria-live="polite"><strong id="trace-time">6 s</strong><p id="trace-outcome">70% lower response time on selected high-volume endpoints.</p></div>
+<p class="trace-source">20 s → 6 s is résumé-reported. The structure and compressed replay are illustrative; individual query timings are not measured here.</p>
+<div class="trace-footer"><a href="#case-backend">Read the backend case study</a><button type="button" id="motion" data-motion-control aria-pressed="false">Pause motion</button></div>
+</div><div class="tile sim-tile c2 r2 m2" style="--i:6" role="group" aria-labelledby="sim-title">
+<div class="sim-head">
+<div>
+<h4 id="sim-title">Mission Control</h4>
+<p id="sim-note">Illustrative simulation, not production telemetry. Toggle the cache to explore database load.</p>
+</div>
+<button class="motion-control" type="button" data-motion-control aria-pressed="false">Pause motion</button>
+<button class="switch" id="cache-toggle" type="button" role="switch" aria-checked="true"><span class="track" aria-hidden="true"></span>Redis cache <b id="cache-state">on</b></button>
+</div>
+<div class="stage"><canvas id="sim" role="img" aria-describedby="architecture-text" aria-label="Animated diagram: requests flow from clients through API Gateway to AWS Lambda, then to a Redis cache, a MySQL database, or an SQS queue handled by a background worker."></canvas></div>
+<details class="architecture-description"><summary>Read the architecture</summary><p id="architecture-text">In this conceptual diagram, clients send requests through API Gateway to a Python Lambda service. Reads check Redis before MySQL. Heavy jobs enter SQS, then a worker writes to MySQL. Turning caching off routes all reads to the database. All response values are illustrative.</p></details><dl class="readout">
+<div><dt>Average response</dt><dd id="r-avg" class="good">… ms</dd></div>
+<div><dt>From cache</dt><dd id="r-hit" class="good">…</dd></div>
+<div><dt>DB queries in flight</dt><dd id="r-db">…</dd></div>
+</dl>
+<div class="legend"><span><i style="background:var(--mint)"></i>Cache hit</span><span><i style="background:var(--coral)"></i>Database read</span><span><i style="background:var(--lilac)"></i>Queued to SQS</span></div>
+</div>
+<p class="evidence-caption">Explore the architecture: turn Redis off to see the illustrative database load change.</p></div></div>
+
+</details>
+</article>
+<article id="case-insight" tabindex="-1" class="case-study case-insight" aria-labelledby="insight-title">
+<header class="case-heading"><p class="case-context">Insight MCP / Private project</p><h3 id="insight-title"><a href="#case-insight">Useful tools.<br>Explicit boundaries.</a></h3><p class="case-summary">Giving an AI client access to data means deciding what it may read, what it must reject, and how much work a request can do.</p></header>
+<details class="case-disclosure"><summary><span class="case-open-label">Read reasoning &amp; evidence</span><span class="case-close-label">Close reasoning</span><span class="case-toggle" aria-hidden="true">+</span></summary>
+<div class="case-layout"><div class="case-story">
+<section><h4>The problem</h4><p>A model’s instructions are not a database permission boundary. A useful data tool needs checks that still apply when a client submits an unexpected query.</p></section>
+<section><h4>What I built</h4><p>A Python MCP project with SQL discovery and read-only query tools, plus a separate dataset-profiling server. The SQL path combines parsed-query validation with a least-privilege PostgreSQL role and read-only transactions.</p></section>
+<section><h4>Why two layers</h4><p>The query policy inspects the SQL structure, including nested statements, before execution. Database permissions provide another boundary. Neither layer should depend on a model following a prompt.</p></section>
+<section><h4>Bound the response and the work</h4><p>The implementation returns at most 100 rows and applies a 5-second statement deadline. The row cap limits the response size; the deadline limits how long the database statement may run. They address different costs.</p></section>
+<section><h4>What I verified</h4><p>The existing SQL-policy suite passed 22 tests locally on 5 November 2026, covering accepted reads, writes, stacked statements, nested writable queries and disallowed table references.</p></section>
+<details><summary>Evidence and limits</summary><p>The implementation and tests were reviewed from the private repository. The 22 passing checks cover query validation. PostgreSQL integration, timeout enforcement and the database permission boundary were not executed in this portfolio review. This is not a production deployment, a customer outcome or a complete security assessment. Source code remains private.</p></details>
+<div class="case-links"><a href="#contact">Discuss Insight MCP</a><a href="#case-index">Back to studies</a></div>
+</div><div class="case-evidence"><div class="policy-demo" role="group" data-policy="read" aria-labelledby="policy-title"><p class="label">Illustrative policy walkthrough</p><h4 id="policy-title">What happens to a request?</h4><p class="policy-intro">Choose an example. This walkthrough does not connect to a database.</p><div class="policy-choices" role="group" aria-label="Example request"><button type="button" data-policy-choice="read" aria-pressed="true">Read data</button><button type="button" data-policy-choice="write" aria-pressed="false">Attempt a write</button><button type="button" data-policy-choice="large" aria-pressed="false">Large result</button></div><ol class="policy-path"><li><span>Client request</span><p id="policy-request">Read an approved table.</p></li><li><span>Query validation</span><p id="policy-validation">Single read statement accepted.</p></li><li><span>Database boundary</span><p id="policy-database">Read-only role and transaction.</p></li><li><span>Result</span><p id="policy-result">Return the requested rows, up to the configured cap.</p></li></ol><p id="policy-status" class="policy-status" role="status">Read path: validation and database permissions serve separate roles.</p><dl class="policy-limits"><div><dt>Returned row cap</dt><dd>100 rows</dd></div><div><dt>Statement deadline</dt><dd>5 seconds</dd></div></dl><p class="evidence-caption">Configured limits from the implementation. These examples explain the design; they are not live query results.</p></div></div></div>
+</details></article>
+
+<article id="case-routing" tabindex="-1" class="case-study case-routing" aria-labelledby="routing-title">
+<header class="case-heading"><p class="case-context">Fuel Route Optimizer / Open-source project</p><h3 id="routing-title"><a href="#case-routing">A route is only half<br>the answer.</a></h3><p class="case-summary">Where should a truck refuel, how much should it buy, and what will the trip cost?</p></header>
+<details class="case-disclosure"><summary><span class="case-open-label">Read reasoning &amp; evidence</span><span class="case-close-label">Close reasoning</span><span class="case-toggle" aria-hidden="true">+</span></summary>
+<div class="case-layout"><div class="case-evidence"><div class="route" role="group" aria-label="Repository example: Dallas to Houston">
+<svg viewBox="0 0 400 120" aria-hidden="true">
 <path d="M24 30 C 110 26, 150 60, 220 70 S 330 92, 376 96" fill="none" stroke="var(--line)" stroke-width="10" stroke-linecap="round"/>
 <path d="M24 30 C 110 26, 150 60, 220 70 S 330 92, 376 96" fill="none" stroke="var(--coral)" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 7"/>
 <circle cx="24" cy="30" r="7" fill="var(--ink)"/>
@@ -343,63 +349,36 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <text x="376" y="80" font-size="12" font-weight="600" fill="var(--ink)" text-anchor="end" font-family="Geist, sans-serif">Houston</text>
 <text x="72" y="20" font-size="11" fill="var(--muted)" font-family="Geist, sans-serif">One9 #1248, Wilmer · mile 16 · $2.756/gal</text>
 </svg>
+<p class="route-caption sr-only">Dallas to Houston, refuelling in Wilmer at mile 16. Example station: One9 #1248 at $2.756 per gallon.</p>
 <div class="facts">
 <div><b>238.7 mi</b><span>route</span></div>
 <div><b>23.89 gal</b><span>bought</span></div>
 <div><b>$65.84</b><span>total fuel</span></div>
 </div>
 </div>
-<div class="speed" aria-label="Measured response times, Chicago to Los Angeles">
+<p class="label" style="margin-top:1rem">Repository benchmark · in-memory cache · not a live test</p><div class="speed" role="group" aria-label="Repository-reported timings, Chicago to Los Angeles; in-memory cache">
 <div class="cold"><span>First request</span><em style="width:100%"></em><span class="n">1,410 ms</span></div>
 <div class="warm"><span>Cached</span><em></em><span class="n">1.2 ms</span></div>
 </div>
-<div class="tags"><span>Python 3.12</span><span>Django</span><span>Redis</span><span>KD-tree search</span><span>Dynamic programming</span></div>
-<a class="repo-link" href="https://github.com/WahajAli14/fuel-route-optimizer" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-gh"/></svg>View the code</a>
+<p class="evidence-caption">Example response published in the project README; not a live routing request.</p></div><div class="case-story">
+<section><h4>The constraint</h4><p>Plan fuel stops for a truck with a 500-mile range at 10 miles per gallon, using available station prices along a U.S. route.</p></section>
+<section><h4>The implementation</h4><p>The Django API combines routing, local place lookup, station matching and fuel-stop optimization. An uncached request makes one routing-provider call; a cache hit makes none.</p></section>
+<section><h4>Why this structure</h4><p>Keeping place lookup and station matching local avoids adding provider calls for every candidate stop. Caching reuses a completed route result; it does not replace the optimization algorithm.</p></section><section><h4>What the evidence shows</h4><p>The repository’s Dallas-to-Houston example covers 238.7 miles and reports $65.84 in fuel. The published response-time comparison uses the in-memory cache. Redis is optional.</p></section>
+<details><summary>Limits of the result</summary><p>The routing result depends on the project’s fuel-price dataset and assumptions. It is not a quote for current pump prices. Station locations use city coordinates, and detours are approximated; inspect the README before interpreting the result.</p></details>
+<a class="case-source" aria-label="View the code for Fuel Route Optimizer" href="https://github.com/WahajAli14/fuel-route-optimizer" target="_blank" rel="noopener">Read the source and assumptions</a><a class="case-return" href="#case-index">Back to studies</a>
+</div></div>
+
+</details>
 </article>
-<div class="tile sim-tile c2 r2 m2" style="--i:6" role="group" aria-labelledby="sim-title">
-<div class="sim-head">
-<div>
-<h3 id="sim-title">The kind of stack I run</h3>
-<p id="sim-note">Live simulation. Turn the cache off to see the database take the load.</p>
-</div>
-<button class="switch" id="cache-toggle" type="button" role="switch" aria-checked="true"><span class="track" aria-hidden="true"></span>Redis cache <b id="cache-state">on</b></button>
-</div>
-<div class="stage"><canvas id="sim" aria-label="Animated diagram: requests flow from clients through API Gateway to AWS Lambda, then to a Redis cache, a MySQL database, or an SQS queue handled by a background worker."></canvas></div>
-<dl class="readout">
-<div><dt>Average response</dt><dd id="r-avg" class="good">… ms</dd></div>
-<div><dt>From cache</dt><dd id="r-hit" class="good">…</dd></div>
-<div><dt>DB queries in flight</dt><dd id="r-db">…</dd></div>
-</dl>
-<div class="legend"><span><i style="background:var(--mint)"></i>Cache hit</span><span><i style="background:var(--coral)"></i>Database read</span><span><i style="background:var(--lilac)"></i>Queued to SQS</span></div>
-</div>
-<article class="tile proj t-lilac c3 m2" style="--i:7">
-<p class="label">RAG backend · in progress</p>
-<h3>Football Intelligence Platform</h3>
-<p class="sum">Answers football analysts' tactical questions from real documents, like the 2025 UEFA Champions League technical report, and shows the passages behind every answer.</p>
-<ol class="flow" aria-label="How a question is answered">
-<li>Load PDFs</li><li class="arrow" aria-hidden="true">→</li>
-<li>Chunk, 3 strategies</li><li class="arrow" aria-hidden="true">→</li>
-<li>Embed in ChromaDB</li><li class="arrow" aria-hidden="true">→</li>
-<li>Retrieve with scores</li><li class="arrow" aria-hidden="true">→</li>
-<li>Answer with sources</li>
-</ol>
-<p class="roadmap"><b>Now:</b> building the evaluation baseline. Next: hybrid retrieval and reranking, guardrails, memory, an MCP interface and agents.</p>
-<div class="tags"><span>Python</span><span>FastAPI</span><span>ChromaDB</span><span>OpenAI API</span><span>Token cost tracking</span></div>
-<a class="repo-link" href="https://github.com/WahajAli14/football-intelligence-platform" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-gh"/></svg>View the code</a>
+<article id="case-retrieval" tabindex="-1" class="case-study" aria-labelledby="retrieval-title">
+<header class="case-heading"><p class="case-context">Football Intelligence Platform / In progress</p><h3 id="retrieval-title"><a href="#case-retrieval">An answer should bring<br>its evidence.</a></h3><p class="case-summary">Exploring how football analysis can stay grounded in the documents behind an answer.</p></header>
+<details class="case-disclosure"><summary><span class="case-open-label">Read reasoning &amp; evidence</span><span class="case-close-label">Close reasoning</span><span class="case-toggle" aria-hidden="true">+</span></summary>
+<div class="case-layout"><div class="case-story"><section><h4>The question</h4><p>How can an analyst inspect the passages behind a tactical answer, rather than trusting an unsupported response?</p></section><section><h4>The direction</h4><p>The earlier portfolio describes PDF ingestion, FastAPI, ChromaDB retrieval and answers with source passages. Its evaluation baseline is marked in progress.</p></section><section><h4>Reasoning and trade-offs</h4><p>Retrieval makes supporting passages available for inspection, but a retrieved passage does not by itself prove an answer is correct. An evaluation baseline is needed before making accuracy claims. This is the direction being explored, not a verified completed result.</p></section><section><h4>What you can inspect now</h4><p>The local explorer below searches a small portfolio corpus and reveals its matching passages. It demonstrates evidence inspection; it is not the football system or an LLM service.</p></section><p class="evidence-limit">Current football repository implementation remains unverified. This is an in-progress study, not a completed case study with measured accuracy.</p><a class="case-source" href="#explorer">Try the local evidence explorer</a><a class="case-return" href="#case-index">Back to studies</a></div><div class="retrieval-evidence" role="group" aria-label="Conceptual retrieval workflow"><div><span>Question</span><p>What needs explaining?</p></div><span aria-hidden="true">↓</span><div><span>Source passages</span><p>Retrieve relevant context.</p></div><span aria-hidden="true">↓</span><div><span>Answer + sources</span><p>Keep the evidence inspectable.</p></div><p class="evidence-caption">Proposed pipeline, not a live answer.</p></div></div>
+
+</details>
 </article>
-<div class="tile stat duo t-sun m2" style="--i:8">
-<div>
-<p class="label">Messaging cost</p>
-<div class="big k">−50%</div>
-<p>Number validation and no repeat texts to unresponsive numbers</p>
-</div>
-<div>
-<p class="label">Tax-processing cost</p>
-<div class="big k">−30%</div>
-<p>Migrated from TaxJar to TaxCloud, same compliance workflow</p>
-</div>
-</div>
-<a class="tile mini m2" style="--i:9" href="https://github.com/WahajAli14/Task-Management-Endpoint-in-Django--Celery" target="_blank" rel="noopener">
+</section>
+<details class="more-code"><summary>More code and experiments</summary><div class="code-shelf"><a class="tile mini m2" style="--i:9" href="https://github.com/WahajAli14/Task-Management-Endpoint-in-Django--Celery" target="_blank" rel="noopener">
 <svg class="arrow-up" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11L11 5M6 5h5v5"/></svg>
 <p class="label">Django · Celery</p>
 <h3>Task API with background jobs</h3>
@@ -423,11 +402,12 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <h3>Pyserini and Anserini</h3>
 <p>My forks of the Waterloo IR toolkits for sparse and dense retrieval.</p>
 </a>
-</section>
+</div></details>
+<section id="explorer" class="rag-section" aria-labelledby="rag-title"><div class="sec"><h2 id="rag-title">Evidence before answers.</h2><p>A small, inspectable retrieval lab.</p></div><div class="rag-grid"><div><p class="eyebrow">Local evidence explorer</p><h3>Explore the work.<br>See the sources.</h3><p>Search a curated portfolio corpus. Matching passages appear with their sources. This demo uses keyword retrieval, with no embeddings, LLM or external API.</p><p id="retrieval-help" class="field-help">Try a topic such as backend performance, Insight MCP or fuel routing.</p><form id="rag-form"><label for="question">Your question</label><div class="search-row"><input id="question" name="question" autocomplete="off" type="search" maxlength="240" placeholder="How has Ali optimized backend performance?" aria-describedby="retrieval-help" required><button class="btn solid" type="submit">Find passages</button></div></form><div class="suggestions"><button type="button" data-query="backend performance">Backend performance</button><button type="button" data-query="AWS queue">AWS & queues</button><button type="button" data-query="Insight MCP read only">Insight MCP</button><button type="button" data-query="retrieval RAG">RAG project</button></div></div><div id="rag-results" role="status" aria-live="polite"><p class="label">Source passages</p><h3>Find the evidence<br>behind the work.</h3><p>Enter a question or choose a prompt to inspect the available evidence.</p></div></div><ol class="pipeline" aria-label="Conceptual RAG architecture"><li>01 / Documents</li><li>02 / Chunks</li><li>03 / Retrieval</li><li>04 / Context</li><li>05 / Cited answer</li></ol><p class="label">Conceptual production pipeline; this local demo implements passage retrieval only. Football project status is carried over from the existing portfolio and requires repository verification.</p></section>
 <!-- ===== Experience ===== -->
 <div class="sec" id="experience">
 <h2>Experience</h2>
-<p>Two years of backend work for U.S. operations and enterprise healthcare.</p>
+<p>Backend work for U.S. operations and enterprise healthcare. Outcomes below are résumé-reported.</p>
 </div>
 <section class="bento" aria-label="Experience, skills and education">
 <div class="tile c2 r2 m2" style="--i:13">
@@ -456,7 +436,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <li class="job"><div>
 <h3>Machine Learning Intern · TechnoColab</h3>
 <p class="meta">May – Jun 2023 · remote</p>
-<ul><li>Retail sales EDA, feature engineering and model comparison.</li></ul>
+<ul><li>EDA, feature engineering and model comparison.</li></ul>
 </div></li>
 </ol>
 </div>
@@ -487,7 +467,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <p class="label">Contact</p>
 <h2 id="contact-title" style="margin-top:0.6rem">Let's build something fast.</h2>
 <p class="sub">I'm looking for Python backend and AI engineering roles, remote or in Lahore and Islamabad. Email reaches me fastest.</p>
-<div class="mail">
+<a class="btn" href="Ali-Wahaj-Resume.pdf">Résumé ↗</a><div class="mail">
 <a class="addr" id="email" href="mailto:wahajali98@gmail.com">wahajali98@gmail.com</a>
 <button class="btn" type="button" id="copy-email">Copy email</button>
 <span class="copied" id="copy-status" role="status" aria-live="polite"></span>
@@ -506,203 +486,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <span>aliwahaj.space</span>
 </div>
 </footer>
-<script>
-(function () {
-var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-/* ---------- copy email ---------- */
-var btn = document.getElementById('copy-email'), status = document.getElementById('copy-status'), email = document.getElementById('email');
-btn.addEventListener('click', function () {
-var text = email.textContent.trim();
-function fallback() {
-var r = document.createRange(); r.selectNodeContents(email);
-var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-status.textContent = 'Selected. Press Ctrl+C or Cmd+C to copy.';
-}
-try {
-navigator.clipboard.writeText(text).then(function () {
-status.textContent = 'Copied';
-setTimeout(function () { status.textContent = ''; }, 2500);
-}, fallback);
-} catch (e) { fallback(); }
-});
-/* ---------- local time in Pakistan ---------- */
-var clock = document.getElementById('clock');
-function tick() {
-try {
-clock.textContent = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Karachi', hour: 'numeric', minute: '2-digit' }).format(new Date());
-} catch (e) { clock.textContent = 'PKT'; }
-}
-tick(); setInterval(tick, 15000);
-/* ---------- theme ---------- */
-var root = document.documentElement;
-var themeBtn = document.getElementById('theme-btn');
-var darkMq = window.matchMedia('(prefers-color-scheme: dark)');
-function isDark() { var t = root.getAttribute('data-theme'); return t ? t === 'dark' : darkMq.matches; }
-/* ---------- architecture simulation ---------- */
-var canvas = document.getElementById('sim'), ctx = canvas.getContext('2d');
-var toggle = document.getElementById('cache-toggle'), stateEl = document.getElementById('cache-state'), note = document.getElementById('sim-note');
-var rAvg = document.getElementById('r-avg'), rHit = document.getElementById('r-hit'), rDb = document.getElementById('r-db');
-var C = {};
-function readColors() {
-var cs = getComputedStyle(root);
-C.fast = cs.getPropertyValue('--mint').trim(); C.slow = cs.getPropertyValue('--coral').trim(); C.async = cs.getPropertyValue('--lilac').trim();
-C.text = cs.getPropertyValue('--ink').trim(); C.dim = cs.getPropertyValue('--muted').trim(); C.rule = cs.getPropertyValue('--line').trim();
-C.node = cs.getPropertyValue('--bg').trim();
-}
-var nodes = {
-client:  { label: 'Clients',     sub: 'web, mobile' },
-gateway: { label: 'API Gateway', sub: 'HTTPS' },
-lambda:  { label: 'Lambda',      sub: 'Python' },
-redis:   { label: 'Redis',       sub: 'cache' },
-mysql:   { label: 'MySQL',       sub: 'RDS' },
-sqs:     { label: 'SQS',         sub: 'queue' },
-worker:  { label: 'Worker',      sub: 'jobs' }
-};
-var wide = { client:[.1,.5], gateway:[.3,.5], lambda:[.5,.5], redis:[.72,.2], sqs:[.72,.5], mysql:[.72,.8], worker:[.9,.5] };
-var tall = { client:[.5,.08], gateway:[.5,.27], lambda:[.5,.46], redis:[.18,.67], sqs:[.5,.67], mysql:[.82,.67], worker:[.5,.9] };
-var edges = [['client','gateway'],['gateway','lambda'],['lambda','redis'],['lambda','mysql'],['lambda','sqs'],['sqs','worker'],['worker','mysql']];
-var W = 0, H = 0, layout = wide;
-var cacheOn = true, reqs = [], done = [], dbInFlight = 0, last = 0, spawnAcc = 0, running = false, visible = true, pulses = {};
-function pos(k) { var p = layout[k]; return { x: p[0] * W, y: p[1] * H }; }
-function resize() {
-var r = canvas.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
-W = r.width; H = r.height;
-canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
-ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-layout = W < 520 ? tall : wide;
-draw();
-}
-function makeRequest() {
-var r = Math.random(), kind, path, load = Math.min(dbInFlight, 30);
-var dbSim = 170 + load * 38 + Math.random() * 60, dbVis = 650 + load * 70;
-if (r < 0.06) {
-kind = 'async';
-path = [['client','gateway',380,6],['gateway','lambda',300,4],['lambda','sqs',360,8],['lambda','gateway',300,3],['gateway','client',380,6]];
-} else if (cacheOn && r < 0.8) {
-kind = 'fast';
-path = [['client','gateway',380,6],['gateway','lambda',300,4],['lambda','redis',260,2],['redis','lambda',260,2],['lambda','gateway',300,3],['gateway','client',380,6]];
-} else {
-kind = 'slow';
-path = [['client','gateway',380,6],['gateway','lambda',300,4],['lambda','mysql',dbVis,dbSim/2],['mysql','lambda',dbVis,dbSim/2],['lambda','gateway',300,3],['gateway','client',380,6]];
-}
-var sim = 0; path.forEach(function (l) { sim += l[3]; });
-return { kind: kind, path: path, leg: 0, t: 0, sim: sim, inDb: false };
-}
-function spawnWorkerJob() { reqs.push({ kind: 'async', path: [['sqs','worker',900,0],['worker','mysql',700,0],['mysql','worker',700,0]], leg: 0, t: 0, sim: 0, job: true, inDb: false }); }
-function pulse(k, c) { pulses[k] = { a: 1, c: c }; }
-function col(kind) { return kind === 'fast' ? C.fast : kind === 'slow' ? C.slow : C.async; }
-function step(dt) {
-spawnAcc += dt / 1000 * 5.5;
-while (spawnAcc >= 1) { spawnAcc -= 1; var nq = makeRequest(); reqs.push(nq); done.push({ sim: nq.sim, kind: nq.kind }); if (done.length > 25) done.shift(); }
-for (var i = reqs.length - 1; i >= 0; i--) {
-var q = reqs[i], L = q.path[q.leg];
-if (q.t === 0 && L[1] === 'mysql' && !q.inDb) { q.inDb = true; dbInFlight++; }
-q.t += dt;
-if (q.t >= L[2]) {
-q.t = 0; pulse(L[1], col(q.kind));
-if (L[0] === 'mysql' && q.inDb) { q.inDb = false; dbInFlight--; }
-if (L[1] === 'sqs' && !q.job) spawnWorkerJob();
-q.leg++;
-if (q.leg >= q.path.length) reqs.splice(i, 1);
-}
-}
-for (var k in pulses) { pulses[k].a -= dt / 600; if (pulses[k].a <= 0) delete pulses[k]; }
-}
-function roundRect(x, y, w, h, r) {
-ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
-ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
-}
-function draw() {
-if (!W) return;
-ctx.clearRect(0, 0, W, H);
-var nw = Math.max(84, Math.min(108, W * 0.165)), nh = 46;
-ctx.lineWidth = 1.5;
-edges.forEach(function (e) {
-var a = pos(e[0]), b = pos(e[1]), hot = (e[1] === 'mysql' && !cacheOn);
-ctx.strokeStyle = hot ? C.slow : C.dim; ctx.globalAlpha = hot ? 0.55 : 0.28;
-ctx.setLineDash(e[0] === 'worker' || e[0] === 'sqs' ? [4, 5] : []);
-ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
-});
-ctx.globalAlpha = 1; ctx.setLineDash([]);
-reqs.forEach(function (q) {
-var L = q.path[q.leg], a = pos(L[0]), b = pos(L[1]);
-var t = Math.min(q.t / L[2], 1); t = t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-var x = a.x + (b.x - a.x) * t, y = a.y + (b.y - a.y) * t, c = col(q.kind);
-ctx.globalAlpha = 0.22; ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x, y, 8, 0, 6.283); ctx.fill();
-ctx.globalAlpha = 1; ctx.beginPath(); ctx.arc(x, y, 3.4, 0, 6.283); ctx.fill();
-});
-Object.keys(nodes).forEach(function (k) {
-var p = pos(k), n = nodes[k], off = (k === 'redis' && !cacheOn), pl = pulses[k];
-roundRect(p.x - nw / 2, p.y - nh / 2, nw, nh, 12);
-ctx.fillStyle = C.node; ctx.fill();
-ctx.lineWidth = pl ? 2 : 1.2;
-ctx.strokeStyle = pl ? pl.c : (k === 'mysql' && !cacheOn ? C.slow : C.rule);
-ctx.globalAlpha = pl ? 0.5 + pl.a * 0.5 : 1; ctx.stroke(); ctx.globalAlpha = 1;
-ctx.globalAlpha = off ? 0.35 : 1;
-ctx.fillStyle = C.text; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-ctx.font = '600 12.5px Geist, Helvetica, Arial, sans-serif';
-ctx.fillText(n.label, p.x, p.y - 7);
-ctx.fillStyle = C.dim; ctx.font = '11px Geist, Helvetica, Arial, sans-serif';
-ctx.fillText(off ? 'off' : n.sub, p.x, p.y + 9);
-ctx.globalAlpha = 1;
-});
-}
-function updateReadout() {
-var d = done.filter(function (x) { return x.sim > 0; });
-var avg = d.length ? d.reduce(function (s, x) { return s + x.sim; }, 0) / d.length : (cacheOn ? 70 : 420);
-var hits = d.length ? d.filter(function (x) { return x.kind === 'fast'; }).length / d.length : (cacheOn ? .74 : 0);
-rAvg.textContent = Math.round(avg) + ' ms'; rAvg.className = avg < 150 ? 'good' : 'bad';
-rHit.textContent = Math.round(hits * 100) + '%'; rHit.className = hits > 0.5 ? 'good' : 'bad';
-rDb.textContent = String(dbInFlight); rDb.className = dbInFlight > 6 ? 'bad' : '';
-}
-var uiAcc = 0;
-function frame(ts) {
-if (!running) return;
-var dt = last ? Math.min(ts - last, 50) : 16; last = ts;
-step(dt); draw();
-uiAcc += dt; if (uiAcc > 400) { uiAcc = 0; updateReadout(); }
-requestAnimationFrame(frame);
-}
-function start() { if (running || reduce) return; running = true; last = 0; requestAnimationFrame(frame); }
-function stop() { running = false; }
-function staticFrame() {
-reqs = [];
-for (var i = 0; i < 14; i++) { var q = makeRequest(); q.leg = Math.floor(Math.random() * q.path.length); q.t = Math.random() * q.path[q.leg][2]; reqs.push(q); }
-dbInFlight = cacheOn ? 2 : 11; done = [];
-for (var j = 0; j < 40; j++) { var m = makeRequest(); done.push({ sim: m.sim, kind: m.kind }); }
-draw(); updateReadout();
-}
-toggle.addEventListener('click', function () {
-cacheOn = !cacheOn;
-toggle.setAttribute('aria-checked', String(cacheOn));
-stateEl.textContent = cacheOn ? 'on' : 'off';
-note.textContent = cacheOn ? 'Live simulation. Turn the cache off to see the database take the load.' : 'Every read now hits MySQL. Turn the cache back on.';
-done = [];
-if (reduce) staticFrame(); else pulse('redis', cacheOn ? C.fast : C.slow);
-});
-function syncTheme() { readColors(); themeBtn.setAttribute('aria-label', isDark() ? 'Switch to light theme' : 'Switch to dark theme'); draw(); }
-themeBtn.addEventListener('click', function () {
-var next = isDark() ? 'light' : 'dark';
-root.setAttribute('data-theme', next);
-try { localStorage.setItem('theme', next); } catch (e) {}
-syncTheme();
-});
-if (darkMq.addEventListener) darkMq.addEventListener('change', syncTheme);
-new MutationObserver(syncTheme).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
-readColors();
-window.addEventListener('resize', resize);
-resize(); syncTheme();
-if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
-if (reduce) staticFrame();
-else {
-for (var s = 0; s < 10; s++) { var q = makeRequest(); q.leg = Math.floor(Math.random() * 3); reqs.push(q); }
-updateReadout();
-if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; visible && !document.hidden ? start() : stop(); }).observe(canvas);
-else start();
-document.addEventListener('visibilitychange', function () { document.hidden ? stop() : (visible && start()); });
-draw();
-}
-})();
-</script>
+<dialog id="model-dialog" aria-labelledby="model-title"><div class="model-dialog-head"><div><p class="label">Interactive identity study</p><h2 id="model-title">A mark with dimension.</h2></div><button type="button" id="model-close" class="model-button">Close 3D view</button></div><p class="model-description">An original AW monogram model. This is a 3D identity prototype, not a likeness portrait. Use the controls or drag to explore it.</p><div id="model-stage"><div class="model-poster" aria-hidden="true">AW</div></div><p id="model-status" role="status">The 3D viewer loads only when opened.</p><div class="model-controls"><button type="button" id="model-left" disabled>Rotate left</button><button type="button" id="model-right" disabled>Rotate right</button><button type="button" id="model-reset" disabled>Reset view</button><button type="button" id="model-retry" hidden>Retry 3D viewer</button><a href="assets/aw-monogram.glb" download>Download the 3D model</a></div><p class="model-note">Portrait references have been selected; a generated likeness is still in development. No personal photos are sent to a modelling service by this viewer.</p></dialog>
+<script src="motion.js?v=insight-and-actions-5"></script>
+<script src="simulation.js?v=insight-and-actions-5"></script>
+<script src="living.js?v=insight-and-actions-5"></script>
+<script src="journey.js?v=insight-and-actions-5"></script>
+<script src="model.js?v=insight-and-actions-5"></script>
+<script src="portrait.js?v=insight-and-actions-5"></script>
+<script src="policy.js?v=insight-and-actions-5"></script>
 </body>
 </html>

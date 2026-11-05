@@ -1,0 +1,23 @@
+// Scheduler regression tests; rendered appearance is verified separately in the browser.
+const vm=require('node:vm');const fs=require('node:fs');const assert=require('node:assert/strict');
+function harness(reduced=false){
+ const controls=[],els={};let nextId=0,draws=0;const frames=new Map(),listeners={},intervals=[],observers=[];
+ const classes=()=>{const set=new Set();return{add:x=>set.add(x),toggle:(x,b)=>b?set.add(x):set.delete(x),contains:x=>set.has(x)}};
+ function el(id){return els[id]||=( {id,textContent:'',className:'',dataset:{},disabled:false,attrs:{},handlers:{},classList:classes(),setAttribute(k,v){this.attrs[k]=v},addEventListener(k,f){this.handlers[k]=f},getBoundingClientRect(){return{width:600,height:320}},getContext(){return new Proxy({},{get:(_,p)=>p==='clearRect'?()=>draws++:()=>{},set:()=>true})} });}
+ controls.push(el('motion'),el('motion-local'));
+ const mq={matches:reduced,addEventListener(_,f){this.change=f}};
+ const doc={hidden:false,documentElement:el('root'),querySelectorAll:()=>controls,querySelector:()=>el('hero'),getElementById:el,addEventListener(k,f){(listeners[k]??=[]).push(f)},dispatchEvent(e){for(const f of listeners[e.type]||[])f(e)}};
+ const win={matchMedia:()=>mq,devicePixelRatio:1,addEventListener(){},IntersectionObserver:class{constructor(cb){this.cb=cb;observers.push(this)}observe(target){this.target=target}}};
+ const context={window:win,document:doc,navigator:{clipboard:{writeText:()=>Promise.resolve()}},Event:class{constructor(type){this.type=type}},IntersectionObserver:win.IntersectionObserver,getComputedStyle:()=>({getPropertyValue:()=> '#a1e9c6'}),requestAnimationFrame:cb=>{frames.set(++nextId,cb);return nextId},cancelAnimationFrame:id=>frames.delete(id),setInterval:f=>intervals.push(f),setTimeout(){},Intl,Date,Math};
+ vm.createContext(context);for(const f of ['motion.js','simulation.js'])vm.runInContext(fs.readFileSync(require('node:path').join(__dirname,'..',f),'utf8'),context,{filename:f});
+ function tick(n=1){for(let i=0;i<n;i++){const batch=[...frames];frames.clear();for(const [id,cb]of batch)cb(100+i*17)}}
+ return{win,doc,mq,frames,controls,els,observers,tick,get draws(){return draws},visible(b){observers.find(o=>o.target.id==='sim').cb([{isIntersecting:b}])},preference(b){mq.matches=b;mq.change()},click(id){els[id].handlers.click()}};
+}
+let h=harness();assert.equal(h.frames.size,0,'offscreen canvas must not animate');h.visible(true);assert.equal(h.frames.size,1);h.tick(5);assert.equal(h.frames.size,1);
+for(let i=0;i<30;i++){h.click('motion');assert.equal(h.frames.size,0);h.click('motion-local');assert.equal(h.frames.size,1)}
+h.click('motion');const before=h.draws;h.tick(10);assert.equal(h.draws,before,'paused canvas stays frozen');h.click('cache-toggle');assert.equal(h.els['cache-state'].textContent,'off');assert.equal(h.els['r-hit'].textContent,'0%');assert.equal(h.frames.size,0,'cache toggle while paused must not restart');h.click('cache-toggle');assert.equal(h.els['r-hit'].textContent,'74%');h.click('motion');assert.equal(h.frames.size,1);
+h.preference(true);assert.equal(h.frames.size,0);assert.equal(h.controls[0].disabled,true);assert.equal(h.doc.documentElement.dataset.motion,'reduced');h.preference(false);assert.equal(h.frames.size,1);assert.equal(h.controls[0].disabled,false);
+h.doc.hidden=true;h.doc.dispatchEvent(new (class{constructor(){this.type='visibilitychange'}}));assert.equal(h.frames.size,0);h.doc.hidden=false;h.doc.dispatchEvent({type:'visibilitychange'});assert.equal(h.frames.size,1);h.visible(false);assert.equal(h.frames.size,0);h.visible(true);assert.equal(h.frames.size,1);
+h.doc.getElementById('model-dialog').open=true;h.doc.dispatchEvent({type:'portfolio-overlay'});assert.equal(h.frames.size,0,'3D overlay pauses background simulation');h.doc.getElementById('model-dialog').open=false;h.doc.dispatchEvent({type:'portfolio-overlay'});assert.equal(h.frames.size,1);h.click('motion');h.doc.getElementById('model-dialog').open=true;h.doc.dispatchEvent({type:'portfolio-overlay'});h.doc.getElementById('model-dialog').open=false;h.doc.dispatchEvent({type:'portfolio-overlay'});assert.equal(h.frames.size,0,'closing overlay respects explicit pause');
+h=harness(true);h.visible(true);assert.equal(h.frames.size,0,'initial reduced motion never autoplays');h.click('cache-toggle');assert.equal(h.els['r-hit'].textContent,'0%');assert.equal(h.frames.size,0);h.preference(false);assert.equal(h.frames.size,1);
+console.log('PASS: single RAF; 30 rapid pause/resume cycles; both controls; paused cache feedback; dynamic + initial reduced motion; page visibility; offscreen lifecycle.');
