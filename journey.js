@@ -17,15 +17,22 @@
   }));
 })();
 
-/* Native anchors preserve deep links and keyboard navigation without scroll interception. */
+/* Case links reveal their reasoning; native anchors retain deep-link navigation. */
 (() => {
   const links = [...document.querySelectorAll('.case-index a')];
+  function revealCase(hash) {
+    const article = document.getElementById(hash.slice(1));
+    const disclosure = article && article.classList.contains('case-study') && article.querySelector('.case-disclosure');
+    if (disclosure) disclosure.open = true;
+  }
   function syncCurrent() {
+    revealCase(window.location.hash);
     links.forEach(link => {
       if (link.getAttribute('href') === window.location.hash) link.setAttribute('aria-current', 'location');
       else link.removeAttribute('aria-current');
     });
   }
+  document.querySelectorAll('a[href^="#case-"]').forEach(link => link.addEventListener('click', () => revealCase(link.getAttribute('href'))));
   window.addEventListener('hashchange', syncCurrent);
   syncCurrent();
 })();

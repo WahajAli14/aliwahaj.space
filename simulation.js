@@ -182,6 +182,7 @@ if (!motionAllowed()) staticFrame(); else { pulse('redis', cacheOn ? C.fast : C.
 document.addEventListener('portfolio-motion', function(){ if(!motionAllowed()) stop(); else { tick(); start(); } });
 readColors();
 window.addEventListener('resize', resize);
+if ('ResizeObserver' in window) new ResizeObserver(resize).observe(canvas);
 resize();
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
 staticFrame();

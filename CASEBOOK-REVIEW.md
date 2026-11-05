@@ -43,3 +43,7 @@ The tested local comparison, disclosure, navigation and simulation flows pass. T
 Added a three-entry case-study index and return links so readers can scan the longer casebook and jump directly to the relevant study. Native anchors preserve deep links and browser history. The selected hash is reflected with aria-current; no custom scrolling intercepts navigation.
 
 Browser checks: Enter on Route optimization focused article#case-routing and marked its index link current. Enter on its Back to studies link focused nav#case-index and cleared the current marker. At 320, 390, 768 and 1280px there was no horizontal overflow; index link heights measured 76–81px. No console errors were observed. Syntax, local target checks and the existing motion regression tests pass. The 3D portrait remains pending reference photos; production remains unchanged.
+
+## Latest iteration
+
+See INTERACTION-AND-3D-REVIEW.md for expandable case reasoning, the navy/periwinkle palette, the working 3D monogram prototype and current verification limits.

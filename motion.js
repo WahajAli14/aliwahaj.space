@@ -7,24 +7,26 @@
   const entrance = document.querySelector('.hero .cta');
   entrance.addEventListener('animationend', () => root.classList.add('arrived'), { once: true });
   let userPaused = false;
+  let overlayOpen = false;
   let heroVisible = true;
-  const allowed = () => !preference.matches && !userPaused;
+  const allowed = () => !preference.matches && !userPaused && !overlayOpen;
   window.portfolioMotion = Object.freeze({ get allowed() { return allowed(); } });
   function sync() {
     const paused = !allowed();
     if (paused) root.classList.add('arrived');
     root.classList.toggle('paused', paused);
     root.classList.toggle('page-hidden', document.hidden);
-    root.dataset.motion = preference.matches ? 'reduced' : userPaused ? 'paused' : 'running';
+    root.dataset.motion = preference.matches ? 'reduced' : userPaused || overlayOpen ? 'paused' : 'running';
     hero.classList.toggle('offscreen', !heroVisible);
     controls.forEach(button => {
       button.disabled = preference.matches;
       button.setAttribute('aria-pressed', String(paused));
-      button.textContent = preference.matches ? 'Motion reduced' : userPaused ? 'Resume motion' : 'Pause motion';
+      button.textContent = preference.matches ? 'Motion reduced' : userPaused || overlayOpen ? 'Resume motion' : 'Pause motion';
     });
     document.dispatchEvent(new Event('portfolio-motion'));
   }
   controls.forEach(button => button.addEventListener('click', () => { userPaused = !userPaused; sync(); }));
+  document.addEventListener('portfolio-overlay', () => { overlayOpen = Boolean(document.getElementById('model-dialog')?.open); sync(); });
   preference.addEventListener('change', sync);
   document.addEventListener('visibilitychange', sync);
   if ('IntersectionObserver' in window) {

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ali Wahaj | Backend Software Engineer</title>
 <meta name="description" content="Ali Wahaj, backend software engineer in Pakistan. Python, AWS Lambda, SQLAlchemy, Redis and SQS, plus RAG and retrieval systems.">
-<meta name="theme-color" content="#0b1211">
+<meta name="theme-color" content="#101629">
 <meta name="author" content="Syed Ali Wahaj Jafri">
 <link rel="canonical" href="https://aliwahaj.space/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='16' height='16' rx='5' fill='%23101318'/%3E%3Crect x='20' y='2' width='10' height='10' rx='3.5' fill='%231D4ED8'/%3E%3Crect x='20' y='14' width='10' height='16' rx='3.5' fill='%2308724A'/%3E%3Crect x='2' y='20' width='16' height='10' rx='3.5' fill='%23B03A0E'/%3E%3C/svg%3E">
@@ -230,8 +230,9 @@ a.mini:hover .arrow-up { stroke: var(--ink); }
 footer { padding-block: 0.5rem 2.5rem; color: var(--muted); font-size: 0.8125rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding-inline: max(1.4rem, env(safe-area-inset-left, 0px)) max(1.4rem, env(safe-area-inset-right, 0px)); }
 </style>
-<link rel="stylesheet" href="living.css">
-<link rel="stylesheet" href="case-studies.css">
+<link rel="stylesheet" href="living.css?v=casebook-3d-1">
+<link rel="stylesheet" href="case-studies.css?v=casebook-3d-1">
+<link rel="stylesheet" href="identity.css?v=casebook-3d-1">
 </head>
 <body>
 <a class="skip" href="#top">Skip to content</a>
@@ -255,7 +256,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <section class="bento hero" aria-label="Introduction">
 <div class="tile intro c2 r2 m2" style="--i:0">
 <span class="pill"><i aria-hidden="true"></i>Open to backend and AI roles</span>
-<p class="identity">Ali Wahaj / Backend Software Engineer</p><h1>The work behind<br>less waiting.</h1>
+<div class="identity-row"><p class="identity">Ali Wahaj / Backend Software Engineer</p><button class="model-open" id="model-open" type="button" aria-haspopup="dialog"><span aria-hidden="true">◇</span> Explore 3D mark</button></div><h1>The work behind<br>less waiting.</h1>
 <p class="role">I build the systems behind the experience.</p>
 <p class="lede">Python backends at LinkedMatrix. Previously, healthcare EDI at CureMD. Here are the bottlenecks, decisions and results behind my work.</p>
 <div class="cta push">
@@ -284,18 +285,19 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <!-- ===== Case studies ===== -->
 <div class="sec" id="work"><h2>Work, unpacked.</h2><p>The problem, my contribution, and the evidence behind the result.</p></div>
 <nav class="case-index" id="case-index" tabindex="-1" aria-label="Case study index">
-<a href="#case-backend"><strong>Backend performance</strong><span>SQLAlchemy, caching and queues</span></a>
-<a href="#case-routing"><strong>Route optimization</strong><span>Constraints, decisions and source code</span></a>
-<a href="#case-retrieval"><strong>Document-grounded AI</strong><span>In-progress exploration</span></a>
+<a href="#case-backend"><strong>Backend performance</strong><span>Open decisions, results and evidence</span></a>
+<a href="#case-routing"><strong>Route optimization</strong><span>Open constraints, approach and source</span></a>
+<a href="#case-retrieval"><strong>Document-grounded AI</strong><span>Open the in-progress exploration</span></a>
 </nav>
 <section class="case-studies" aria-label="Engineering case studies">
 <article id="case-backend" tabindex="-1" class="case-study" aria-labelledby="backend-title">
-<header class="case-heading"><p class="case-context">LinkedMatrix / Professional experience</p><h3 id="backend-title">When an endpoint takes<br>twenty seconds.</h3><p class="case-summary">A serverless laundry-care platform. SQLAlchemy queries. A long wait between the request and the response.</p></header>
+<header class="case-heading"><p class="case-context">LinkedMatrix / Professional experience</p><h3 id="backend-title"><a href="#case-backend">When an endpoint takes<br>twenty seconds.</a></h3><p class="case-summary">A serverless laundry-care platform. SQLAlchemy queries. A long wait between the request and the response.</p></header>
+<details class="case-disclosure"><summary><span class="case-open-label">Read reasoning &amp; evidence</span><span class="case-close-label">Close reasoning</span><span class="case-toggle" aria-hidden="true">+</span></summary>
 <div class="case-layout"><div class="case-story">
 <dl class="case-outcomes"><div><dt>Response time</dt><dd>20 s → 6 s</dd></div><div><dt>Improvement</dt><dd>70%</dd></div></dl>
 <section><h4>The problem</h4><p>Selected high-volume endpoints took 20 seconds to respond. Repeated related-data queries added avoidable work to the backend.</p></section>
 <section><h4>My contribution</h4><p>I improved SQLAlchemy queries and removed N+1 issues. I also implemented Redis caching for frequently accessed data and moved heavy reports and image-change workflows to AWS SQS.</p></section>
-<section><h4>A decision worth showing</h4><p>Reusable distance records reduced 100K+ monthly Mapbox calls to near zero. The records expired after three months to keep location data updated.</p></section>
+<section><h4>Engineering rationale</h4><p>Removing N+1 queries reduces repeated related-data reads at their source. Caching can reduce repeated work further; queueing heavy jobs keeps that work outside the request path. These mechanisms solve different bottlenecks.</p></section><section><h4>A decision worth showing</h4><p>Reusable distance records reduced 100K+ monthly Mapbox calls to near zero. The records expired after three months to keep location data updated.</p></section>
 <details><summary>Evidence and scope</summary><p>The 70% reduction applies to the selected endpoints described in my résumé. Redis improved selected workflows by approximately 50%; that is a separate result. The diagram is a conceptual explanation, not a production trace. Number validation and repeated-message prevention reduced proxy messaging costs by 50%; the TaxJar-to-TaxCloud migration reduced tax-processing costs by approximately 30%. These are separate résumé-reported outcomes. Employer source and production logs are not included.</p></details>
 <div class="case-links"><a class="case-source" href="Ali-Wahaj-Resume.pdf">Source: original résumé PDF</a><a href="#case-index">Back to studies</a></div>
 </div><div class="case-evidence"><div class="tile sim-tile c2 r2 m2" style="--i:6" role="group" aria-labelledby="sim-title">
@@ -316,9 +318,12 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <div class="legend"><span><i style="background:var(--mint)"></i>Cache hit</span><span><i style="background:var(--coral)"></i>Database read</span><span><i style="background:var(--lilac)"></i>Queued to SQS</span></div>
 </div>
 <p class="evidence-caption">Explore the architecture: turn Redis off to see the illustrative database load change.</p></div></div>
+
+</details>
 </article>
 <article id="case-routing" tabindex="-1" class="case-study case-routing" aria-labelledby="routing-title">
-<header class="case-heading"><p class="case-context">Fuel Route Optimizer / Open-source project</p><h3 id="routing-title">A route is only half<br>the answer.</h3><p class="case-summary">Where should a truck refuel, how much should it buy, and what will the trip cost?</p></header>
+<header class="case-heading"><p class="case-context">Fuel Route Optimizer / Open-source project</p><h3 id="routing-title"><a href="#case-routing">A route is only half<br>the answer.</a></h3><p class="case-summary">Where should a truck refuel, how much should it buy, and what will the trip cost?</p></header>
+<details class="case-disclosure"><summary><span class="case-open-label">Read reasoning &amp; evidence</span><span class="case-close-label">Close reasoning</span><span class="case-toggle" aria-hidden="true">+</span></summary>
 <div class="case-layout"><div class="case-evidence"><div class="route" role="group" aria-label="Real result for Dallas to Houston">
 <svg viewBox="0 0 400 120" role="img" aria-label="Route from Dallas to Houston with one fuel stop at mile 16 in Wilmer, Texas">
 <path d="M24 30 C 110 26, 150 60, 220 70 S 330 92, 376 96" fill="none" stroke="var(--line)" stroke-width="10" stroke-linecap="round"/>
@@ -344,14 +349,19 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <p class="evidence-caption">Example response published in the project README; not a live routing request.</p></div><div class="case-story">
 <section><h4>The constraint</h4><p>Plan fuel stops for a truck with a 500-mile range at 10 miles per gallon, using available station prices along a U.S. route.</p></section>
 <section><h4>The implementation</h4><p>The Django API combines routing, local place lookup, station matching and fuel-stop optimization. An uncached request makes one routing-provider call; a cache hit makes none.</p></section>
-<section><h4>What the evidence shows</h4><p>The repository’s Dallas-to-Houston example covers 238.7 miles and reports $65.84 in fuel. The published response-time comparison uses the in-memory cache. Redis is optional.</p></section>
+<section><h4>Why this structure</h4><p>Keeping place lookup and station matching local avoids adding provider calls for every candidate stop. Caching reuses a completed route result; it does not replace the optimization algorithm.</p></section><section><h4>What the evidence shows</h4><p>The repository’s Dallas-to-Houston example covers 238.7 miles and reports $65.84 in fuel. The published response-time comparison uses the in-memory cache. Redis is optional.</p></section>
 <details><summary>Limits of the result</summary><p>The routing result depends on the project’s fuel-price dataset and assumptions. It is not a quote for current pump prices. Station locations use city coordinates, and detours are approximated; inspect the README before interpreting the result.</p></details>
 <a class="case-source" aria-label="View the code for Fuel Route Optimizer" href="https://github.com/WahajAli14/fuel-route-optimizer" target="_blank" rel="noopener">Read the source and assumptions</a><a class="case-return" href="#case-index">Back to studies</a>
 </div></div>
+
+</details>
 </article>
 <article id="case-retrieval" tabindex="-1" class="case-study" aria-labelledby="retrieval-title">
-<header class="case-heading"><p class="case-context">Football Intelligence Platform / In progress</p><h3 id="retrieval-title">An answer should bring<br>its evidence.</h3><p class="case-summary">Exploring how football analysis can stay grounded in the documents behind an answer.</p></header>
-<div class="case-layout"><div class="case-story"><section><h4>The question</h4><p>How can an analyst inspect the passages behind a tactical answer, rather than trusting an unsupported response?</p></section><section><h4>The direction</h4><p>The earlier portfolio describes PDF ingestion, FastAPI, ChromaDB retrieval and answers with source passages. Its evaluation baseline is marked in progress.</p></section><section><h4>What you can inspect now</h4><p>The local explorer below searches a small portfolio corpus and reveals its matching passages. It demonstrates evidence inspection; it is not the football system or an LLM service.</p></section><p class="evidence-limit">Current football repository implementation remains unverified. This is an in-progress study, not a completed case study with measured accuracy.</p><a class="case-source" href="#explorer">Try the local evidence explorer</a><a class="case-return" href="#case-index">Back to studies</a></div><div class="retrieval-evidence" aria-label="Conceptual retrieval workflow"><div><span>Question</span><p>What needs explaining?</p></div><span aria-hidden="true">↓</span><div><span>Source passages</span><p>Retrieve relevant context.</p></div><span aria-hidden="true">↓</span><div><span>Answer + sources</span><p>Keep the evidence inspectable.</p></div><p class="evidence-caption">Proposed pipeline, not a live answer.</p></div></div>
+<header class="case-heading"><p class="case-context">Football Intelligence Platform / In progress</p><h3 id="retrieval-title"><a href="#case-retrieval">An answer should bring<br>its evidence.</a></h3><p class="case-summary">Exploring how football analysis can stay grounded in the documents behind an answer.</p></header>
+<details class="case-disclosure"><summary><span class="case-open-label">Read reasoning &amp; evidence</span><span class="case-close-label">Close reasoning</span><span class="case-toggle" aria-hidden="true">+</span></summary>
+<div class="case-layout"><div class="case-story"><section><h4>The question</h4><p>How can an analyst inspect the passages behind a tactical answer, rather than trusting an unsupported response?</p></section><section><h4>The direction</h4><p>The earlier portfolio describes PDF ingestion, FastAPI, ChromaDB retrieval and answers with source passages. Its evaluation baseline is marked in progress.</p></section><section><h4>Reasoning and trade-offs</h4><p>Retrieval makes supporting passages available for inspection, but a retrieved passage does not by itself prove an answer is correct. An evaluation baseline is needed before making accuracy claims. This is the direction being explored, not a verified completed result.</p></section><section><h4>What you can inspect now</h4><p>The local explorer below searches a small portfolio corpus and reveals its matching passages. It demonstrates evidence inspection; it is not the football system or an LLM service.</p></section><p class="evidence-limit">Current football repository implementation remains unverified. This is an in-progress study, not a completed case study with measured accuracy.</p><a class="case-source" href="#explorer">Try the local evidence explorer</a><a class="case-return" href="#case-index">Back to studies</a></div><div class="retrieval-evidence" aria-label="Conceptual retrieval workflow"><div><span>Question</span><p>What needs explaining?</p></div><span aria-hidden="true">↓</span><div><span>Source passages</span><p>Retrieve relevant context.</p></div><span aria-hidden="true">↓</span><div><span>Answer + sources</span><p>Keep the evidence inspectable.</p></div><p class="evidence-caption">Proposed pipeline, not a live answer.</p></div></div>
+
+</details>
 </article>
 </section>
 <details class="more-code"><summary>More code and experiments</summary><div class="code-shelf"><a class="tile mini m2" style="--i:9" href="https://github.com/WahajAli14/Task-Management-Endpoint-in-Django--Celery" target="_blank" rel="noopener">
@@ -462,9 +472,11 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <span>aliwahaj.space</span>
 </div>
 </footer>
-<script src="motion.js"></script>
-<script src="simulation.js"></script>
-<script src="living.js"></script>
-<script src="journey.js"></script>
+<dialog id="model-dialog" aria-labelledby="model-title"><div class="model-dialog-head"><div><p class="label">Interactive identity study</p><h2 id="model-title">A mark with dimension.</h2></div><button type="button" id="model-close" class="model-button">Close 3D view</button></div><p class="model-description">An original AW monogram model. This is a 3D identity prototype, not a likeness portrait. Use the controls or drag to explore it.</p><div id="model-stage"><div class="model-poster" aria-hidden="true">AW</div></div><p id="model-status" role="status">The 3D viewer loads only when opened.</p><div class="model-controls"><button type="button" id="model-left" disabled>Rotate left</button><button type="button" id="model-right" disabled>Rotate right</button><button type="button" id="model-reset" disabled>Reset view</button><button type="button" id="model-retry" hidden>Retry 3D viewer</button><a href="assets/aw-monogram.glb" download>Download the 3D model</a></div><p class="model-note">A likeness-based portrait is pending a confirmed reference photo. No personal photos are sent to a modelling service by this viewer.</p></dialog>
+<script src="motion.js?v=casebook-3d-1"></script>
+<script src="simulation.js?v=casebook-3d-1"></script>
+<script src="living.js?v=casebook-3d-1"></script>
+<script src="journey.js?v=casebook-3d-1"></script>
+<script src="model.js?v=casebook-3d-1"></script>
 </body>
 </html>
