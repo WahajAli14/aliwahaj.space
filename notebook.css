@@ -1,0 +1,121 @@
+/* Hallmark v2 informed custom redesign: personal engineering notebook; job: hire; material: original photo and source-backed studies; fixed appearance. */
+/* Critique: replaces the floating bust and repeating pill/card hierarchy with a name-led opening, a real photograph and an indexed project ledger. */
+/* Review scope: browser checks through CUA; static sloplint recorded separately. No full Hallmark certification claimed. */
+:root {
+ --bg:#f4f6f8; --tile:#ffffff; --ink:#1c2c3e; --muted:#526174;
+ --line:#c5cdd7; --control-line:#7b8799; --blue:#294fa3; --mint:#294fa3;
+ --coral:#8d452a; --lilac:#294fa3; --sun:#725522;
+ --blue-bg:#e8edf7; --mint-bg:#e8edf7; --coral-bg:#f5eae2; --lilac-bg:#e8edf7; --sun-bg:#f3eddc;
+ --inv-bg:#1c2c3e; --inv-ink:#ffffff; --inv-muted:#d4deec;
+ --paper-shadow:#1c2c3e0d; --portrait-ground:#dce3ed;
+ --wrap:78rem; --radius:6px;
+}
+html,body{overflow-x:clip}
+h1,h2,h3,h4{overflow-wrap:break-word;min-width:0}
+.top{background:var(--bg);border-bottom:1px solid var(--line);backdrop-filter:none}
+.top .wrap{padding-block:16px}
+.mark b{border-radius:4px;width:34px;height:34px;background:var(--ink)}
+.top nav a{border-radius:4px;color:var(--ink);min-height:44px;display:inline-flex;align-items:center}
+.top nav a:hover{background:var(--blue-bg)}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--blue);outline-offset:4px;transition:none}
+.portrait-hero{grid-template-columns:minmax(0,1fr) minmax(0,.5fr);gap:30px 60px;padding:38px 0 54px;align-items:start}
+.portrait-hero>h1{grid-column:1/-1;font:500 clamp(5rem,12.2vw,10.8rem)/1 var(--display);letter-spacing:-.065em;margin:0 0 14px;white-space:nowrap}
+.portrait-hero .intro{align-self:start;padding:6px 0 0;background:none;border-radius:0;box-shadow:none;overflow:visible}
+.portrait-hero .intro .role{font:500 clamp(1.55rem,2.5vw,2.2rem)/1.25 var(--display);letter-spacing:-.025em;max-width:26ch}
+.portrait-hero .intro .lede{font:400 1rem/1.65 var(--body);margin-top:18px;max-width:44ch}
+.portrait-hero .cta{margin-top:26px;gap:12px}
+.btn{border-radius:4px;min-height:48px;font-size:.9375rem;padding:14px 20px}
+.open-status{font-size:.875rem;color:var(--muted);margin-top:24px;display:block}
+.open-status::before{content:none}
+.hero-social{margin-top:4px;gap:24px}
+.hero-social a{font-size:.875rem;color:var(--ink)}
+.portrait-object{width:100%;max-width:300px;justify-self:end;margin:0;perspective:none}
+.portrait-object .portrait-mat,.portrait-object[data-portrait=photo] .portrait-mat{aspect-ratio:1/1.06;border-radius:4px;overflow:hidden;background:var(--portrait-ground);transform:none!important;transition:none;box-shadow:none;border:0}
+.portrait-object .portrait-drift,.portrait-object[data-portrait=photo] .portrait-drift{inset:0;animation:none!important}
+.portrait-object[data-portrait=photo] .portrait-drift img{object-fit:cover;object-position:50% 43%;transform:scale(1.17);filter:none}
+.portrait-halo,.portrait-ground{display:none}
+.portrait-object figcaption{display:block;margin:12px 0 0}
+.portrait-object small{font-size:.8125rem;color:var(--muted)}
+.portrait-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.portrait-choices{border:0;border-radius:0;padding:0;gap:0}
+.portrait-choices button{border-radius:0;border:0;border-bottom:2px solid transparent;font-size:.8125rem;padding:8px 10px;min-height:44px}
+.portrait-choices button[aria-pressed=true]{background:transparent;color:var(--blue);border-color:var(--blue)}
+.portrait-motion{border-radius:4px;min-height:44px;font-size:.8125rem;padding:8px 10px}
+.portrait-object>.model-open{font-size:.8125rem;margin-top:4px}
+.career-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-block:1px solid var(--line);background:none;border-radius:0;padding:22px 0;gap:30px}
+.career-strip span{font-size:.8125rem;color:var(--muted);font-family:var(--body);letter-spacing:0;text-transform:none}
+.career-strip p{font-size:.9375rem;margin-top:6px;line-height:1.5}
+.sec{margin-block:86px 28px;padding-inline:0;gap:24px}
+.sec h2{font-size:clamp(2rem,3.5vw,3.25rem);font-weight:500;max-width:22ch;letter-spacing:-.045em}
+.sec p{font-size:.9375rem;max-width:38ch}
+.case-index{display:flex;flex-direction:column;gap:0;margin-bottom:38px;border-top:1px solid var(--line)}
+.case-index a,.case-index a:nth-child(n){display:flex;justify-content:space-between;align-items:center;gap:28px;min-height:68px;padding:17px 0;background:none;border:0;border-bottom:1px solid var(--line);border-radius:0;text-decoration:none;box-shadow:none}
+.case-index strong{font:500 1.125rem/1.4 var(--body)}
+.case-index span{font-size:.875rem;opacity:1;color:var(--muted);text-align:right}
+.case-index a:hover strong{text-decoration:underline;text-underline-offset:5px}
+.case-index a[aria-current=location]{box-shadow:none;color:var(--blue)}
+.case-study{border-radius:0;background:none;padding:38px 0;margin:0;border-top:1px solid var(--line)}
+.case-heading{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px 56px;align-items:start}
+.case-heading h3{grid-row:1;font:500 clamp(1.8rem,3vw,2.8rem)/1.15 var(--display);letter-spacing:-.035em;max-width:24ch}
+.case-context{grid-column:1;grid-row:2;margin:0;font:400 .875rem/1.6 var(--body);color:var(--muted)}
+.case-heading .case-summary{grid-column:2;grid-row:1/3;font-size:1rem;line-height:1.65;max-width:46ch}
+.case-disclosure{margin-top:24px}
+.case-disclosure>summary{border-top:0;border-bottom:1px solid var(--control-line);font-size:.9375rem}
+.case-layout{gap:48px;padding-bottom:22px}
+.case-story h4{font:600 1rem/1.5 var(--body);margin-bottom:10px}
+.case-story p{font-size:1rem;line-height:1.7;max-width:64ch}
+.case-story section+section{margin-top:28px}
+.case-evidence .request-journey,.case-evidence .sim-tile,.case-evidence .route,.policy-demo,.retrieval-evidence{border-radius:6px;background:var(--tile);box-shadow:none;border:1px solid var(--line)}
+.case-evidence .request-journey{padding:24px}
+.readout,.policy-path li{background:transparent;border-radius:0;border:0;border-top:1px solid var(--line);padding:16px 0}
+.policy-path{gap:0}.policy-path li:last-child{border-bottom:1px solid var(--line)}
+.policy-demo[data-policy=write] .policy-path li:nth-child(2){border-width:1px;border-color:var(--coral)}
+.policy-choices button{border-radius:4px;font-size:.875rem}
+.rag-grid{background:var(--tile);border:1px solid var(--line);border-radius:6px}
+.rag-grid>div{padding:32px}
+.rag-grid h3{font-size:2rem;line-height:1.2}
+.rag-grid p{font-size:1rem;line-height:1.65}
+.rag-grid form label,.suggestions button{font-size:.875rem}
+.suggestions button{border-radius:4px;min-height:44px}
+.pipeline{border-radius:0;background:none}
+.pipeline li{font-family:var(--body);letter-spacing:0;text-transform:none;font-size:.8125rem}
+.tile{border-radius:6px;box-shadow:none}
+a.tile:hover{transform:none;box-shadow:none;border-color:var(--blue)}
+.eyebrow,.label,.k,.tags span,.case-context{text-transform:none;letter-spacing:0;font-family:var(--body)}
+.tags span{border-radius:4px}
+#contact{background:var(--ink);color:var(--inv-ink);border-radius:6px;padding:32px}
+#contact .label,#contact p{color:var(--inv-muted)}
+#contact .btn{border-color:var(--inv-muted);color:var(--inv-ink);background:transparent}
+#contact a{color:var(--inv-ink)}
+footer{border-top:1px solid var(--line);margin-top:56px;padding-top:24px}
+#model-dialog{border-radius:6px}
+@media(min-width:1400px){.portrait-hero>h1{font-size:10.8rem}.portrait-hero{padding-top:48px}}
+@media(max-width:900px){.portrait-hero{gap:28px 32px}.portrait-hero>h1{font-size:12vw}.portrait-object{max-width:260px}.case-heading{gap:12px 28px}.career-strip{gap:20px}.portrait-actions{gap:4px}}
+@media(max-width:700px){
+ .top .wrap{padding-block:10px}.top nav a{font-size:.8125rem;padding-inline:8px}.mark span{font-size:.9375rem}
+ .portrait-hero{grid-template-columns:minmax(0,1fr);gap:26px;padding:30px 0 36px}
+ .portrait-hero>h1{font-size:clamp(3.5rem,15.7vw,6.6rem);margin:0;grid-column:auto;white-space:normal;line-height:1.04}
+ .portrait-hero .intro .role{font-size:1.625rem;max-width:26ch}.portrait-hero .intro .lede{font-size:.9375rem}
+ .portrait-hero .cta{margin-top:22px}.portrait-hero .btn{font-size:.875rem;padding-inline:15px}
+ .open-status{margin-top:18px}.hero-social{gap:24px}
+ .portrait-object{justify-self:start;max-width:320px;width:100%;margin:0}.portrait-actions{gap:12px}.portrait-object figcaption{margin-top:12px}
+ .career-strip{grid-template-columns:minmax(0,1fr);padding:22px 0;gap:18px}
+ .career-strip>div{display:grid;grid-template-columns:88px minmax(0,1fr);gap:14px}.career-strip p{margin:0}
+ .sec{margin-block:56px 24px}.sec h2{font-size:2.25rem}.sec p{max-width:38ch}
+ .case-index a{display:block;padding-block:16px;min-height:76px}.case-index span{display:block;text-align:left;margin-top:5px;font-size:.8125rem}
+ .case-study{padding:28px 0}.case-heading{grid-template-columns:minmax(0,1fr);gap:10px}
+ .case-heading h3{font-size:1.875rem;grid-row:auto;grid-column:auto;line-height:1.2}
+ .case-context{grid-row:auto;grid-column:auto}.case-heading .case-summary{grid-row:auto;grid-column:auto;margin-top:6px;font-size:.9375rem}
+ .case-layout{gap:28px}.case-story p{font-size:.9375rem}.case-evidence .request-journey,.policy-demo{padding:20px}
+ .rag-grid>div{padding:24px 20px}.rag-grid h3{font-size:1.75rem}.rag-grid p{font-size:.9375rem}
+ #contact{padding:24px 20px}
+}
+@media(prefers-reduced-motion:reduce){.portrait-object .portrait-mat,.portrait-drift{animation:none!important;transition:none!important;transform:none!important}}
+/* Keep the opening immediately readable; legacy stagger effects do not belong to this direction. */
+.portrait-hero .intro .lede,.portrait-hero .cta{animation:none!important;opacity:1!important;filter:none!important;transform:none!important}
+.portrait-hero>h1{letter-spacing:-.045em}
+.portrait-object{max-width:264px}
+.portrait-hero{padding-top:32px;gap:24px 60px;padding-bottom:40px}
+@media(max-width:700px){.portrait-object{max-width:300px}.portrait-hero{gap:24px;padding-top:28px;padding-bottom:36px}}
+[hidden]{display:none!important}
+button:disabled,.model-controls button:disabled,.motion-control:disabled,.neural button:disabled{opacity:1;color:var(--muted);background:var(--bg);border-color:var(--line);cursor:not-allowed}
