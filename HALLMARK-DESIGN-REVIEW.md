@@ -1,5 +1,7 @@
 # Hallmark-informed portfolio design pass
 
+Historical composition: superseded by CASE-LED-DESIGN-REVIEW.md.
+
 12 November 2026. Draft branch only. TRELLIS work is paused at the user's request; no model was integrated and no production deployment occurred.
 
 ## Direction and delivered changes

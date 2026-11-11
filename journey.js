@@ -19,7 +19,7 @@
 
 /* Case links reveal their reasoning; native anchors retain deep-link navigation. */
 (() => {
-  const links = [...document.querySelectorAll('.case-index a')];
+  const links = [...document.querySelectorAll('.case-heading a')];
   function revealCase(hash) {
     const article = document.getElementById(hash.slice(1));
     const disclosure = article && article.classList.contains('case-study') && article.querySelector('.case-disclosure');
